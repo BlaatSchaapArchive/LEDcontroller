@@ -31,8 +31,8 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 }
 ;
 
-volatile uint8_t data_c0[4][3072]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
-volatile uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
+ uint8_t data_c0[4][3072]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+ uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 
 USBD_LED_ItfTypeDef USBD_LED_fops = { LED_Itf_Init, LED_Itf_DeInit,
 		LED_Itf_Receive };
@@ -48,6 +48,15 @@ int main() {
 	USBD_RegisterClass(&USBD_Device, USBD_LED_CLASS); // Add Supported Class
 	USBD_LED_RegisterInterface(&USBD_Device, &USBD_LED_fops); // Add LED Interface Class
 	USBD_Start(&USBD_Device); // Start Device Process
+
+	// Test Data
+	for (int i = 0 ; i < 48; i++ ) {
+		data_c0[0][i] = (i % 2) ? 6 : 2;
+		data_c0[1][i] = (i % 3) ? 6 : 2;
+		data_c0[2][i] = (i % 4) ? 6 : 2;
+		data_c0[3][i] = (i % 5) ? 6 : 2;
+	}
+	pwm_init();
 
 	/* Infinite loop */
 	while (1) {

@@ -815,3 +815,212 @@ For more details, see the openocd console.
 
 !ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 21:36:43.175
 !MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-04-19 21:55:13.592
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 21:55:16.149
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@43069638): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-04-19 21:55:16.149
+!MESSAGE Context cannot be suspended.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 21:56:49.673
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 21:56:49.742
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 21:57:53.291
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@4d5daf36): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-04-19 21:57:53.291
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 21:57:53.299
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:57:53.300
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 21:58:16.184
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@6a7666cb): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:58:16.184
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 21:58:16.190
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:58:16.190
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 21:58:32.445
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@8ec98b6): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:58:32.445
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 21:58:32.450
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:58:32.450
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 21:58:57.591
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 21:58:57.591
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:00:36.415
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:00:36.415
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 22:00:47.983
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@6fdb748a): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-04-19 22:00:47.983
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:00:47.987
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:00:47.987
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 22:01:25.216
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@2ff00001): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:01:25.216
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:01:25.221
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:01:25.221
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:02:28.606
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:02:28.701
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-19 22:03:38.660
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@4faf9f99): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status null children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #7 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@260d9b53): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #7 null Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@5b24b7f): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #7 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@260d9b53): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #7 null' resulted in a rejected execution exception. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2017-04-19 22:03:38.660
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #7 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@260d9b53): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #7
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-19 22:03:38.660
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@5b24b7f): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #7 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@260d9b53): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #7 null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:03:39.301
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:03:39.363
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:03:41.175
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:03:41.175
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:04:32.243
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:04:32.320
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:04:34.237
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:04:34.237
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:06:33.186
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:06:33.274
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:08:38.213
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:08:38.274
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:08:40.149
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:08:40.149
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:09:39.706
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:09:39.784
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:10:01.517
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:10:01.613
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-19 22:10:03.449
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-19 22:10:03.449
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:11:17.975
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-19 22:11:18.029
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2017-04-19 22:16:39.327
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:531)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:475)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:398)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@62628e78 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	... 13 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1236)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:775)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@62628e78 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:531)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:475)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:398)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1236)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:775)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2017-04-19 22:16:40.629
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob

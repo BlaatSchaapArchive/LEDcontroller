@@ -56,7 +56,7 @@
 #define USBD_PID                      0x05dc
 #define USBD_LANGID_STRING            0x409
 #define USBD_MANUFACTURER_STRING      "The IT Philosoher (https://www.philosopher.it)"
-#define USBD_PRODUCT_FS_STRING        "LED Controller (variant 0101)"
+#define USBD_PRODUCT_FS_STRING        "LED Controller (variant 00)"
 #define USBD_CONFIGURATION_FS_STRING  "VCP Config"
 #define USBD_INTERFACE_FS_STRING      "VCP Interface"
 
