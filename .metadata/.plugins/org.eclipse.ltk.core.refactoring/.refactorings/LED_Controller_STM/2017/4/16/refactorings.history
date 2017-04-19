@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;LED_Controller_STM/src&apos; to &apos;system&apos;" description="Rename resource &apos;src&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src" name="system" stamp="1492592778425" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;LED_Controller_STM/src&apos; to &apos;STM32_Common&apos;" description="Rename resource &apos;src&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src" name="STM32_Common" stamp="1492625391996" updateReferences="true"/>
+</session>

@@ -1,0 +1,62 @@
+/*
+ * main.c
+ *
+ *  Created on: 19 apr. 2017
+ *      Author: andre
+ */
+
+
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+#include "stm32f1xx.h"
+#include "stm32f1xx_hal.h"
+
+#include "stm32_common.h"
+
+#include "usbd_core.h"
+#include "usbd_led.h"
+
+
+USBD_HandleTypeDef USBD_Device;
+
+int8_t LED_Itf_Init        (void) {}
+int8_t LED_Itf_DeInit      (void) {}
+int8_t LED_Itf_Receive     (uint8_t *buffer, uint32_t *length) {};
+
+volatile uint8_t data_c0[4][3072]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+volatile uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
+
+
+USBD_LED_ItfTypeDef USBD_LED_fops =
+{
+  LED_Itf_Init,
+  LED_Itf_DeInit,
+  LED_Itf_Receive
+};
+
+
+int main() {
+
+	HAL_Init(); // Reset of all peripherals, Initializes the Flash interface and the Systick.
+	SystemClock_Config(); // Configure the system clock to 72 MHz
+	usb_disconnect(); // Trigger an USB Disconnect
+
+	  /* Init Device Library */
+	  USBD_Init(&USBD_Device, &VCP_Desc, 0);
+
+	  /* Add Supported Class */
+	  USBD_RegisterClass(&USBD_Device, USBD_LED_CLASS);
+
+	  /* Add CDC Interface Class */
+	  USBD_LED_RegisterInterface(&USBD_Device, &USBD_LED_fops);
+
+	  /* Start Device Process */
+	  USBD_Start(&USBD_Device);
+
+
+
+	while (1);;
+}
+

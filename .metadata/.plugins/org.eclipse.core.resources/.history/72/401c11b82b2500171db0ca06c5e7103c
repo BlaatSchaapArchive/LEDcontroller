@@ -1,0 +1,12 @@
+/*
+ * main.c
+ *
+ *  Created on: 19 apr. 2017
+ *      Author: andre
+ */
+
+
+int main() {
+
+	while (1);;
+}
