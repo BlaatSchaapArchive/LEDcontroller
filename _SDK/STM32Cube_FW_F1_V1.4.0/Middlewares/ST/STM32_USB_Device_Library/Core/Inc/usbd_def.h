@@ -36,6 +36,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_conf.h"
 
+
+
+
+
+
+
 /** @addtogroup STM32_USBD_DEVICE_LIBRARY
   * @{
   */
@@ -209,6 +215,10 @@ typedef struct
   uint8_t  *(*GetInterfaceStrDescriptor)( USBD_SpeedTypeDef speed , uint16_t *length); 
 #if (USBD_LPM_ENABLED == 1)
   uint8_t  *(*GetBOSDescriptor)( USBD_SpeedTypeDef speed , uint16_t *length); 
+
+  //
+  uint8_t  *(*GetMSOS20Descriptor)( USBD_SpeedTypeDef speed , uint16_t *length);
+  //
 #endif  
 } USBD_DescriptorsTypeDef;
 

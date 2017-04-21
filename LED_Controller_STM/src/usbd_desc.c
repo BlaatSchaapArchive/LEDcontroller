@@ -72,6 +72,8 @@ uint8_t *USBD_VCP_InterfaceStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *leng
 #ifdef USB_SUPPORT_USER_STRING_DESC
 uint8_t *USBD_VCP_USRStringDesc (USBD_SpeedTypeDef speed, uint8_t idx, uint16_t *length);  
 #endif /* USB_SUPPORT_USER_STRING_DESC */  
+uint8_t *USBD_VCP_BOSDescriptor(USBD_SpeedTypeDef speed, uint16_t *length);
+uint8_t *USBD_VCP_MSOS2Descriptor(USBD_SpeedTypeDef speed, uint16_t *length);
 
 /* Private variables ---------------------------------------------------------*/
 USBD_DescriptorsTypeDef VCP_Desc = {
@@ -81,14 +83,19 @@ USBD_DescriptorsTypeDef VCP_Desc = {
   USBD_VCP_ProductStrDescriptor,
   USBD_VCP_SerialStrDescriptor,
   USBD_VCP_ConfigStrDescriptor,
-  USBD_VCP_InterfaceStrDescriptor,  
+  USBD_VCP_InterfaceStrDescriptor,
+  USBD_VCP_BOSDescriptor,
+  USBD_VCP_MSOS2Descriptor
 };
+
+
+
 
 /* USB Standard Device Descriptor */
 const uint8_t hUSBDDeviceDesc[USB_LEN_DEV_DESC]= {
   0x12,                       /* bLength */
   USB_DESC_TYPE_DEVICE,       /* bDescriptorType */
-  0x00,                       /* bcdUSB */
+  0x10,                       /* bcdUSB */
   0x02,
   0x00,                       /* bDeviceClass */
   0x00,                       /* bDeviceSubClass */
@@ -123,6 +130,59 @@ uint8_t USBD_StringSerial[USB_SIZ_STRING_SERIAL] =
 
 uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ];
 
+
+
+//--
+const uint8_t hUSBDBOSDesc[0X21]= {
+		  0x05,       // bLength of this descriptor
+		  USB_DESC_TYPE_BOS,
+		  0x21, 0x00, // wLength
+		  0x01,       // bNumDeviceCaps
+
+		  0x1C,       // bLength of this first device capability descriptor
+		  0x10, // USB_DESCRIPTOR_TYPE_DEVICE_CAPABILITY,
+		  0x05, // USB_DEVICE_CAPABILITY_TYPE_PLATFORM,
+		  0x00,       // bReserved
+		  // Microsoft OS 2.0 descriptor platform capability UUID
+		  // from Microsoft OS 2.0 Descriptors,  Table 3.
+		  0xDF, 0x60, 0xDD, 0xD8, 0x89, 0x45, 0xC7, 0x4C,
+		  0x9C, 0xD2, 0x65, 0x9D, 0x9E, 0x64, 0x8A, 0x9F,
+
+		  0x00, 0x00, 0x03, 0x06,  // dwWindowsVersion: Windows 8.1 (NTDDI_WINBLUE)
+		  0xC2,  //MS_OS_20_DESCRIPTOR_LENGTH, 0x00,    // wMSOSDescriptorSetTotalLength
+		  0x00, // REQUEST_GET_MS_DESCRIPTOR,
+		  0, // bAltEnumCode
+};
+//--
+const uint8_t hUSBDMSOS20Desc[] = {
+		0x0A, 0x00,  // wLength
+		0x00 /*MS_OS_20_SET_HEADER_DESCRIPTOR*/, 0x00,
+		0x00, 0x00, 0x03, 0x06,  // dwWindowsVersion: Windows 8.1 (NTDDI_WINBLUE)
+		0xC0 /*MS_OS_20_DESCRIPTOR_LENGTH*/, 0x00,
+
+
+		0x14, 0x00,                                      // wLength
+		0x03 /* MS_OS_20_FEATURE_COMPATIBLE_ID*/, 0x00,            // wDescriptorType
+		'W', 'I', 'N', 'U', 'S', 'B', 0x00, 0x00,        // compatibleID
+		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // subCompatibleID
+
+		// Microsoft OS 2.0 registry property descriptor (Table 14)
+		0x84, 0x00,   // wLength
+		0x04 /*MS_OS_20_FEATURE_REG_PROPERTY*/, 0x00,
+		0x07, 0x00,   // wPropertyDataType: REG_MULTI_SZ
+		0x2a, 0x00,   // wPropertyNameLength
+		'D',0,'e',0,'v',0,'i',0,'c',0,'e',0,'I',0,'n',0,'t',0,'e',0,'r',0,
+		'f',0,'a',0,'c',0,'e',0,'G',0,'U',0,'I',0,'D',0,'s',0,0,0,
+		0x50, 0x00,   // wPropertyDataLength
+		'{',0,'9',0,'9',0,'c',0,'4',0,'b',0,'b',0,'b',0,'0',0,'-',0,
+		'e',0,'9',0,'2',0,'5',0,'-',0,'4',0,'3',0,'9',0,'7',0,'-',0,
+		'a',0,'f',0,'e',0,'e',0,'-',0,'9',0,'8',0,'1',0,'c',0,'d',0,
+		'0',0,'7',0,'0',0,'2',0,'1',0,'6',0,'3',0,'}',0,0,0,0,0,
+
+};
+
+
+//--
 /* Private functions ---------------------------------------------------------*/
 static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
 static void Get_SerialNum(void);
@@ -264,6 +324,21 @@ static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
   }
 }
 
+
+//--
+uint8_t *USBD_VCP_BOSDescriptor(USBD_SpeedTypeDef speed, uint16_t *length)
+{
+  *length = sizeof(hUSBDBOSDesc);
+  return (uint8_t*)hUSBDBOSDesc;
+}
+//--
+
+uint8_t *USBD_VCP_MSOS2Descriptor(USBD_SpeedTypeDef speed, uint16_t *length){
+	  *length = sizeof(hUSBDMSOS20Desc);
+	  return (uint8_t*)hUSBDMSOS20Desc;
+
+
+}
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

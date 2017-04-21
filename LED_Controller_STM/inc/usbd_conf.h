@@ -8,7 +8,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright © 2016 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright ï¿½ 2016 STMicroelectronics International N.V. 
   * All rights reserved.</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -55,6 +55,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Common Config */
@@ -62,8 +64,10 @@
 #define USBD_MAX_NUM_CONFIGURATION            1
 #define USBD_MAX_STR_DESC_SIZ                 0x100
 #define USBD_SUPPORT_USER_STRING              0
-#define USBD_SELF_POWERED                     1
+#define USBD_SELF_POWERED                     0
 #define USBD_DEBUG_LEVEL                      0
+
+#define USBD_LPM_ENABLED 					  1 // Enable BOS support
 
 /* Exported macro ------------------------------------------------------------*/
 /* Memory management macros */

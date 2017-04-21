@@ -112,7 +112,11 @@ __ALIGN_BEGIN uint8_t USBD_LED_CfgFSDesc[USB_LED_CONFIG_DESC_SIZ] __ALIGN_END =
   0x02,                              /* bmAttributes: Bulk */
   LOBYTE(LED_DATA_MAX_PACKET_SIZE),  /* wMaxPacketSize: */
   HIBYTE(LED_DATA_MAX_PACKET_SIZE),
-  0x00                               /* bInterval: ignore for Bulk transfer */
+  0x00,                               /* bInterval: ignore for Bulk transfer */
+
+
+
+
 } ;
 
 
