@@ -1,9 +1,9 @@
-21:44:19 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+23:22:16 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
 make all 
-Building file: ../src/main.c
+Building file: ../USB_Class_LED/Src/usbd_led.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -std=gnu11 -MMD -MP -MF"USB_Class_LED/Src/usbd_led.d" -MT"USB_Class_LED/Src/usbd_led.o" -c -o "USB_Class_LED/Src/usbd_led.o" "../USB_Class_LED/Src/usbd_led.c"
+Finished building: ../USB_Class_LED/Src/usbd_led.c
  
 Building target: LED_Controller_STM.elf
 Invoking: Cross ARM C Linker
@@ -17,9 +17,9 @@ Finished building: LED_Controller_STM.hex
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
    text	   data	    bss	    dec	    hex	filename
-  18876	   1084	  15976	  35936	   8c60	LED_Controller_STM.elf
+  23624	   1260	  16792	  41676	   a2cc	LED_Controller_STM.elf
 Finished building: LED_Controller_STM.siz
  
 
-21:44:20 Build Finished (took 378ms)
+23:22:17 Build Finished (took 463ms)
 

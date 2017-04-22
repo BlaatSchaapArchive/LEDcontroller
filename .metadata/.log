@@ -2923,3 +2923,151 @@ org.eclipse.core.runtime.CoreException: Target not available.
 !MESSAGE Invalid breakpoint parameter(s)
 !SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-22 21:44:21.865
 !MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 21:55:09.721
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 21:55:09.800
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 21:55:16.793
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@7c64f730): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-22 21:55:16.793
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-04-22 21:55:16.796
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-04-22 21:55:16.796
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-04-22 22:59:51.414
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6d0b708e): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.028
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1543c9c2): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@35fa1a07): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1829ea98): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.029
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6d28e22d): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6d82782f): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:00:01.030
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@79e0999): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@24c7c95): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@274593a1): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4a277340): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:39.342
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@49f6a751): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@77e03f28): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.026
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@451c182e): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@42465a59): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-04-22 23:04:55.027
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@33b28e8e): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:05:31.966
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:05:32.021
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:05:57.064
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:05:57.140
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:06:48.444
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:06:48.499
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:22:17.796
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-04-22 23:22:17.871
+!MESSAGE /home/andre/Downloads/STM32/arm-eabi-gdb --interpreter=mi2 --nx

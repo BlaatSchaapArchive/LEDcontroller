@@ -323,6 +323,7 @@ static uint8_t  USBD_LED_DataOut (USBD_HandleTypeDef *pdev, uint8_t epnum)
   /* Get the received data length */
   hled->RxLength = USBD_LL_GetRxDataSize (pdev, epnum);
   
+
   /* USB data will be immediately processed, this allow next USB traffic being 
   NAKed till the end of the application Xfer */
   if(pdev->pClassData != NULL)
