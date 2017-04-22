@@ -47,7 +47,7 @@ void pins_init() {
 void pwm_init() {
 
 
-		RCC->APB2ENR |= RCC_APB2ENR_AFIOEN; // enable timer2 clock
+		//RCC->APB2ENR |= RCC_APB2ENR_AFIOEN; // enable timer2 clock
 
 		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // enable timer2 clock
 		RCC->AHBENR |= RCC_AHBENR_DMA1EN; // enable dma1 clock
@@ -64,7 +64,7 @@ void pwm_init() {
 	DMA1_Channel2->CCR  |=  (0x1 << DMA_CCR_DIR_Pos);   // Memory to Peripheral
 	DMA1_Channel2->CCR  |=  (0x1 << DMA_CCR_MINC_Pos);   // Memory increasement
 	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_PINC_Pos);   // Peripheral increasement
-	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode
+	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode //!!
 	DMA1_Channel2->CCR |= DMA_CCR_TCIE; // Enable transfer complete interrupt
 
 	DMA1_Channel2->CCR |= DMA_CCR_TEIE; // Enable transfer error interrupt
@@ -72,8 +72,10 @@ void pwm_init() {
 
 
 	TIM2->DCR = 0;
-	TIM2->DCR |= (( 0x34 >> 2 ) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
-	TIM2->DCR |= (( 0x04 ) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+
+	TIM2->DCR |= (( 12 ) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
+	TIM2->DCR |= (( 3 ) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+
 
 
 	TIM2->ARR = 8 ; // Reload Value
@@ -84,16 +86,17 @@ void pwm_init() {
 	//TIM2->DIER |= TIM_DIER_CC1DE; // Update DMA Request Enable
 
 	TIM2->CCMR1 = 0;
-	TIM2->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+	//TIM2->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+
 	TIM2->CCMR1 |= (1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
 
 
-	//TIM2->CR1 = 0;
-	//TIM2->CR1 |= (1 << TIM_CR1_URS_Pos); // Only generate event on dma
+	TIM2->CR1 = 1;
+	TIM2->CR1 |=  TIM_CR1_URS;//;(1 << TIM_CR1_URS_Pos); // Only generate event on dma
 }
 
 
-void start_dma_transer(void* memory, size_t size) {
+void start_dma_transer(char* memory, size_t size) {
 
 	NVIC_ClearPendingIRQ(DMA1_Channel2_IRQn);
 	NVIC_EnableIRQ(DMA1_Channel2_IRQn);
@@ -122,8 +125,8 @@ void DMA1_Channel2_IRQHandler(void) {
 	// Should be changed once we support multiple channels.
 	DMA1->IFCR = DMA1->ISR;
 
-	TIM2->CCMR1 &= ~1; // disable timer
-	DMA1_Channel2->CCR &= ~1; // Disable DMA
+	//TIM2->CCMR1 &= ~1; // disable timer
+	//DMA1_Channel2->CCR &= ~1; // Disable DMA
 
 }
 
