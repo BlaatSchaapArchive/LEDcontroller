@@ -1,17 +1,9 @@
-18:44:16 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+20:59:43 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
 make all 
-Building file: ../src/pwmdma.c
+Building file: ../src/main.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
-../src/pwmdma.c: In function 'pwm_init':
-../src/pwmdma.c:59:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-  DMA1_Channel2->CPAR = &(TIM2->DMAR); // DMA 1 Channel 2 to TIM2
-                      ^
-../src/pwmdma.c: In function 'start_dma_transer':
-../src/pwmdma.c:106:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-  DMA1_Channel2->CMAR = memory;
-                      ^
-Finished building: ../src/pwmdma.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
  
 Building target: LED_Controller_STM.elf
 Invoking: Cross ARM C Linker
@@ -25,9 +17,9 @@ Finished building: LED_Controller_STM.hex
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
    text	   data	    bss	    dec	    hex	filename
-  18572	   1084	  15976	  35632	   8b30	LED_Controller_STM.elf
+  18776	   1084	  15976	  35836	   8bfc	LED_Controller_STM.elf
 Finished building: LED_Controller_STM.siz
  
 
-18:44:16 Build Finished (took 380ms)
+20:59:44 Build Finished (took 380ms)
 

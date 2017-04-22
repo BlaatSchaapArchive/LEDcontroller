@@ -65,7 +65,7 @@ int main() {
 	}
 	pwm_init();
 
-
+	start_dma_transer(data_c0,72);
 	/* Infinite loop */
 	while (1) {
 

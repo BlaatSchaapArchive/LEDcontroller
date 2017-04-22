@@ -47,7 +47,6 @@ void pins_init() {
 void pwm_init() {
 
 
-		//RCC->APB2ENR |= RCC_APB2ENR_AFIOEN; // enable timer2 clock
 
 		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // enable timer2 clock
 		RCC->AHBENR |= RCC_AHBENR_DMA1EN; // enable dma1 clock
@@ -86,13 +85,34 @@ void pwm_init() {
 	//TIM2->DIER |= TIM_DIER_CC1DE; // Update DMA Request Enable
 
 	TIM2->CCMR1 = 0;
-	//TIM2->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+	TIM2->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+	TIM2->CCMR1 |= (0b110 << TIM_CCMR1_OC2M_Pos); // pwm mode 1
+
+
+	TIM2->CCMR2 = 0;
+	TIM2->CCMR2 |= (0b110 << TIM_CCMR2_OC3M_Pos); // pwm mode 1
+	TIM2->CCMR2 |= (0b110 << TIM_CCMR2_OC4M_Pos); // pwm mode 1
+
 
 	TIM2->CCMR1 |= (1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
+	TIM2->CCMR1 |= (1 << TIM_CCMR1_OC2PE_Pos); // output compare preload enable
+
+	TIM2->CCMR2 |= (1 << TIM_CCMR2_OC3PE_Pos); // output compare preload enable
+	TIM2->CCMR2 |= (1 << TIM_CCMR2_OC4PE_Pos); // output compare preload enable
+
+	// This I forgot
+	TIM2->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E;
 
 
-	TIM2->CR1 = 1;
-	TIM2->CR1 |=  TIM_CR1_URS;//;(1 << TIM_CR1_URS_Pos); // Only generate event on dma
+	TIM2->CR1 |= 1 << 7; // auto reload enable
+	TIM2->CR1 &= ~(0b1110000); // Edge aglined, upcounting
+	TIM2->CR1 |= 0b100; // Event source, only over/underflow
+	TIM2->CR1 |= 0x0001; // enable
+
+
+	 TIM2->CCR1 = 3; // output val <-- maybe add some val to test
+	//TIM2->CR1 = 1;
+	//TIM2->CR1 |=  TIM_CR1_URS;//;(1 << TIM_CR1_URS_Pos); // Only generate event on dma
 }
 
 
@@ -126,7 +146,7 @@ void DMA1_Channel2_IRQHandler(void) {
 	DMA1->IFCR = DMA1->ISR;
 
 	//TIM2->CCMR1 &= ~1; // disable timer
-	//DMA1_Channel2->CCR &= ~1; // Disable DMA
+	DMA1_Channel2->CCR &= ~1; // Disable DMA
 
 }
 
