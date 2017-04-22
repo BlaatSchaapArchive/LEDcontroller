@@ -3,7 +3,13 @@
 	<item value="${workspace_loc:/_Common/STM32/ld/STM32F103C8_FLASH.ld}" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item value="174" key="size.height"/>
+		<item value="577" key="size.width"/>
+	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="0" key="askReindex.detail"/>

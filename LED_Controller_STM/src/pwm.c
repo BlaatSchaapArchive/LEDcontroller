@@ -102,7 +102,7 @@ void pwm_init() {
 */
 
 	TIM2->ARR = 8 ; // Reload Value
-	TIM2->PSC = 15 ; // Prescaler
+	TIM2->PSC = 9 ; // Prescaler
 
 
 	TIM2->CCMR1 = ( TIM2->CCMR1  & ~(0b11110000) ) | (0b1101 << 3);  // Set Channel 1 to PWM mode 1 and enabling reload
