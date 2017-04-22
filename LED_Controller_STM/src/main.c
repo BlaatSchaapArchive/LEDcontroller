@@ -46,12 +46,15 @@ int main() {
 
 	HAL_Init(); // Reset of all peripherals, Initializes the Flash interface and the Systick.
 	SystemClock_Config(); // Configure the system clock to 72 MHz
+
+	/*
 	usb_disconnect(); // Force re-enumeration
 
 	USBD_Init(&USBD_Device, &VCP_Desc, 0); // Init Device Library
 	USBD_RegisterClass(&USBD_Device, USBD_LED_CLASS); // Add Supported Class
 	USBD_LED_RegisterInterface(&USBD_Device, &USBD_LED_fops); // Add LED Interface Class
 	USBD_Start(&USBD_Device); // Start Device Process
+	*/
 
 	// Test Data
 	for (int i = 0 ; i < 48; i++ ) {
@@ -67,7 +70,7 @@ int main() {
 	while (1) {
 
 		while (is_busy());;
-		start_dma_transer(data_c0,72);
+		start_dma_transer(data_c0,4);
 	}
 }
 
