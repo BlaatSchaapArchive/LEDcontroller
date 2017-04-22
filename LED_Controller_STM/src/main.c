@@ -58,19 +58,49 @@ int main() {
 
 	// Test Data
 	int i = 0;
-	while (i<72){
-		data_c0[i++] = 1;
-		data_c0[i++] = 2;
-		data_c0[i++] = 3;
+/*// green
+	while (i<(4*24)){
+		data_c0[i+0] = i < (4*8) ? 6 : 2;
+		data_c0[i+1] = i < (4*8) ? 6 : 2;
+		data_c0[i+2] = i < (4*8) ? 6 : 2;
+		data_c0[i+3] = i < (4*8) ? 6 : 2;
+		i+=4;;
 	}
+*/
+/*//red
+	while (i<(4*24)){
+		data_c0[i+0] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
+		data_c0[i+1] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
+		data_c0[i+2] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
+		data_c0[i+3] = (i < (4*16)) && (i > (4*8) ) ? 6 : 2;
+		i+=4;;
+	}
+*/
+ // blue
+	while (i<(4*24)){
+		data_c0[i+0] = (i > (4*16) )? 6 : 2;
+		data_c0[i+1] = (i > (4*16) )? 6 : 2;
+		data_c0[i+2] = (i > (4*16)  )? 6 : 2;
+		data_c0[i+3] = (i > (4*16) ) ? 6 : 2;
+		i+=4;;
+	}
+
+	while (i<(4*48)){
+		data_c0[i+0] = 0;
+		data_c0[i+1] = 0;
+		data_c0[i+2] = 0;
+		data_c0[i+3] = 0;
+		i+=4;;
+	}
+
 	pwm_init();
 
-	start_dma_transer(data_c0,72);
+	start_dma_transer(data_c0,4*48);
 	/* Infinite loop */
 	while (1) {
 
 		while (is_busy());;
-		start_dma_transer(data_c0,72);
+		start_dma_transer(data_c0,4*48);
 	}
 }
 

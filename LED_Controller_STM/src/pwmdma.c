@@ -63,7 +63,7 @@ void pwm_init() {
 	DMA1_Channel2->CCR  |=  (0x1 << DMA_CCR_DIR_Pos);   // Memory to Peripheral
 	DMA1_Channel2->CCR  |=  (0x1 << DMA_CCR_MINC_Pos);   // Memory increasement
 	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_PINC_Pos);   // Peripheral increasement
-	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode //!!
+	DMA1_Channel2->CCR  |=  (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode
 	DMA1_Channel2->CCR |= DMA_CCR_TCIE; // Enable transfer complete interrupt
 
 	DMA1_Channel2->CCR |= DMA_CCR_TEIE; // Enable transfer error interrupt
@@ -104,13 +104,14 @@ void pwm_init() {
 	TIM2->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E;
 
 
+
 	TIM2->CR1 |= 1 << 7; // auto reload enable
 	TIM2->CR1 &= ~(0b1110000); // Edge aglined, upcounting
 	TIM2->CR1 |= 0b100; // Event source, only over/underflow
 	TIM2->CR1 |= 0x0001; // enable
 
 
-	 TIM2->CCR1 = 3; // output val <-- maybe add some val to test
+//	 TIM2->CCR1 = 3; // output val <-- maybe add some val to test
 	//TIM2->CR1 = 1;
 	//TIM2->CR1 |=  TIM_CR1_URS;//;(1 << TIM_CR1_URS_Pos); // Only generate event on dma
 }
