@@ -25,6 +25,9 @@ USBD_HandleTypeDef USBD_Device;
 uint8_t data_c0[3072*4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
 uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 
+uint8_t data_usb_rx[64];  // USB Buffer data from pc
+uint8_t data_usb_tx[64];  // USB Buffer data to pc
+
 int8_t LED_Itf_Init(void) {
 	return (USBD_OK);
 }
@@ -37,7 +40,8 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 	// Should not be used in production whatsoever!!!!!!!!!!
 	uint16_t offset = *(uint16_t*) buffer;
 	uint8_t  amount = *(uint8_t*) (buffer+2);
-	memcpy(data_c1 + offset, buffer+3, amount);
+	memcpy(data_c0 + offset, buffer+3, amount);
+
 
 
 
@@ -69,6 +73,7 @@ int main() {
 
 	// Test Data
 	int i = 0;
+	/*
 // green
 	while (i<(4*24)){
 		data_c0[i+0] = i < (4*8) ? 6 : 2;
@@ -77,7 +82,7 @@ int main() {
 		data_c0[i+3] = i < (4*8) ? 6 : 2;
 		i+=4;;
 	}
-
+*/
 /*//red
 	while (i<(4*24)){
 		data_c0[i+0] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
@@ -106,12 +111,12 @@ int main() {
 
 	pwm_init();
 
-	start_dma_transer(data_c0,4*48);
+	start_dma_transer(data_c0,sizeof(data_c0));
 	/* Infinite loop */
 	while (1) {
 
 		while (is_busy());;
-		start_dma_transer(data_c0,4*48);
+		start_dma_transer(data_c0,sizeof(data_c0));
 	}
 }
 

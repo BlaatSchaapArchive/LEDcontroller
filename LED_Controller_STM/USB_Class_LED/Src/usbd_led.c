@@ -168,6 +168,16 @@ static uint8_t  USBD_LED_Init (USBD_HandleTypeDef *pdev,
     /* Init  physical Interface components */
     ((USBD_LED_ItfTypeDef *)pdev->pUserData)->Init();
     
+    //
+    static uint8_t TxBuffer[64];
+    static uint8_t RxBuffer[64];
+    hled->TxBuffer = TxBuffer;
+    hled->RxBuffer = RxBuffer;
+    hled->RxLength = 64;
+    hled->TxLength = 64;
+    //
+
+
     /* Init Xfer states */
     hled->TxState =0;
     hled->RxState =0;
@@ -330,6 +340,13 @@ static uint8_t  USBD_LED_DataOut (USBD_HandleTypeDef *pdev, uint8_t epnum)
   {
     ((USBD_LED_ItfTypeDef *)pdev->pUserData)->Receive(hled->RxBuffer, &hled->RxLength);
 
+
+    /* Prepare Out endpoint to receive next packet */
+    USBD_LL_PrepareReceive(pdev,
+                           LED_OUT_EP,
+                           hled->RxBuffer,
+                           LED_DATA_OUT_PACKET_SIZE);
+
     return USBD_OK;
   }
   else
@@ -353,6 +370,7 @@ static uint8_t  *USBD_LED_GetFSCfgDesc (uint16_t *length)
   *length = sizeof (USBD_LED_CfgFSDesc);
   return USBD_LED_CfgFSDesc;
 }
+
 
 
 /**
