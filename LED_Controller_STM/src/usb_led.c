@@ -17,6 +17,9 @@
 uint8_t data_c0[3072*4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
 uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 
+bool buffer_state[2] = {false, false} ;
+bool timer_state[3] = {false, false, false};
+
 int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 
 	uint8_t command = buffer[0];

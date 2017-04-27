@@ -39,6 +39,7 @@ void hsb2rgbAN2(uint16_t index, uint8_t sat, uint8_t bright, rgb_t* color) {
 }
 
 void verify_data(uint8_t *data) {
+	return;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++)
 			printf("0x%02hhx ", data[j + (8 * i)]);
@@ -101,89 +102,97 @@ int main() {
 	int index = 0;
 	rgb_t rgb;
 	int test = 0;
-	for (int i = 0; i < 60; i++) {
 
-		hsb2rgbAN2(index += 8 % 768, 255, 16, &rgb);
-		//hsb2rgbAN2(index += 8 % 768, 255, 64, &rgb);
-		for (int j = 0; j < 8; j++) {
-			int mask = 1 << j;
-			int valR = rgb.r & mask ? 6 : 2;
-			int valG = rgb.g & mask ? 6 : 2;
-			int valB = rgb.b & mask ? 2 : 2;
+	//
+	while (1) {
 
-			for (int k = 0; k < 4; k++) {
-				// 4 channels
-				data_c0[(i * 24 * 4) + ((7 - j) * 4) + k] = valG;
-				data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (8 * 4)] = valR;
-				data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (16 * 4)] = valB;
+		for (int i = 0; i < 60; i++) {
+
+			hsb2rgbAN2(index += 8 % 768, 255, 16, &rgb);
+			//hsb2rgbAN2(index += 8 % 768, 255, 64, &rgb);
+			for (int j = 0; j < 8; j++) {
+				int mask = 1 << j;
+				int valR = rgb.r & mask ? 6 : 2;
+				int valG = rgb.g & mask ? 6 : 2;
+				int valB = rgb.b & mask ? 2 : 2;
+
+				for (int k = 0; k < 4; k++) {
+					// 4 channels
+					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k] = valG;
+					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (8 * 4)] = valR;
+					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (16 * 4)] = valB;
+				}
 			}
 		}
-	}
 
-	// Test Data to indentify channels
-	int i = 0;
+		// Test Data to indentify channels
+		int i = 0;
 
-	while (i < (4 * 24)) {
-		data_c0[i + 0] = i < (4 * 8) ? 6 : 2;
-		data_c0[i + 1] = (i < (4 * 16)) && (i > (4 * 8)) ? 6 : 2;
-		data_c0[i + 2] = (i > (4 * 16)) ? 6 : 2;
-		data_c0[i + 3] = 6;
-		i += 4;
-		;
-	}
-
-	int bytes_to_go = 60 * 4 * 24;
-	printf("Bytes to go %d\n", bytes_to_go);
-	char data_to_transmit[64];
-	data_to_transmit[0] = 0x10; // FILL BUFFER
-	data_to_transmit[1] = 0x00;  // TARGET BUFFER0
-//  int bytes_done = 0;
-	uint16_t *offset;
-	offset = (uint16_t*) (data_to_transmit + 2);
-	*offset = 0;
-	uint8_t *bytes_of_data = (data_to_transmit + 4);
-	*bytes_of_data = 64 - 5;
-	while (*(data_c0 + *offset) && (bytes_to_go > *bytes_of_data)) {
-		memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
-
-		verify_data(data_to_transmit);
-		int transferred;
-		int res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
-				&transferred, 1000);
-		printf("Transferred %d Result %d\n", transferred, res);
-		if (res) {
-			printf("%s\n", libusb_strerror(res));
-			break; // breaking out,
+		while (i < (4 * 24)) {
+			data_c0[i + 0] = i < (4 * 8) ? 6 : 2;
+			data_c0[i + 1] = (i < (4 * 16)) && (i > (4 * 8)) ? 6 : 2;
+			data_c0[i + 2] = (i > (4 * 16)) ? 6 : 2;
+			data_c0[i + 3] = 6;
+			i += 4;
+			;
 		}
-		*offset += *bytes_of_data; // this goes wrong
-		bytes_to_go -= *bytes_of_data;
-		printf("Bytes to go %d\n", bytes_to_go);
 
+		int bytes_to_go = 60 * 4 * 24;
+//		printf("Bytes to go %d\n", bytes_to_go);
+		char data_to_transmit[64];
+		data_to_transmit[0] = 0x10; // FILL BUFFER
+		data_to_transmit[1] = 0x00;  // TARGET BUFFER0
+	//  int bytes_done = 0;
+		uint16_t *offset;
+		offset = (uint16_t*) (data_to_transmit + 2);
+		*offset = 0;
+		uint8_t *bytes_of_data = (data_to_transmit + 4);
+		*bytes_of_data = 64 - 5;
+		while (*(data_c0 + *offset) && (bytes_to_go > *bytes_of_data)) {
+			memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
+
+			verify_data(data_to_transmit);
+			int transferred;
+			int res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+					&transferred, 1000);
+//			printf("Transferred %d Result %d\n", transferred, res);
+			if (res) {
+				printf("%s\n", libusb_strerror(res));
+				break; // breaking out,
+			}
+			*offset += *bytes_of_data; // this goes wrong
+			bytes_to_go -= *bytes_of_data;
+//			printf("Bytes to go %d\n", bytes_to_go);
+
+		}
+
+
+		 if (bytes_to_go) {
+		 //printf("Remaining data\n");
+		 *bytes_of_data = bytes_to_go;
+		 memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
+
+		 verify_data(data_to_transmit);
+		 int transferred;
+		 int res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
+		 //printf("Transferred %d Result %d\n",transferred, res);
+		 if (res) {
+		 //printf("%s\n",libusb_strerror(res));
+		 }
+		 }
+
+
+		int transferred;
+		data_to_transmit[0] = 0x11; // APPLY BUFFER
+		//printf("Apply\n");
+		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+				1000);
+		verify_data(data_to_transmit);
+
+
+//
 	}
-
-
-	 if (bytes_to_go) {
-	 printf("Remaining data\n");
-	 *bytes_of_data = bytes_to_go;
-	 memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
-
-	 verify_data(data_to_transmit);
-	 int transferred;
-	 int res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
-	 printf("Transferred %d Result %d\n",transferred, res);
-	 if (res) {
-	 printf("%s\n",libusb_strerror(res));
-	 }
-	 }
-
-
-	int transferred;
-	data_to_transmit[0] = 0x11; // APPLY BUFFER
-	printf("Apply\n");
-	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
-			1000);
-	verify_data(data_to_transmit);
-
+//
 
 
 	/* Release interface #0. */

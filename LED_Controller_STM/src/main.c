@@ -54,45 +54,6 @@ int main() {
 	USBD_LED_RegisterInterface(&USBD_Device, &USBD_LED_fops); // Add LED Interface Class
 	USBD_Start(&USBD_Device); // Start Device Process
 
-
-	// Test Data
-	int i = 0;
-	/*
-// green
-	while (i<(4*24)){
-		data_c0[i+0] = i < (4*8) ? 6 : 2;
-		data_c0[i+1] = i < (4*8) ? 6 : 2;
-		data_c0[i+2] = i < (4*8) ? 6 : 2;
-		data_c0[i+3] = i < (4*8) ? 6 : 2;
-		i+=4;;
-	}
-*/
-/*//red
-	while (i<(4*24)){
-		data_c0[i+0] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
-		data_c0[i+1] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
-		data_c0[i+2] = (i < (4*16)) && (i > (4*8) )? 6 : 2;
-		data_c0[i+3] = (i < (4*16)) && (i > (4*8) ) ? 6 : 2;
-		i+=4;;
-	}
-
- // blue
-	while (i<(4*24)){
-		data_c0[i+0] = (i > (4*16) )? 6 : 2;
-		data_c0[i+1] = (i > (4*16) )? 6 : 2;
-		data_c0[i+2] = (i > (4*16)  )? 6 : 2;
-		data_c0[i+3] = (i > (4*16) ) ? 6 : 2;
-		i+=4;;
-	}
-*/
-	while (i<(4*48)){
-		data_c0[i+0] = 0;
-		data_c0[i+1] = 0;
-		data_c0[i+2] = 0;
-		data_c0[i+3] = 0;
-		i+=4;;
-	}
-
 	pwm_init();
 
 	//start_dma_transer(data_c0,sizeof(data_c0));
