@@ -72,7 +72,7 @@ void pwm_init() {
 
 	TIM2->DCR = 0;
 
-	TIM2->DCR |= (( 12 ) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
+	TIM2->DCR |= (( 13 ) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
 	TIM2->DCR |= (( 3 ) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
 
 

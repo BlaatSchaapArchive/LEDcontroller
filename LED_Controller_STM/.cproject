@@ -53,6 +53,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/cfg}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/STM32/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/Any/inc}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1783178338" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>
@@ -70,6 +71,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/cfg}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/STM32/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/Any/inc}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.2082190008" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>
@@ -104,9 +106,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.236601569.1671495106" name="pwm.c" rcbsApplicability="disable" resourcePath="src/pwm.c" toolsToInvoke="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1084058612.1124027348">
-						<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1084058612.1124027348" name="Cross ARM C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1084058612"/>
-					</fileInfo>
 					<sourceEntries>
 						<entry excluding="src/pwm.c|USB_Class_LED/Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="USB_Class_LED/Src"/>
@@ -152,6 +151,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/cfg}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/STM32/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/Any/inc}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.158328407" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>
@@ -169,6 +169,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LED_Controller_STM/cfg}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/STM32/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/_Common/Any/inc}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.266688128" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F103xB"/>

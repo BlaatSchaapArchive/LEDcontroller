@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
 gdb.client.commands=set mem inaccessible-by-default off
-gdb.client.executable=/home/andre/Downloads/STM32/arm-eabi-gdb
+gdb.client.executable=arm-none-eabi-gdb
 gdb.client.other=
 gdb.openocd.doDebugInRam=false
 gdb.openocd.doInitialReset=true

@@ -267,7 +267,7 @@
 		<link>
 			<name>system/startup_stm32f103xb.S</name>
 			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Downloads/STM32/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xb.S</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xb.S</locationURI>
 		</link>
 		<link>
 			<name>system/system_stm32f1xx.c</name>
