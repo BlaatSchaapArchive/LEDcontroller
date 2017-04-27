@@ -6,7 +6,9 @@
  */
 
 #include "protocol.h"
+#include "devinfo.h"
 #include <string.h>
+
 
 
 #include "usbd_core.h"
@@ -25,7 +27,18 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 	case CMD_PING:
 		// todo send buffer back to host
 		break;
-	case CMD_DEVINFO:
+	case CMD_DEVINFO: {
+
+		devinfo_t info;
+		info.architecture = EM_ARM;
+		info.vendor       = VE_STM;
+		info.device       = DBGMCU->IDCODE;
+
+
+		UID_BASE; //read 96 bits
+
+
+	}
 		break;
 	case CMD_CONFIG:
 		break;
