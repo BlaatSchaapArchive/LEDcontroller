@@ -203,6 +203,8 @@
 #define EM_RISCV 	243 	// RISC-V
 
 // Sometimes I see this value used for AVR32 (AVR32 Linux e.a)
+// Seems the 18ad value is picked by IAR systems
+// See comment in http://distribute.atmel.no/tools/opensource/avr32-gcc/binutils-2.20.1/33-binutils-2.20.1-avr32-include.patch
 #define EM_AVR32_OLD        0x18ad  /* Atmel AVR32 */
 
 

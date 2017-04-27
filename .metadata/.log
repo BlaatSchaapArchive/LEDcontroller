@@ -3981,3 +3981,17 @@ java.io.FileNotFoundException: /home/andre/Downloads/STM32/STM32Cube_FW_F1_V1.4.
 
 !ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 14:21:34.695
 !MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 14:53:19.929
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-04-27 14:53:19.975
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 14:53:29.704
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 14:53:29.759
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx

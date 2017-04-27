@@ -2467,3 +2467,477 @@ Invoking: GCC C++ Linker
 g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
 Finished building target: USB_Test
  
+14:51:04 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init2':
+../src/pwmdma.c:45:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+     ^~
+../src/pwmdma.c:45:19: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+                   ^~
+../src/pwmdma.c:47:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR = 0x00;
+      ^~
+../src/pwmdma.c:48:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x01 << DMA_CCR_PSIZE_Pos); // Peripheral size 16 bit
+      ^~
+../src/pwmdma.c:49:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x00 << DMA_CCR_MSIZE_Pos); // Memory size 8 bit
+      ^~
+../src/pwmdma.c:50:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x1 << DMA_CCR_DIR_Pos);   // Memory to Peripheral
+      ^~
+../src/pwmdma.c:51:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x1 << DMA_CCR_MINC_Pos);   // Memory increasement
+      ^~
+../src/pwmdma.c:52:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x0 << DMA_CCR_PINC_Pos);  // Peripheral increasement
+      ^~
+../src/pwmdma.c:53:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode
+      ^~
+../src/pwmdma.c:54:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= DMA_CCR_TCIE; // Enable transfer complete interrupt
+      ^~
+../src/pwmdma.c:56:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= DMA_CCR_TEIE; // Enable transfer error interrupt
+      ^~
+../src/pwmdma.c:58:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR = 0;
+      ^~
+../src/pwmdma.c:60:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
+      ^~
+../src/pwmdma.c:61:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+      ^~
+../src/pwmdma.c:63:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->ARR = 8; // Reload Value
+      ^~
+../src/pwmdma.c:64:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->PSC = 9; // Prescaler
+      ^~
+../src/pwmdma.c:66:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DIER = 0;
+      ^~
+../src/pwmdma.c:67:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DIER |= TIM_DIER_UDE; // Update DMA Request Enable
+      ^~
+../src/pwmdma.c:69:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 = 0;
+      ^~
+../src/pwmdma.c:70:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:71:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (0b110 << TIM_CCMR1_OC2M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:73:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 = 0;
+      ^~
+../src/pwmdma.c:74:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (0b110 << TIM_CCMR2_OC3M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:75:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (0b110 << TIM_CCMR2_OC4M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:77:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:78:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (1 << TIM_CCMR1_OC2PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:80:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (1 << TIM_CCMR2_OC3PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:81:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (1 << TIM_CCMR2_OC4PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:84:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E;
+      ^~
+../src/pwmdma.c:86:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 1 << 7; // auto reload enable
+      ^~
+../src/pwmdma.c:87:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 &= ~(0b1110000); // Edge aglined, upcounting
+      ^~
+../src/pwmdma.c:88:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 0b100; // Event source, only over/underflow
+      ^~
+../src/pwmdma.c:89:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 0x0001; // enable
+      ^~
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:100:12: error: incompatible type for argument 1 of 'pwm_init2'
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+            ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:43:6: note: expected 'DMA_Channel_TypeDef {aka struct <anonymous>}' but argument is of type 'int'
+ void pwm_init2(DMA_Channel_TypeDef dma,
+      ^~~~~~~~~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from ../src/pwmdma.c:1:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:696:29: error: incompatible type for argument 2 of 'pwm_init2'
+ #define TIM2                ((TIM_TypeDef *) TIM2_BASE)
+                             ^
+../src/pwmdma.c:100:31: note: in expansion of macro 'TIM2'
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+                               ^~~~
+../src/pwmdma.c:43:6: note: expected 'TIM_TypeDef {aka struct <anonymous>}' but argument is of type 'TIM_TypeDef * {aka struct <anonymous> *}'
+ void pwm_init2(DMA_Channel_TypeDef dma,
+      ^~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer':
+../src/pwmdma.c:109:2: warning: implicit declaration of function 'start_dma_transer2' [-Wimplicit-function-declaration]
+  start_dma_transer2(memory,size,DMA1_Channel2,TIM2);
+  ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c: At top level:
+../src/pwmdma.c:112:6: warning: conflicting types for 'start_dma_transer2'
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:109:2: note: previous implicit declaration of 'start_dma_transer2' was here
+  start_dma_transer2(memory,size,DMA1_Channel2,TIM2);
+  ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer2':
+../src/pwmdma.c:114:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CNDTR = size;
+     ^~
+../src/pwmdma.c:115:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CMAR = memory;
+     ^~
+../src/pwmdma.c:116:5: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  tim->CCMR1 |= 1; // enable timer
+     ^~
+../src/pwmdma.c:117:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CCR |= 1; // Enable DMA
+     ^~
+../src/pwmdma.c:118:5: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  tim->EGR = TIM_EGR_UG; // Trigger update event, starting the transfer
+     ^~
+../src/pwmdma.c: In function 'is_busy2':
+../src/pwmdma.c:122:12: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  return dma->CCR & 1;
+            ^~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from ../src/pwmdma.c:1:
+../src/pwmdma.c: In function 'is_busy':
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:727:29: error: incompatible type for argument 1 of 'is_busy2'
+ #define DMA1_Channel2       ((DMA_Channel_TypeDef *) DMA1_Channel2_BASE)
+                             ^
+../src/pwmdma.c:126:18: note: in expansion of macro 'DMA1_Channel2'
+  return is_busy2(DMA1_Channel2);
+                  ^~~~~~~~~~~~~
+../src/pwmdma.c:121:6: note: expected 'DMA_Channel_TypeDef {aka struct <anonymous>}' but argument is of type 'DMA_Channel_TypeDef * {aka struct <anonymous> *}'
+ bool is_busy2(DMA_Channel_TypeDef dma) {
+      ^~~~~~~~
+make: *** [src/subdir.mk:35: src/pwmdma.o] Fout 1
+14:51:50 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init2':
+../src/pwmdma.c:45:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+     ^~
+../src/pwmdma.c:45:19: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+                   ^~
+../src/pwmdma.c:47:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR = 0x00;
+      ^~
+../src/pwmdma.c:48:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x01 << DMA_CCR_PSIZE_Pos); // Peripheral size 16 bit
+      ^~
+../src/pwmdma.c:49:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x00 << DMA_CCR_MSIZE_Pos); // Memory size 8 bit
+      ^~
+../src/pwmdma.c:50:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x1 << DMA_CCR_DIR_Pos);   // Memory to Peripheral
+      ^~
+../src/pwmdma.c:51:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x1 << DMA_CCR_MINC_Pos);   // Memory increasement
+      ^~
+../src/pwmdma.c:52:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x0 << DMA_CCR_PINC_Pos);  // Peripheral increasement
+      ^~
+../src/pwmdma.c:53:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= (0x0 << DMA_CCR_CIRC_Pos);   // Circular mode
+      ^~
+../src/pwmdma.c:54:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= DMA_CCR_TCIE; // Enable transfer complete interrupt
+      ^~
+../src/pwmdma.c:56:6: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+   dma->CCR |= DMA_CCR_TEIE; // Enable transfer error interrupt
+      ^~
+../src/pwmdma.c:58:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR = 0;
+      ^~
+../src/pwmdma.c:60:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
+      ^~
+../src/pwmdma.c:61:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+      ^~
+../src/pwmdma.c:63:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->ARR = 8; // Reload Value
+      ^~
+../src/pwmdma.c:64:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->PSC = 9; // Prescaler
+      ^~
+../src/pwmdma.c:66:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DIER = 0;
+      ^~
+../src/pwmdma.c:67:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->DIER |= TIM_DIER_UDE; // Update DMA Request Enable
+      ^~
+../src/pwmdma.c:69:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 = 0;
+      ^~
+../src/pwmdma.c:70:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (0b110 << TIM_CCMR1_OC1M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:71:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (0b110 << TIM_CCMR1_OC2M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:73:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 = 0;
+      ^~
+../src/pwmdma.c:74:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (0b110 << TIM_CCMR2_OC3M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:75:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (0b110 << TIM_CCMR2_OC4M_Pos); // pwm mode 1
+      ^~
+../src/pwmdma.c:77:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:78:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR1 |= (1 << TIM_CCMR1_OC2PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:80:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (1 << TIM_CCMR2_OC3PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:81:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCMR2 |= (1 << TIM_CCMR2_OC4PE_Pos); // output compare preload enable
+      ^~
+../src/pwmdma.c:84:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E;
+      ^~
+../src/pwmdma.c:86:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 1 << 7; // auto reload enable
+      ^~
+../src/pwmdma.c:87:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 &= ~(0b1110000); // Edge aglined, upcounting
+      ^~
+../src/pwmdma.c:88:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 0b100; // Event source, only over/underflow
+      ^~
+../src/pwmdma.c:89:6: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+   tim->CR1 |= 0x0001; // enable
+      ^~
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:100:12: error: incompatible type for argument 1 of 'pwm_init2'
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+            ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:43:6: note: expected 'DMA_Channel_TypeDef {aka struct <anonymous>}' but argument is of type 'int'
+ void pwm_init2(DMA_Channel_TypeDef dma,
+      ^~~~~~~~~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from ../src/pwmdma.c:1:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:696:29: error: incompatible type for argument 2 of 'pwm_init2'
+ #define TIM2                ((TIM_TypeDef *) TIM2_BASE)
+                             ^
+../src/pwmdma.c:100:31: note: in expansion of macro 'TIM2'
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+                               ^~~~
+../src/pwmdma.c:43:6: note: expected 'TIM_TypeDef {aka struct <anonymous>}' but argument is of type 'TIM_TypeDef * {aka struct <anonymous> *}'
+ void pwm_init2(DMA_Channel_TypeDef dma,
+      ^~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer':
+../src/pwmdma.c:109:2: warning: implicit declaration of function 'start_dma_transer2' [-Wimplicit-function-declaration]
+  start_dma_transer2(memory,size,DMA1_Channel2,TIM2);
+  ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c: At top level:
+../src/pwmdma.c:112:6: warning: conflicting types for 'start_dma_transer2'
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:109:2: note: previous implicit declaration of 'start_dma_transer2' was here
+  start_dma_transer2(memory,size,DMA1_Channel2,TIM2);
+  ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer2':
+../src/pwmdma.c:114:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CNDTR = size;
+     ^~
+../src/pwmdma.c:115:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CMAR = memory;
+     ^~
+../src/pwmdma.c:116:5: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  tim->CCMR1 |= 1; // enable timer
+     ^~
+../src/pwmdma.c:117:5: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  dma->CCR |= 1; // Enable DMA
+     ^~
+../src/pwmdma.c:118:5: error: invalid type argument of '->' (have 'TIM_TypeDef {aka struct <anonymous>}')
+  tim->EGR = TIM_EGR_UG; // Trigger update event, starting the transfer
+     ^~
+../src/pwmdma.c: In function 'is_busy2':
+../src/pwmdma.c:122:12: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  return dma->CCR & 1;
+            ^~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from ../src/pwmdma.c:1:
+../src/pwmdma.c: In function 'is_busy':
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:727:29: error: incompatible type for argument 1 of 'is_busy2'
+ #define DMA1_Channel2       ((DMA_Channel_TypeDef *) DMA1_Channel2_BASE)
+                             ^
+../src/pwmdma.c:126:18: note: in expansion of macro 'DMA1_Channel2'
+  return is_busy2(DMA1_Channel2);
+                  ^~~~~~~~~~~~~
+../src/pwmdma.c:121:6: note: expected 'DMA_Channel_TypeDef {aka struct <anonymous>}' but argument is of type 'DMA_Channel_TypeDef * {aka struct <anonymous> *}'
+ bool is_busy2(DMA_Channel_TypeDef dma) {
+      ^~~~~~~~
+make: *** [src/subdir.mk:35: src/pwmdma.o] Fout 1
+14:52:10 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init2':
+../src/pwmdma.c:45:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+            ^
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:100:12: warning: passing argument 1 of 'pwm_init2' makes pointer from integer without a cast [-Wint-conversion]
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+            ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:43:6: note: expected 'DMA_Channel_TypeDef * {aka struct <anonymous> *}' but argument is of type 'int'
+ void pwm_init2(DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer2':
+../src/pwmdma.c:112:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CMAR = memory;
+            ^
+../src/pwmdma.c: In function 'is_busy2':
+../src/pwmdma.c:123:12: error: invalid type argument of '->' (have 'DMA_Channel_TypeDef {aka struct <anonymous>}')
+  return dma->CCR & 1;
+            ^~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from ../src/pwmdma.c:1:
+../src/pwmdma.c: In function 'is_busy':
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:727:29: error: incompatible type for argument 1 of 'is_busy2'
+ #define DMA1_Channel2       ((DMA_Channel_TypeDef *) DMA1_Channel2_BASE)
+                             ^
+../src/pwmdma.c:127:18: note: in expansion of macro 'DMA1_Channel2'
+  return is_busy2(DMA1_Channel2);
+                  ^~~~~~~~~~~~~
+../src/pwmdma.c:122:6: note: expected 'DMA_Channel_TypeDef {aka struct <anonymous>}' but argument is of type 'DMA_Channel_TypeDef * {aka struct <anonymous> *}'
+ bool is_busy2(DMA_Channel_TypeDef dma) {
+      ^~~~~~~~
+make: *** [src/subdir.mk:35: src/pwmdma.o] Fout 1
+14:52:29 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init2':
+../src/pwmdma.c:45:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+            ^
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:100:12: warning: passing argument 1 of 'pwm_init2' makes pointer from integer without a cast [-Wint-conversion]
+  pwm_init2(DMA1_Channel2_IRQn,TIM2);
+            ^~~~~~~~~~~~~~~~~~
+../src/pwmdma.c:43:6: note: expected 'DMA_Channel_TypeDef * {aka struct <anonymous> *}' but argument is of type 'int'
+ void pwm_init2(DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~
+../src/pwmdma.c: In function 'start_dma_transer2':
+../src/pwmdma.c:112:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CMAR = memory;
+            ^
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  23664	   1260	  17052	  41976	   a3f8	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+14:52:59 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init2':
+../src/pwmdma.c:45:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CPAR = &(tim->DMAR); // DMA 1 Channel 2 to tim
+            ^
+../src/pwmdma.c: In function 'start_dma_transer2':
+../src/pwmdma.c:112:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  dma->CMAR = memory;
+            ^
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  23668	   1260	  17052	  41980	   a3fc	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+14:53:19 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  23668	   1260	  17052	  41980	   a3fc	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+14:53:29 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  23668	   1260	  17052	  41980	   a3fc	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
