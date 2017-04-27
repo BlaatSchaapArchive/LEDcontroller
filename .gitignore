@@ -1,2 +1,6 @@
 stm32f103/Debug/
 .metadata/.plugins/org.eclipse.core.resources/.history/
+.metadata/.plugins/org.eclipse.cdt.core/.log
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
