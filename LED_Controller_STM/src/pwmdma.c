@@ -9,18 +9,19 @@
 extern bool buffer_state[];
 extern bool timer_state[];
 
-extern uint8_t data_c0[3072*4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+extern uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
 extern uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
-
 
 void pins_init() {
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	// Enable Timer 2 Clock
-	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_TIM2_CLK_ENABLE()
+	;
 
 	// Enable GPIO Port A Clock
-	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE()
+	;
 
 	// Common configuration for all channels
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -55,7 +56,8 @@ void pins_init() {
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 	// Enable GPIO Port B Clock
-	__HAL_RCC_GPIOB_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE()
+	;
 
 	// Apply pin configuration to PB0
 	GPIO_InitStruct.Pin = GPIO_PIN_0;
@@ -68,7 +70,7 @@ void pins_init() {
 }
 
 void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
-	dma->CPAR = (uint32_t)&(tim->DMAR); // Link DMA channel to timer
+	dma->CPAR = (uint32_t) &(tim->DMAR); // Link DMA channel to timer
 
 	dma->CCR = 0x00;
 	dma->CCR |= (0x01 << DMA_CCR_PSIZE_Pos); // Peripheral size 16 bit
@@ -100,10 +102,10 @@ void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 	tim->CCMR2 |= (0b110 << TIM_CCMR2_OC3M_Pos); // pwm mode 1
 	tim->CCMR2 |= (0b110 << TIM_CCMR2_OC4M_Pos); // pwm mode 1
 
-	tim->CCMR1 |= TIM_CCMR1_OC1PE;//(1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
-	tim->CCMR1 |= TIM_CCMR1_OC2PE;//(1 << TIM_CCMR1_OC2PE_Pos); // output compare preload enable
+	tim->CCMR1 |= TIM_CCMR1_OC1PE; //(1 << TIM_CCMR1_OC1PE_Pos); // output compare preload enable
+	tim->CCMR1 |= TIM_CCMR1_OC2PE; //(1 << TIM_CCMR1_OC2PE_Pos); // output compare preload enable
 
-	tim->CCMR2 |= TIM_CCMR2_OC3PE;//(1 << TIM_CCMR2_OC3PE_Pos); // output compare preload enable
+	tim->CCMR2 |= TIM_CCMR2_OC3PE; //(1 << TIM_CCMR2_OC3PE_Pos); // output compare preload enable
 	tim->CCMR2 |= TIM_CCMR2_OC4PE; //(1 << TIM_CCMR2_OC4PE_Pos); // output compare preload enable
 
 	// This I forgot
@@ -118,25 +120,36 @@ void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 
 }
 
-
-void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
+void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+		TIM_TypeDef *tim) {
 
 	DisableInterrupts;
-	switch ((uint32_t)tim) {
-	case (uint32_t)TIM2:
-		timer_state[0] = true;
-		break;
-	case (uint32_t)TIM3:
-		timer_state[1] = true;
-		break;
-	case (uint32_t)TIM4:
-		timer_state[2] = true;
-	}
+	buffer_state[0] = true;
 	EnableInterrupts;
+
+	switch ((uint32_t) tim) {
+	case (uint32_t) TIM2:
+		if (timer_state[0]) {
+			return; // BUSY // TODO GENERATE ERROR MESSAGE
+		} else
+			timer_state[0] = true;
+		break;
+	case (uint32_t) TIM3:
+		if (timer_state[1]) {
+			return; // BUSY // TODO GENERATE ERROR MESSAGE
+		} else
+			timer_state[1] = true;
+		break;
+	case (uint32_t) TIM4:
+		if (timer_state[2]) {
+			return; // BUSY // TODO GENERATE ERROR MESSAGE
+		} else
+			timer_state[2] = true;
+	}
 
 	tim->DIER = TIM_DIER_UDE; // Update DMA Request Enable
 	dma->CNDTR = size;
-	dma->CMAR = (uint32_t)memory;
+	dma->CMAR = (uint32_t) memory;
 	tim->CCMR1 |= 1; // enable timer
 	dma->CCR |= 1; // Enable DMA
 	tim->EGR = TIM_EGR_UG; // Trigger update event, starting the transfer
@@ -144,7 +157,6 @@ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma, TIM
 void start_dma_transer(char* memory, size_t size) {
 	start_dma_transer2(memory, size, DMA1_Channel2, TIM2);
 }
-
 
 void pwm_init() {
 
@@ -175,19 +187,19 @@ void pwm_init() {
 	NVIC_ClearPendingIRQ(TIM3_IRQn);
 	NVIC_EnableIRQ(TIM3_IRQn);
 
-	memset(data_c0,2,sizeof(data_c0));
+	memset(data_c0, 2, sizeof(data_c0));
 	start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel2, TIM2);
 	start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel3, TIM3);
 
 }
-
 
 bool is_busy2(DMA_Channel_TypeDef *dma) {
 	return dma->CCR & 1;
 }
 
 bool is_busy() {
-	return is_busy2(DMA1_Channel2);
+	return buffer_state[0];
+	//return is_busy2(DMA1_Channel2);
 	//return DMA1_Channel2->CCR & 1;
 }
 
@@ -203,8 +215,11 @@ void DMA1_Channel2_IRQHandler(void) {
 
 	TIM2->RCR = 32; // Keep reset time for 32 bits (RGBW)
 	TIM2->DIER = TIM_DIER_UIE; // Update Interrupt Enable
-}
 
+	DisableInterrupts;
+	buffer_state[0] = false;
+	EnableInterrupts;
+}
 
 void DMA1_Channel3_IRQHandler(void) {
 	DMA1->IFCR = DMA1->ISR;
@@ -219,6 +234,10 @@ void DMA1_Channel3_IRQHandler(void) {
 	TIM3->RCR = 32; // Keep reset time for 32 bits (RGBW)
 	TIM3->DIER = TIM_DIER_UIE; // Update Interrupt Enable
 
+	DisableInterrupts;
+	buffer_state[0] = false;
+	EnableInterrupts;
+
 }
 
 void DMA1_Channel7_IRQHandler(void) {
@@ -231,25 +250,23 @@ void DMA1_Channel7_IRQHandler(void) {
 	TIM4->CCR3 = 0;
 	TIM4->CCR4 = 0;
 
+	DisableInterrupts;
+	buffer_state[0] = false;
+	EnableInterrupts;
+
 }
 
-
 void TIM2_IRQHandler(void) {
-	DisableInterrupts;
 	timer_state[0] = false;
-	EnableInterrupts;
 	TIM2->DIER = 0;
 }
 
 void TIM3_IRQHandler(void) {
-	DisableInterrupts;
 	timer_state[1] = false;
-	EnableInterrupts;
-	TIM2->DIER = 0;
+	TIM3->DIER = 0;
 }
 
 void TIM4_IRQHandler(void) {
-	DisableInterrupts;
-	timer_state[3] = false;
-	EnableInterrupts;
+	timer_state[2] = false;
+	TIM4->DIER = 0;
 }

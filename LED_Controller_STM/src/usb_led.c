@@ -14,6 +14,9 @@
 #include "usbd_core.h"
 
 
+extern USBD_HandleTypeDef USBD_Device;
+extern uint8_t data_usb_tx[64];
+
 uint8_t data_c0[3072*4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
 uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 
@@ -86,6 +89,13 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 
 
 		break;
+	}
+	case CMD_BUFFER_STATE: {
+		// we need to reply something.....
+		/// implement this
+		data_usb_tx[0] = CMD_BUFFER_STATE;
+		data_usb_tx[1] = is_busy();
+		USBD_LED_TransmitPacket(&USBD_Device);
 	}
 	default:
 		break;

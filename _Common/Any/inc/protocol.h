@@ -16,6 +16,7 @@ enum {
 
 	CMD_FILL_BUFFER = 0x10,
 	CMD_APPLY_BUFFER = 0x11,
+	CMD_BUFFER_STATE = 0x12,
 };
 
 

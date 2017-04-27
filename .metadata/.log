@@ -4153,3 +4153,15 @@ org.eclipse.core.runtime.AssertionFailedException: null argument:Action must not
 
 !ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 19:15:11.254
 !MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-04-27 20:17:24.614
+!MESSAGE Indexed 'USB_Test' (1 sources, 65 headers) in 0,128 sec: 2.094 declarations; 3.260 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-04-27 20:30:24.623
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 20:31:04.736
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2017-04-27 20:31:04.793
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx

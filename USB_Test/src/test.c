@@ -103,8 +103,13 @@ int main() {
 	rgb_t rgb;
 	int test = 0;
 
-	//
-	while (1) {
+    struct timeval t1, t2;
+    double elapsedTime;
+    gettimeofday(&t1, NULL);
+
+	int test1234 = 0;
+	while (test1234++<75)
+	{
 
 		for (int i = 0; i < 60; i++) {
 
@@ -189,10 +194,28 @@ int main() {
 				1000);
 		verify_data(data_to_transmit);
 
+		data_to_transmit[0]= 0x12;
+		data_to_transmit[1]= 0xFF;
+		res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
+
+		while (!res && data_to_transmit[1]) {
+			res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
+			if (res) printf("Error %s while requesting status\n",libusb_strerror(res));
+			res= libusb_bulk_transfer 	( handle, 0x81, data_to_transmit, 64,	&transferred, 1000 ) 	;
+			if (res) printf("Error %s while retrieving status\n",libusb_strerror(res));
+		}
+
+
 
 //
 	}
 //
+
+	gettimeofday(&t2, NULL);
+
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+    printf ( "%f ms  / %f fps\n" ,elapsedTime, (1000 / elapsedTime)*75);
 
 
 	/* Release interface #0. */
