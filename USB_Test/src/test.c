@@ -108,7 +108,7 @@ int main() {
     gettimeofday(&t1, NULL);
 
 	int test1234 = 0;
-	while (test1234++<75)
+	while(1)//while (test1234++<75)
 	{
 
 		for (int i = 0; i < 60; i++) {
@@ -198,13 +198,14 @@ int main() {
 		data_to_transmit[1]= 0xFF;
 		res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
 
+		/*
 		while (!res && data_to_transmit[1]) {
 			res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
 			if (res) printf("Error %s while requesting status\n",libusb_strerror(res));
 			res= libusb_bulk_transfer 	( handle, 0x81, data_to_transmit, 64,	&transferred, 1000 ) 	;
 			if (res) printf("Error %s while retrieving status\n",libusb_strerror(res));
 		}
-
+		*/
 
 
 //
