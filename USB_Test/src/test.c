@@ -6,31 +6,16 @@
 
 #include "libusb.h"
 
-#include "permutations.h"
+#include "colour.h"
 
-/*
-
- int libusb_bulk_transfer 	( 	struct libusb_device_handle *  	dev_handle,
- unsigned char  	endpoint,
- unsigned char *  	data,
- int  	length,
- int *  	transferred,
- unsigned int  	timeout
- )
- */
-
+// network stuff
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 libusb_device_handle* handle = 0; /* handle for USB device */
-
-
-#pragma pack(push,1) // byte alignment
-typedef struct {
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-} rgb_t;
-#pragma pack(pop) // alignment whatever it was
-
 
 // https://blog.adafruit.com/2012/03/14/constant-brightness-hsb-to-rgb-algorithm/
 void hsb2rgbAN2(uint16_t index, uint8_t sat, uint8_t bright, rgb_t* color) {
@@ -57,7 +42,6 @@ void verify_data(uint8_t *data) {
 
 }
 
-
 bool is_supported_device(libusb_device_handle *handle) {
 
 	libusb_device *dev = libusb_get_device(handle);
@@ -70,31 +54,35 @@ bool is_supported_device(libusb_device_handle *handle) {
 		return false;
 	}
 
-	retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer, string, sizeof(string));
+	retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
+			string, sizeof(string));
 	printf("Got %s\n", string);
 
-	if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+	if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+		return false;
 
-	retval = libusb_get_string_descriptor_ascii(handle, desc.iProduct, string, sizeof(string));
+	retval = libusb_get_string_descriptor_ascii(handle, desc.iProduct, string,
+			sizeof(string));
 	printf("Got %s\n", string);
 
 	uint8_t cmpName[256];
 	for (int i = 0; i < 0xff; i++) {
-		sprintf(cmpName,"LED Controller (variant %02x)",i);
-		if (!strcmp(cmpName,string)) return true;
+		sprintf(cmpName, "LED Controller (variant %02x)", i);
+		if (!strcmp(cmpName, string))
+			return true;
 	}
 
 	return false;
 
 }
 
-
 void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) {
-	if (permutation == rgb) return;
+	if (permutation == rgb)
+		return;
 
 	rgb_t data_orig[size];
 	memcpy(data_orig, data, sizeof(data_orig));
-	for (int i = 0 ; i < size; i++) {
+	for (int i = 0; i < size; i++) {
 		switch (permutation) {
 		case rbg:
 			data[i].r = data_orig[i].r;
@@ -127,41 +115,37 @@ void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) 
 
 }
 
-
-void send_rgb(rgb_t* data, size_t size, int offset) {
+void send_rgb(rgb_t* data, size_t size, int offset, int channel) {
 	// test compressed protocol
-	permute_rgb_data(data,size,grb);
+	permute_rgb_data(data, size, grb);
 	char data_to_transmit[64];
 	data_to_transmit[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
-	data_to_transmit[1] = 0x00;  // TARGET CHANNEL 0
-	data_to_transmit[2] = offset;// offset in leds
+	data_to_transmit[1] = channel;  // TARGET CHANNEL 0
+	data_to_transmit[2] = offset;  // offset in leds
 	data_to_transmit[3] = 20; // 20 LEDS per packet
 	int res = 0;
-	int to_go  = size;
+	int to_go = size;
 	int transferred;
 	rgb_t *rgb_data = (rgb_t *) data;
 	while (to_go > 20) {
-		memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset, 60);
-		to_go -= 60;
-		//offset += 60;
-		data_to_transmit[2] += 20;
+		memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset,
+				60);
+		to_go -= 20;
 		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
 				&transferred, 1000);
+		data_to_transmit[2] += 20;
 	}
 	data_to_transmit[3] = to_go;
-	memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset, to_go * sizeof (rgb_t));
-	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
-					&transferred, 1000);
-
+	memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset,
+			to_go * sizeof(rgb_t));
+	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+			1000);
 
 	// Transmit remaining leds
-
 
 	data_to_transmit[0] = 0x11; // APPLY BUFFER
 	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
 			1000);
-
-
 
 }
 
@@ -189,13 +173,9 @@ int main() {
 		return 1;
 	}
 
-
 	bool mayContinue = is_supported_device(handle);
 
 	printf("May we continue: %d\n", mayContinue);
-
-
-
 
 	/* Check whether a kernel driver is attached to interface #0. If so, we'll
 	 * need to detach it.
@@ -228,35 +208,114 @@ int main() {
 	rgb_t rgb;
 	int test = 0;
 
-    struct timeval t1, t2;
-    double elapsedTime;
-    gettimeofday(&t1, NULL);
+	struct timeval t1, t2;
+	double elapsedTime;
+	gettimeofday(&t1, NULL);
 
-	int test1234 = 0;
-
-
-	//while (1)
+	// now we should so dome server stuff
 	{
-		rgb_t rgb_data[20];
-		rgb_data[0].r=0xff;
 
-		rgb_data[1].g=0xff;
+#define BUFSIZE 1024
 
-		rgb_data[2].b=0xff;
+		int parentfd; /* parent socket */
+		int childfd; /* child socket */
+		int portno; /* port to listen on */
+		int clientlen; /* byte size of client's address */
+		struct sockaddr_in serveraddr; /* server's addr */
+		struct sockaddr_in clientaddr; /* client addr */
+		struct hostent *hostp; /* client host info */
+		uint8_t buf[BUFSIZE]; /* message buffer */
+		char *hostaddrp; /* dotted decimal host addr string */
+		int optval; /* flag value for setsockopt */
+		int n; /* message byte size */
 
-		send_rgb(rgb_data,4, 0);
+		/*
+		 * socket: create the parent socket
+		 */
+		parentfd = socket(AF_INET, SOCK_STREAM, 0);
+		if (parentfd < 0)
+			error("ERROR opening socket");
 
+		bzero((char *) &serveraddr, sizeof(serveraddr));
+
+		/* this is an Internet address */
+		serveraddr.sin_family = AF_INET;
+
+		/* let the system figure out our IP address */
+		serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+		/* this is the port we will listen on */
+		serveraddr.sin_port = htons(7890);
+
+		if (bind(parentfd, (struct sockaddr *) &serveraddr, sizeof(serveraddr))
+				< 0)
+			error("ERROR on binding");
+
+		/*
+		 * listen: make this socket ready to accept connection requests
+		 */
+		if (listen(parentfd, 5) < 0) /* allow 5 requests to queue up */
+			error("ERROR on listen");
+
+		/*
+		 * main loop: wait for a connection request, echo input line,
+		 * then close connection.
+		 */
+		clientlen = sizeof(clientaddr);
+		while (1) {
+
+			/*
+			 * accept: wait for a connection request
+			 */
+			childfd = accept(parentfd, (struct sockaddr *) &clientaddr,
+					&clientlen);
+			if (childfd < 0)
+				error("ERROR on accept");
+
+			/*
+			 * gethostbyaddr: determine who sent the message
+			 */
+			hostp = gethostbyaddr((const char *) &clientaddr.sin_addr.s_addr,
+					sizeof(clientaddr.sin_addr.s_addr), AF_INET);
+			if (hostp == NULL)
+				error("ERROR on gethostbyaddr");
+			hostaddrp = inet_ntoa(clientaddr.sin_addr);
+			if (hostaddrp == NULL)
+				error("ERROR on inet_ntoa\n");
+			printf("server established connection with %s (%s)\n",
+					hostp->h_name, hostaddrp);
+
+			while (1) { // test, should be while connected, but eventually in a thread
+				/*
+				 * read: read input string from the client
+				 */
+				bzero(buf, BUFSIZE);
+				n = read(childfd, buf, BUFSIZE);
+				if (n < 0)
+					error("ERROR reading from socket");
+
+				// ok, we should have the data in buf,
+				// let's decode and process it
+				uint8_t channel = buf[0];
+				uint8_t command = buf[1];
+				uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+				if (command == 0) {
+					rgb_t* data = (rgb_t*) (buf + 4);
+					send_rgb(data, size, 0, channel);
+				}
+			}
+
+			//close(childfd);
+		}
 
 	}
-
 //
 
 	gettimeofday(&t2, NULL);
 
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
-    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
-    printf ( "%f ms  / %f fps\n" ,elapsedTime, (1000 / elapsedTime)*75);
-
+	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+	printf("%f ms  / %f fps\n", elapsedTime, (1000 / elapsedTime));
 
 	/* Release interface #0. */
 	res = libusb_release_interface(handle, 0);

@@ -1,11 +1,11 @@
-12:07:29 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+12:59:34 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
 make all 
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
    text	   data	    bss	    dec	    hex	filename
-  24048	    204	  17060	  41312	   a160	LED_Controller_STM.elf
+  24352	    204	  17060	  41616	   a290	LED_Controller_STM.elf
 Finished building: LED_Controller_STM.siz
  
 
-12:07:30 Build Finished (took 84ms)
+12:59:34 Build Finished (took 85ms)
 

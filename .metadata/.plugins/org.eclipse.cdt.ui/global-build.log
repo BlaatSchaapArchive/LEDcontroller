@@ -3848,3 +3848,895 @@ Invoking: GCC C++ Linker
 g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
 Finished building target: USB_Test
  
+12:35:03 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:128:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:136:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:137:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:179:1: error: expected declaration or statement at end of input
+ ;
+ ^
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+12:35:20 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:128:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:136:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:137:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24352	    204	  17060	  41616	   a290	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:37:57 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c:9:26: fatale fout: permutations.h: Bestand of map bestaat niet
+ #include "permutations.h"
+                          ^
+compilatie is beëindigd.
+make: *** [src/subdir.mk:20: src/test.o] Fout 1
+12:38:14 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:59:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:66:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName,"LED Controller (variant %02x)",i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:67:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:67:23: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+                       ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:81:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:131:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:136:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:122:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:232:4: fout: te weinig argumenten voor functie ‘send_rgb’
+    send_rgb(rgb_data,20, i);
+    ^~~~~~~~
+../src/test.c:114:6: note: declared here
+ void send_rgb(rgb_t* data, size_t size, int offset, int channel) {
+      ^~~~~~~~
+../src/test.c:218:6: let op: unused variable ‘test1234’ [-Wunused-variable]
+  int test1234 = 0;
+      ^~~~~~~~
+../src/test.c:212:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:211:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:210:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:209:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:156:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:155:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+make: *** [src/subdir.mk:20: src/test.o] Fout 1
+12:38:32 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:59:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:66:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName,"LED Controller (variant %02x)",i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:67:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:67:23: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+                       ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:81:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:131:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:136:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:122:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:218:6: let op: unused variable ‘test1234’ [-Wunused-variable]
+  int test1234 = 0;
+      ^~~~~~~~
+../src/test.c:212:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:211:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:210:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:209:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:156:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:155:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:39:04 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:59:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:66:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName,"LED Controller (variant %02x)",i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:67:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:67:23: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+                       ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:81:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:131:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:136:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:122:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:218:6: let op: unused variable ‘test1234’ [-Wunused-variable]
+  int test1234 = 0;
+      ^~~~~~~~
+../src/test.c:212:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:211:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:210:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:209:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:156:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:155:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:39:10 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:40:06 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:59:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:66:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName,"LED Controller (variant %02x)",i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:67:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:67:23: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName,string)) return true;
+                       ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:81:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:131:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:136:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:122:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:218:6: let op: unused variable ‘test1234’ [-Wunused-variable]
+  int test1234 = 0;
+      ^~~~~~~~
+../src/test.c:212:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:211:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:210:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:209:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:156:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:155:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:40:08 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:51:46 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:139:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:145:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:151:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:129:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:242:7: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+       error("ERROR opening socket");
+       ^~~~~
+../src/test.c:276:68: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+        childfd = accept(parentfd, (struct sockaddr *) &clientaddr, &clientlen);
+                                                                    ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:13:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:297:12: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+        n = read(childfd, buf, BUFSIZE);
+            ^~~~
+../src/test.c:312:8: let op: impliciete declaratie van functie ‘close’ [-Wimplicit-function-declaration]
+        close(childfd);
+        ^~~~~
+../src/test.c:233:9: let op: unused variable ‘optval’ [-Wunused-variable]
+     int optval; /* flag value for setsockopt */
+         ^~~~~~
+../src/test.c:226:9: let op: unused variable ‘portno’ [-Wunused-variable]
+     int portno; /* port to listen on */
+         ^~~~~~
+../src/test.c:213:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:212:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:211:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:210:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:161:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:160:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:53:45 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:61:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:70:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:71:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:71:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:86:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:136:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:142:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:148:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:126:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:238:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:272:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:294:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:230:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:223:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:210:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:209:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:208:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:207:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:158:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:157:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:54:32 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:56:38 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:61:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:70:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:71:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:71:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:86:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:136:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:142:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:148:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:126:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:238:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:272:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:294:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:230:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:223:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:210:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:209:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:208:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:207:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:158:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:157:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+12:59:34 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24352	    204	  17060	  41616	   a290	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:59:43 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+13:03:26 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:61:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:70:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:71:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:71:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:86:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:134:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:141:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:147:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:126:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:237:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:271:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:293:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:229:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:222:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:209:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:208:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:207:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:206:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:157:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:156:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 

@@ -26,7 +26,9 @@ static int channels_per_timer = 4;
 static int pwm_val_0 = 2;
 static int pwm_val_1 = 6;
 
-bool set_pixel3(int led_nr, int channel_nr, int colour_index, int byteval) {
+
+
+bool set_led3(int led_nr, int channel_nr, int colour_index, int byteval) {
 	int bits_per_led = 3 * bits_per_colour;
 	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
 		int mask = 1 << bit_nr;
@@ -43,7 +45,7 @@ bool set_pixel3(int led_nr, int channel_nr, int colour_index, int byteval) {
 }
 
 
-bool set_pixel4(int led_nr, int channel_nr, int colour_index, int byteval) {
+bool set_led4(int led_nr, int channel_nr, int colour_index, int byteval) {
 	int bits_per_led = 4 * bits_per_colour;
 	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
 		int mask = 1 << bit_nr;
@@ -86,7 +88,7 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		break;
 	case CMD_CONFIG:
 		break;
-	case CMD_FILL_BUFFER: {
+	case CMD_FILL_BUF_RAW: {
 		uint8_t target = *(uint8_t*) (buffer + 1);
 		uint16_t offset = *(uint16_t*) (buffer + 2);
 		uint8_t amount = *(uint8_t*) (buffer + 4);
@@ -139,12 +141,32 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		uint8_t target = buffer[1];
 		uint8_t offset = buffer[2];
 		uint8_t amount = buffer[3];
+
+		if (target >= 4) break; // invalid channel id
+
+		// buffers are verified in set_ledl* thus offset/amount
+		// do not require verification
 		int b = 4;
 		for (int i = 0; i < amount; i++) {
 			for (int colour = 0; colour < 3; colour++)
-				set_pixel3(offset + i, target, colour, buffer[b++]);
+				set_led3(offset + i, target, colour, buffer[b++]);
 		}
 		break;
+	case CMD_FILL_BUFFER4: {
+		uint8_t target = buffer[1];
+		uint8_t offset = buffer[2];
+		uint8_t amount = buffer[3];
+
+		if (target >= 4) break; // invalid channel id
+
+		// offset and amount are verified in set_pixel4
+		int b = 4;
+		for (int i = 0; i < amount; i++) {
+			for (int colour = 0; colour < 4; colour++)
+				set_led4(offset + i, target, colour, buffer[b++]);
+		}
+		break;
+	}
 	}
 	default:
 		break;
