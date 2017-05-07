@@ -48,6 +48,38 @@ void verify_data(uint8_t *data) {
 
 }
 
+
+bool is_supported_device(libusb_device_handle *handle) {
+
+	libusb_device *dev = libusb_get_device(handle);
+	struct libusb_device_descriptor desc;
+	uint8_t string[256];
+	int retval;
+	retval = libusb_get_device_descriptor(dev, &desc);
+	if (retval < 0) {
+		fprintf(stderr, "failed to get device descriptor");
+		return false;
+	}
+
+	retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer, string, sizeof(string));
+	printf("Got %s\n", string);
+
+	if (strcmp("The IT Philosoher (https://www.philosopher.it)", string)) return false;
+
+	retval = libusb_get_string_descriptor_ascii(handle, desc.iProduct, string, sizeof(string));
+	printf("Got %s\n", string);
+
+	uint8_t cmpName[256];
+	for (int i = 0; i < 0xff; i++) {
+		sprintf(cmpName,"LED Controller (variant %02x)",i);
+		if (!strcmp(cmpName,string)) return true;
+	}
+
+	return false;
+
+}
+
+
 int main() {
 	int res = 0; /* return codes from libusb functions */
 	libusb_device_handle* handle = 0; /* handle for USB device */
@@ -71,6 +103,14 @@ int main() {
 		fprintf(stderr, "Unable to open device.\n");
 		return 1;
 	}
+
+
+	bool mayContinue = is_supported_device(handle);
+
+	printf("May we continue: %d\n", mayContinue);
+
+
+
 
 	/* Check whether a kernel driver is attached to interface #0. If so, we'll
 	 * need to detach it.
@@ -108,7 +148,7 @@ int main() {
     gettimeofday(&t1, NULL);
 
 	int test1234 = 0;
-	while(1)//while (test1234++<75)
+	while(0)//while (test1234++<75)
 	{
 
 		for (int i = 0; i < 60; i++) {
@@ -210,6 +250,61 @@ int main() {
 
 //
 	}
+
+	//while (1)
+	{
+		// test compressed protocol
+		char data_to_transmit[64];
+		data_to_transmit[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+		data_to_transmit[1] = 0x00;  // TARGET CHANNEL 0
+		uint16_t *offset;
+		offset = (uint16_t*) (data_to_transmit + 2);
+		*offset = 0;
+		data_to_transmit[4] = 64 - 5;
+
+		data_to_transmit[5] = 0xff;
+		data_to_transmit[6] = 0x00;
+		data_to_transmit[7] = 0x00;
+
+
+
+		data_to_transmit[8] = 0x00;
+		data_to_transmit[9] = 0xFF;
+		data_to_transmit[10] = 0x00;
+
+		data_to_transmit[11] = 0x00;
+		data_to_transmit[12] = 0x00;
+		data_to_transmit[13] = 0xFF;
+
+
+		data_to_transmit[14] = 0xFF;
+		data_to_transmit[15] = 0xFF;
+		data_to_transmit[16] = 0x00;
+
+		data_to_transmit[17] = 0xFF;
+		data_to_transmit[18] = 0x00;
+		data_to_transmit[19] = 0xFF;
+
+		data_to_transmit[20] = 0x00;
+		data_to_transmit[21] = 0xFF;
+		data_to_transmit[22] = 0xFF;
+
+		memset(data_to_transmit+23, 0xFF, 63-23);
+
+		int transferred;
+		int res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+				&transferred, 1000);
+
+
+		data_to_transmit[0] = 0x11; // APPLY BUFFER
+		//printf("Apply\n");
+		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+				1000);
+
+
+
+	}
+
 //
 
 	gettimeofday(&t2, NULL);
