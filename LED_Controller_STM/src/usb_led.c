@@ -20,14 +20,17 @@ uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 bool buffer_state[2] = { false, false };
 bool timer_state[3] = { false, false, false };
 
-static int bits_per_led = 24;
+
 static int bits_per_colour = 8;
 static int channels_per_timer = 4;
+static int pwm_val_0 = 2;
+static int pwm_val_1 = 6;
 
-bool set_pixel(int led_nr, int channel_nr, int colour_index, int byteval) {
+bool set_pixel3(int led_nr, int channel_nr, int colour_index, int byteval) {
+	int bits_per_led = 3 * bits_per_colour;
 	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
 		int mask = 1 << bit_nr;
-		uint8_t val = (byteval & mask) ? 6 : 2;
+		uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
 		uint32_t index = (led_nr * bits_per_led * channels_per_timer)
 				+ (((bits_per_colour - 1) - bit_nr) * channels_per_timer)
 				+ channel_nr
@@ -38,6 +41,27 @@ bool set_pixel(int led_nr, int channel_nr, int colour_index, int byteval) {
 	}
 	return true;
 }
+
+
+bool set_pixel4(int led_nr, int channel_nr, int colour_index, int byteval) {
+	int bits_per_led = 4 * bits_per_colour;
+	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
+		int mask = 1 << bit_nr;
+		uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
+		uint32_t index = (led_nr * bits_per_led * channels_per_timer)
+				+ (((bits_per_colour - 1) - bit_nr) * channels_per_timer)
+				+ channel_nr
+				+ ((colour_index * bits_per_colour) * channels_per_timer);
+		if (index > sizeof(data_c0))
+			return false;
+		data_c0[index] = val;
+	}
+	return true;
+}
+
+
+
+
 
 int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 
@@ -112,13 +136,13 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		break;
 	}
 	case CMD_FILL_BUFFER3: {
-		uint8_t target = *(uint8_t*) (buffer + 1);
-		uint16_t offset = *(uint16_t*) (buffer + 2);
-		uint8_t amount = *(uint8_t*) (buffer + 4);
-		int b = 5;
-		for (int i = 0; i < (amount / 3); i++) {
+		uint8_t target = buffer[1];
+		uint8_t offset = buffer[2];
+		uint8_t amount = buffer[3];
+		int b = 4;
+		for (int i = 0; i < amount; i++) {
 			for (int colour = 0; colour < 3; colour++)
-				set_pixel(offset + i, target, colour, buffer[b++]);
+				set_pixel3(offset + i, target, colour, buffer[b++]);
 		}
 		break;
 	}

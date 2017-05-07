@@ -6,6 +6,8 @@
 
 #include "libusb.h"
 
+#include "permutations.h"
+
 /*
 
  int libusb_bulk_transfer 	( 	struct libusb_device_handle *  	dev_handle,
@@ -17,11 +19,18 @@
  )
  */
 
+
+libusb_device_handle* handle = 0; /* handle for USB device */
+
+
+#pragma pack(push,1) // byte alignment
 typedef struct {
 	uint8_t r;
 	uint8_t g;
 	uint8_t b;
 } rgb_t;
+#pragma pack(pop) // alignment whatever it was
+
 
 // https://blog.adafruit.com/2012/03/14/constant-brightness-hsb-to-rgb-algorithm/
 void hsb2rgbAN2(uint16_t index, uint8_t sat, uint8_t bright, rgb_t* color) {
@@ -80,9 +89,85 @@ bool is_supported_device(libusb_device_handle *handle) {
 }
 
 
+void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) {
+	if (permutation == rgb) return;
+
+	rgb_t data_orig[size];
+	memcpy(data_orig, data, sizeof(data_orig));
+	for (int i = 0 ; i < size; i++) {
+		switch (permutation) {
+		case rbg:
+			data[i].r = data_orig[i].r;
+			data[i].g = data_orig[i].b;
+			data[i].b = data_orig[i].g;
+			break;
+		case grb:
+			data[i].r = data_orig[i].g;
+			data[i].g = data_orig[i].r;
+			data[i].b = data_orig[i].b;
+			break;
+		case gbr:
+			data[i].r = data_orig[i].g;
+			data[i].g = data_orig[i].b;
+			data[i].b = data_orig[i].r;
+			break;
+		case brg:
+			data[i].r = data_orig[i].b;
+			data[i].g = data_orig[i].r;
+			data[i].b = data_orig[i].g;
+			break;
+		case bgr:
+			data[i].r = data_orig[i].b;
+			data[i].g = data_orig[i].g;
+			data[i].b = data_orig[i].r;
+			break;
+		}
+
+	}
+
+}
+
+
+void send_rgb(rgb_t* data, size_t size, int offset) {
+	// test compressed protocol
+	permute_rgb_data(data,size,grb);
+	char data_to_transmit[64];
+	data_to_transmit[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+	data_to_transmit[1] = 0x00;  // TARGET CHANNEL 0
+	data_to_transmit[2] = offset;// offset in leds
+	data_to_transmit[3] = 20; // 20 LEDS per packet
+	int res = 0;
+	int to_go  = size;
+	int transferred;
+	rgb_t *rgb_data = (rgb_t *) data;
+	while (to_go > 20) {
+		memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset, 60);
+		to_go -= 60;
+		//offset += 60;
+		data_to_transmit[2] += 20;
+		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+				&transferred, 1000);
+	}
+	data_to_transmit[3] = to_go;
+	memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset, to_go * sizeof (rgb_t));
+	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+					&transferred, 1000);
+
+
+	// Transmit remaining leds
+
+
+	data_to_transmit[0] = 0x11; // APPLY BUFFER
+	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+			1000);
+
+
+
+}
+
 int main() {
 	int res = 0; /* return codes from libusb functions */
-	libusb_device_handle* handle = 0; /* handle for USB device */
+
 	int kernelDriverDetached = 0; /* Set to 1 if kernel driver detached */
 	int numBytes = 0; /* Actual bytes transferred. */
 	uint8_t buffer[64]; /* 64 byte transfer buffer */
@@ -148,159 +233,18 @@ int main() {
     gettimeofday(&t1, NULL);
 
 	int test1234 = 0;
-	while(0)//while (test1234++<75)
-	{
 
-		for (int i = 0; i < 60; i++) {
-
-			hsb2rgbAN2(index += 8 % 768, 255, 16, &rgb);
-			//hsb2rgbAN2(index += 8 % 768, 255, 64, &rgb);
-			for (int j = 0; j < 8; j++) {
-				int mask = 1 << j;
-				int valR = rgb.r & mask ? 6 : 2;
-				int valG = rgb.g & mask ? 6 : 2;
-				int valB = rgb.b & mask ? 2 : 2;
-
-				for (int k = 0; k < 4; k++) {
-					// 4 channels
-					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k] = valG;
-					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (8 * 4)] = valR;
-					data_c0[(i * 24 * 4) + ((7 - j) * 4) + k + (16 * 4)] = valB;
-				}
-			}
-		}
-
-		// Test Data to indentify channels
-		int i = 0;
-
-		while (i < (4 * 24)) {
-			data_c0[i + 0] = i < (4 * 8) ? 6 : 2;
-			data_c0[i + 1] = (i < (4 * 16)) && (i > (4 * 8)) ? 6 : 2;
-			data_c0[i + 2] = (i > (4 * 16)) ? 6 : 2;
-			data_c0[i + 3] = 6;
-			i += 4;
-			;
-		}
-
-		int bytes_to_go = 60 * 4 * 24;
-//		printf("Bytes to go %d\n", bytes_to_go);
-		char data_to_transmit[64];
-		data_to_transmit[0] = 0x10; // FILL BUFFER
-		data_to_transmit[1] = 0x00;  // TARGET BUFFER0
-	//  int bytes_done = 0;
-		uint16_t *offset;
-		offset = (uint16_t*) (data_to_transmit + 2);
-		*offset = 0;
-		uint8_t *bytes_of_data = (data_to_transmit + 4);
-		*bytes_of_data = 64 - 5;
-		while (*(data_c0 + *offset) && (bytes_to_go > *bytes_of_data)) {
-			memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
-
-			verify_data(data_to_transmit);
-			int transferred;
-			int res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
-					&transferred, 1000);
-//			printf("Transferred %d Result %d\n", transferred, res);
-			if (res) {
-				printf("%s\n", libusb_strerror(res));
-				break; // breaking out,
-			}
-			*offset += *bytes_of_data; // this goes wrong
-			bytes_to_go -= *bytes_of_data;
-//			printf("Bytes to go %d\n", bytes_to_go);
-
-		}
-
-
-		 if (bytes_to_go) {
-		 //printf("Remaining data\n");
-		 *bytes_of_data = bytes_to_go;
-		 memcpy(data_to_transmit + 5, data_c0 + *offset, *bytes_of_data);
-
-		 verify_data(data_to_transmit);
-		 int transferred;
-		 int res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
-		 //printf("Transferred %d Result %d\n",transferred, res);
-		 if (res) {
-		 //printf("%s\n",libusb_strerror(res));
-		 }
-		 }
-
-
-		int transferred;
-		data_to_transmit[0] = 0x11; // APPLY BUFFER
-		//printf("Apply\n");
-		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
-				1000);
-		verify_data(data_to_transmit);
-
-		data_to_transmit[0]= 0x12;
-		data_to_transmit[1]= 0xFF;
-		res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
-
-		/*
-		while (!res && data_to_transmit[1]) {
-			res= libusb_bulk_transfer 	( handle, 0x01, data_to_transmit, 64,	&transferred, 1000 ) 	;
-			if (res) printf("Error %s while requesting status\n",libusb_strerror(res));
-			res= libusb_bulk_transfer 	( handle, 0x81, data_to_transmit, 64,	&transferred, 1000 ) 	;
-			if (res) printf("Error %s while retrieving status\n",libusb_strerror(res));
-		}
-		*/
-
-
-//
-	}
 
 	//while (1)
 	{
-		// test compressed protocol
-		char data_to_transmit[64];
-		data_to_transmit[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
-		data_to_transmit[1] = 0x00;  // TARGET CHANNEL 0
-		uint16_t *offset;
-		offset = (uint16_t*) (data_to_transmit + 2);
-		*offset = 0;
-		data_to_transmit[4] = 64 - 5;
+		rgb_t rgb_data[20];
+		rgb_data[0].r=0xff;
 
-		data_to_transmit[5] = 0xff;
-		data_to_transmit[6] = 0x00;
-		data_to_transmit[7] = 0x00;
+		rgb_data[1].g=0xff;
 
+		rgb_data[2].b=0xff;
 
-
-		data_to_transmit[8] = 0x00;
-		data_to_transmit[9] = 0xFF;
-		data_to_transmit[10] = 0x00;
-
-		data_to_transmit[11] = 0x00;
-		data_to_transmit[12] = 0x00;
-		data_to_transmit[13] = 0xFF;
-
-
-		data_to_transmit[14] = 0xFF;
-		data_to_transmit[15] = 0xFF;
-		data_to_transmit[16] = 0x00;
-
-		data_to_transmit[17] = 0xFF;
-		data_to_transmit[18] = 0x00;
-		data_to_transmit[19] = 0xFF;
-
-		data_to_transmit[20] = 0x00;
-		data_to_transmit[21] = 0xFF;
-		data_to_transmit[22] = 0xFF;
-
-		memset(data_to_transmit+23, 0xFF, 63-23);
-
-		int transferred;
-		int res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
-				&transferred, 1000);
-
-
-		data_to_transmit[0] = 0x11; // APPLY BUFFER
-		//printf("Apply\n");
-		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
-				1000);
-
+		send_rgb(rgb_data,4, 0);
 
 
 	}
