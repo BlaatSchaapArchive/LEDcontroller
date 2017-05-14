@@ -15,6 +15,9 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+
+#include "protocol.h"
+
 libusb_device_handle* handle = 0; /* handle for USB device */
 
 // https://blog.adafruit.com/2012/03/14/constant-brightness-hsb-to-rgb-algorithm/
@@ -115,39 +118,132 @@ void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) 
 
 }
 
-void send_rgb(rgb_t* data, size_t size, int offset, int channel) {
-	// test compressed protocol
-	permute_rgb_data(data, size, grb);
-	char data_to_transmit[64];
-	data_to_transmit[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
-	data_to_transmit[1] = channel;  // TARGET CHANNEL 0
-	data_to_transmit[2] = offset;  // offset in leds
-	data_to_transmit[3] = 20; // 20 LEDS per packet
-	int res = 0;
-	int to_go = size;
+void send_rgb(rgb_t* data, size_t size, int offset, int channel, int unit, rgb_permurations_t permutation) {
+	// Create a local copy of the data, as we are going to modify the data
+	// using permute_rgb_data. Using a copy, the same data buffer can be re-used.
+	rgb_t rgb_data[size];
+	memcpy(rgb_data, data, sizeof(rgb_data));
+
+	permute_rgb_data(rgb_data, size, permutation);
+
+	char send_buffer[64];
+	send_buffer[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+	send_buffer[1] = channel;  // TARGET CHANNEL 0
+	send_buffer[2] = offset;  // offset in leds
+	send_buffer[3] = 20; // 20 LEDS per packet ( 60 / 3 )
+	int retval = 0;
+	int leds_remaining = size;
 	int transferred;
-	rgb_t *rgb_data = (rgb_t *) data;
-	while (to_go > 20) {
-		memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset,
+	while (leds_remaining > 20) {
+		memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
 				60);
-		to_go -= 20;
-		res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+		leds_remaining -= 20;
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
 				&transferred, 1000);
-		data_to_transmit[2] += 20;
+		send_buffer[2] += 20;
 	}
-	data_to_transmit[3] = to_go;
-	memcpy(data_to_transmit + 4, rgb_data + data_to_transmit[2] - offset,
-			to_go * sizeof(rgb_t));
-	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+	// Transmit remaining leds
+	send_buffer[3] = leds_remaining;
+	memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
+			leds_remaining * sizeof(rgb_t));
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
 			1000);
 
-	// Transmit remaining leds
+	// TODO: buffered mode, separate apply
 
-	data_to_transmit[0] = 0x11; // APPLY BUFFER
-	res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+	send_buffer[0] = 0x11; // APPLY BUFFER
+	send_buffer[1] = 0x00; // BUFFER 0
+	send_buffer[2] = unit; // GENERATOR UNIT
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
 			1000);
 
 }
+
+
+void send_rgb2(rgb_t* data, size_t size, int offset, int channel, int unit, rgb_permurations_t permutation) {
+
+	// todo: implement using command 0x15, send data in bytes, regardless of data layout
+	//
+
+	rgb_t rgb_data[size];
+	memcpy(rgb_data, data, sizeof(rgb_data));
+
+	permute_rgb_data(rgb_data, size, permutation);
+
+	char send_buffer[64];
+	send_buffer[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+	send_buffer[1] = channel;  // TARGET CHANNEL 0
+	send_buffer[2] = offset;  // offset in leds
+	send_buffer[3] = 20; // 20 LEDS per packet ( 60 / 3 )
+	int retval = 0;
+	int leds_remaining = size;
+	int transferred;
+	while (leds_remaining > 20) {
+		memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
+				60);
+		leds_remaining -= 20;
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+				&transferred, 1000);
+		send_buffer[2] += 20;
+	}
+	// Transmit remaining leds
+	send_buffer[3] = leds_remaining;
+	memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
+			leds_remaining * sizeof(rgb_t));
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+			1000);
+
+	// TODO: buffered mode, separate apply
+
+	send_buffer[0] = 0x11; // APPLY BUFFER
+	send_buffer[1] = 0x00; // BUFFER 0
+	send_buffer[2] = unit; // GENERATOR UNIT
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+			1000);
+
+}
+
+
+
+
+
+void send_rgbw(rgbw_t* rgbw_data, size_t size, int offset, int channel, int unit) {
+
+
+	char send_buffer[64];
+	send_buffer[0] = 0x14; // FILL BUFFER, COMPRESSED DATA GRBW
+	send_buffer[1] = channel;  // TARGET CHANNEL 0
+	send_buffer[2] = offset;  // offset in leds
+	send_buffer[3] = 15; // 15 LEDS per packet ( 60 / 4 )
+	int retval = 0;
+	int leds_remaining = size;
+	int transferred;
+	while (leds_remaining > 15) {
+		memcpy(send_buffer + 4, rgbw_data + send_buffer[2] - offset,
+				60);
+		leds_remaining -= 15;
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+				&transferred, 1000);
+		send_buffer[2] += 15;
+	}
+	// Transmit remaining leds
+	send_buffer[3] = leds_remaining;
+	memcpy(send_buffer + 4, rgbw_data + send_buffer[2] - offset,
+			leds_remaining * sizeof(rgbw_t));
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+			1000);
+
+	// TODO: buffered mode, separate apply
+
+	send_buffer[0] = 0x11; // APPLY BUFFER
+	send_buffer[1] = 0x00; // BUFFER 0
+	send_buffer[2] = unit; // GENERATOR UNIT
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+			1000);
+}
+
+
+
 
 int main() {
 	int res = 0; /* return codes from libusb functions */
@@ -202,6 +298,25 @@ int main() {
 // insert message we want to send
 
 	printf("Let's test something!!!\n");
+	{
+	char data_buffer[64];
+	data_buffer[0] = 0x02; // FILL BUFFER, COMPRESSED DATA GRB
+	data_buffer[1] = 0x00; // FILL BUFFER, COMPRESSED DATA GRB
+	int transferred;
+	res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+			1000);
+	res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+				1000);
+
+	// well... this is cheating... I should determine the type by code
+		devinfo_response_t *devinfo = (devinfo_response_t *) (data_buffer);
+		printf( " ARCHITECTURE %02x \n" ,devinfo->info.architecture);
+		printf( " CHIP VENDOR %02x \n" ,devinfo->info.vendor);
+		printf( " CHIP TYOE %04x \n" ,devinfo->info.device);
+
+	}
+
+	//
 
 	uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
 	int index = 0;
@@ -294,15 +409,37 @@ int main() {
 				if (n < 0)
 					error("ERROR reading from socket");
 
+				if (n == 0) {
+					printf("Client Disconnected? \n");
+					break;
+				}
+
 				// ok, we should have the data in buf,
 				// let's decode and process it
 				uint8_t channel = buf[0];
 				uint8_t command = buf[1];
 				uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
 				if (command == 0) {
+					int nr_of_channels = 4; // TODO get this number from device info
+					uint8_t dev_unit =  (channel / nr_of_channels);
+					uint8_t dev_channel =  (channel % nr_of_channels);
+
 					rgb_t* data = (rgb_t*) (buf + 4);
-					send_rgb(data, size, 0, channel);
+					send_rgb(data, size, 0, dev_channel, dev_unit, grb); // TODO make permutation configurable
 				}
+
+
+				// Not standarised extention
+				if (command == 1) {
+					int nr_of_channels = 4; // TODO get this number from device info
+					uint8_t dev_unit =  (channel / nr_of_channels);
+					uint8_t dev_channel =  (channel % nr_of_channels);
+
+					rgbw_t* data = (rgbw_t*) (buf + 4);
+					send_rgbw( data, size, 0, dev_channel, dev_unit);
+				}
+
+
 			}
 
 			//close(childfd);

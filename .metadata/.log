@@ -4809,3 +4809,615 @@ java.io.FileNotFoundException: /home/andre/eclipse/LEDcontroller/USB_Test/Debug/
 
 !ENTRY ilg.gnuarmeclipse.managedbuild.cross 4 1 2017-05-07 12:59:35.133
 !MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.214
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.214
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.214
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@70e2bdef): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.216
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.216
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2017-05-07 15:02:49.216
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@669d8041): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  null children=[]' resulted in a rejected execution exception. null' resulted in a rejected execution exception.
+!SESSION 2017-05-09 20:19:05.961 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 20:48:11.817
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 4,23 sec: 5.760 declarations; 35.291 references; 0 unresolved inclusions; 4 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 20:58:52.009
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 1,74 sec: 5.765 declarations; 35.298 references; 0 unresolved inclusions; 4 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 20:59:54.288
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 1,57 sec: 5.767 declarations; 35.306 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 21:09:30.628
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 1,51 sec: 5.775 declarations; 35.325 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 21:23:10.412
+!MESSAGE Indexed 'USB_Test' (1 sources, 87 headers) in 0,555 sec: 2.860 declarations; 3.959 references; 0 unresolved inclusions; 0 syntax errors; 5 unresolved names (0,073%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-09 21:23:15.298
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 1,75 sec: 5.780 declarations; 35.361 references; 0 unresolved inclusions; 1 syntax errors; 30 unresolved names (0,073%)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-09 21:27:22.007
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-09 21:27:22.008
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:27:46.479
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:27:46.779
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2017-05-09 21:27:58.045
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:137)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2017-05-09 21:27:58.058
+!MESSAGE /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+!STACK 0
+java.io.FileNotFoundException: /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:137)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2017-05-09 21:28:32.251
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:137)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2017-05-09 21:28:32.251
+!MESSAGE /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+!STACK 0
+java.io.FileNotFoundException: /home/andre/eclipse/LEDcontroller/USB_Test/Debug/USB_Test not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:126)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:292)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:137)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:101)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:90)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:33:47.525
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:33:47.568
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-09 21:33:49.506
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-09 21:33:49.506
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:39:03.491
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:39:03.550
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-09 21:39:05.456
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-09 21:39:05.456
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-05-09 21:41:11.012
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:41:21.038
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:41:21.093
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-09 21:41:23.050
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-09 21:41:23.050
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:41:51.494
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-09 21:41:51.539
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+!SESSION 2017-05-10 18:27:03.043 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-10 18:29:17.165
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-10 18:29:17.214
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-10 18:29:23.855
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-10 18:29:24.233
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-10 23:24:05.099
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@26b5316e): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-10 23:24:05.099
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.core.jobs 2 2 2017-05-10 23:24:06.427
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
+!SESSION 2017-05-12 10:23:04.397 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-12 22:15:26.226
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-12 22:15:26.266
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:15:29.838
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-05-12 22:15:30.128
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:17:31.561
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:17:31.639
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:17:34.283
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1785b217): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:17:34.283
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:17:34.287
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:17:34.288
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-05-12 22:21:12.015
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:21:41.871
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@4e5b2ae3): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:21:41.871
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:21:41.879
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:21:41.879
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:23:53.500
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-05-12 22:23:53.543
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:24:06.905
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:24:06.953
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:24:08.964
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@2fe7b9f7): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:24:08.964
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:24:08.969
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:24:08.970
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:24:42.068
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@28554553): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:24:42.069
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:24:42.073
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:24:42.073
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:24:53.705
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@7c097cd3): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:24:53.705
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:24:53.714
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:24:53.714
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:24:56.240
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@ffd01a7): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:24:56.240
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:24:56.244
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:24:56.244
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:25:04.986
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1f80e709): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:04.986
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:25:04.990
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:04.990
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:25:32.939
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@7599202e): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:25:32.939
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:25:32.943
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:32.943
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:25:40.782
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:40.783
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:25:50.322
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@62e28ab0): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:50.322
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:25:50.327
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:25:50.327
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:27:03.608
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:27:03.659
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:27:05.703
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:27:05.703
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:28:58.516
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@7e4dba8a): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:28:58.516
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:28:58.520
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:28:58.520
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:35:28.297
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-12 22:35:28.350
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:35:30.342
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:35:30.342
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:35:36.503
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@10d3333e): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:35:36.504
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-12 22:35:36.506
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-12 22:35:36.506
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-12 22:36:11.459
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@4dbddbf8): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-12 22:36:11.460
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.core.jobs 2 2 2017-05-12 22:36:12.811
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
+!SESSION 2017-05-12 22:36:47.014 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-12 22:37:03.251
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-12 22:37:03.255
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 10:45:07.138
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 10:45:07.218
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 10:45:44.323
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@6c6965c7): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-13 10:45:44.323
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 10:45:44.329
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 10:45:44.329
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 10:50:39.603
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 10:50:39.671
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 10:51:07.410
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 10:51:07.410
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 11:01:59.391
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 11:01:59.438
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:02:01.481
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:02:01.481
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:03:28.279
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@392e2c29): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:03:28.279
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:03:28.284
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:03:28.284
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:05:58.898
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@7a5f2c58): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.898
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:05:58.899
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3c2b2c76): Status ERROR: org.eclipse.cdt.dsf code=10004  null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.899
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:05:58.899
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1bddf062): Status ERROR: org.eclipse.cdt.dsf code=10004  null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.899
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:05:58.900
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7708d8e0): Status ERROR: org.eclipse.cdt.dsf code=10004  null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.900
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-13 11:05:58.900
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@74b617b5): Status ERROR: org.eclipse.cdt.dsf code=10004  null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.900
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:05:58.911
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.911
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-13 11:05:58.912
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 11:06:12.161
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-13 11:06:12.212
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+!SESSION 2017-05-14 17:51:08.470 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-05-14 17:51:16.875
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:54:51.810
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:54:51.854
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:54:51.856
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:54:51.857
+!MESSAGE Unsupported statement type: CASTDefaultStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:55:10.506
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:55:10.507
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:55:10.508
+!MESSAGE Unsupported statement type: CASTCaseStatement.
+
+!ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2017-05-14 17:55:10.508
+!MESSAGE Unsupported statement type: CASTDefaultStatement.
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-05-14 17:58:53.209
+!MESSAGE Indexed 'LED_Controller_STM' (56 sources, 86 headers) in 4,54 sec: 5.780 declarations; 35.460 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-14 18:50:11.109
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-05-14 18:50:11.110
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:53:03.681
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:53:03.916
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:57:16.547
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:57:16.644
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-05-14 18:57:21.833
+!MESSAGE Debug session 'LED_Controller_STM Debug' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:57:53.276
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 18:57:53.364
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:11:08.905
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:11:08.905
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:11:35.874
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:11:35.874
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-14 19:11:35.876
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@10659617): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-14 19:11:35.876
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-14 19:11:35.876
+!MESSAGE Connection is shut down
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 19:12:08.091
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 19:12:08.154
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:12:10.128
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:12:10.128
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-14 19:13:09.821
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@fadc71c): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:13:09.821
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:13:09.826
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:13:09.826
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-14 19:13:27.172
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@2ea840e8): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:13:27.172
+!MESSAGE Interrupt failed.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:13:27.177
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:13:27.177
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-05-14 19:13:29.674
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@349f5373): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-05-14 19:13:29.674
+!MESSAGE Context cannot be suspended.
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:13:29.677
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:13:29.677
+!MESSAGE Invalid breakpoint parameter(s)
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 19:14:14.857
+!MESSAGE /usr/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.openocd 4 1 2017-05-14 19:14:14.934
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10004 2017-05-14 19:14:16.958
+!MESSAGE Invalid breakpoint parameter(s)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2017-05-14 19:14:16.958
+!MESSAGE Invalid breakpoint parameter(s)

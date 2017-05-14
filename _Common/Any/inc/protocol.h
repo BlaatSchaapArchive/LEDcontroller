@@ -20,17 +20,61 @@ enum {
 
 	CMD_FILL_BUFFER3 = 0x13,
 	CMD_FILL_BUFFER4 = 0x14,
+	CMD_FILL_BUFFER  = 0x15,
 };
 
 
+enum {
+	DEVINFO_MCU = 0x10,
+
+	DEVINFO_BUF = 0x11,
+
+
+
+	DEVINFO_LED = 0xA0,
+	DEVINFO_CUR = 0xA1,
+
+
+
+};
+
+
+
+
 typedef struct {
+	uint8_t size;
+	uint8_t type;
 	uint16_t architecture;
 	uint16_t vendor;
 	uint32_t device;
 } devinfo_t;
 
+typedef struct {
+	uint8_t size;
+	uint8_t type;
+	uint8_t channels;
+	uint8_t implementation;
+	uint8_t count;
+	uint8_t buffer;
+} led_dev_t;
 
-// define capabilities?
+typedef struct {
+	uint8_t size;
+	uint8_t type;
+	uint8_t buffer_size;
+	uint8_t shared;
+} buffer_t;
+
+typedef struct {
+	uint8_t command;
+	uint8_t size;
+	devinfo_t info;
+	buffer_t  buf0;
+	buffer_t  buf1;
+	led_dev_t led0;
+	led_dev_t led1;
+
+} devinfo_response_t;
 
 
 enum {
@@ -38,26 +82,22 @@ enum {
 	DEV_LED_C1_CHANNEL = 0x21,
 };
 
+
+// Suppose we could make this different, set some bit masks rather
 enum {
-	C0_TYPE_BB_BW = 0x00,
-	C0_TYPE_BB_TA = 0x01,
-	C0_TYPE_PWM_DMA = 0x10,
-	C0_TYPE_PWM_IT = 0x11,
+	LED_C0_TYPE_UNDEFINED = 0x10,
+	LED_C0_TYPE_SW = 0x11,
+	LED_C0_TYPE_TA = 0x12,
+	LED_C0_TYPE_PWM_DMA = 0x13,
+	LED_C0_TYPE_PWM_IT = 0x14,
+
+	LED_C1_TYPE_UNDEFINED 	= 0x20,
+	LED_C1_TYPE_SW 		= 0x21,
+	LED_C1_TYPE_TA = 0x22,
+	LED_C1_TYPE_SPI   = 0x23,
+	LED_C1_TYPE_USART = 0x24,
 };
 
-enum {
-	C1_TYPE_BB_BW = 0x00,
-	C1_TYPE_BB_TA = 0x01,
-	C1_TYPE_SPI   = 0x20,
-	C1_TYPE_USART   = 0x30,
-};
-
-typedef struct {
-	uint8_t dev_type;
-	uint8_t channels;
-	uint8_t data_width;
-	uint8_t date_interleaved;
-} c0_dev_t;
 
 typedef struct {
 	uint8_t command;

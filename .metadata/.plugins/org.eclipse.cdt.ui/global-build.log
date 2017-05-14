@@ -4740,3 +4740,2459 @@ Invoking: GCC C++ Linker
 g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
 Finished building target: USB_Test
  
+14:32:39 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:37:39 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:38:39 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:53:22 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+15:05:46 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:61:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:70:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:71:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:71:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:86:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:134:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:141:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:147:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:126:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:237:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:271:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:293:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:229:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:222:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:209:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:208:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:207:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:206:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:157:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:156:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+15:05:56 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+15:06:37 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:17:40 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:115:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:120:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:124:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:184:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:192:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:27:22 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+In file included from ../src/usb_led.c:8:0:
+/home/andre/eclipse/LEDcontroller/_Common/Any/inc/protocol.h:44:2: error: unknown type name 'devinfo_t'
+  devinfo_t info;
+  ^~~~~~~~~
+/home/andre/eclipse/LEDcontroller/_Common/Any/inc/protocol.h:45:2: error: unknown type name 'buffer_t'
+  buffer_t  buf0;
+  ^~~~~~~~
+/home/andre/eclipse/LEDcontroller/_Common/Any/inc/protocol.h:46:2: error: unknown type name 'buffer_t'
+  buffer_t  buf1;
+  ^~~~~~~~
+/home/andre/eclipse/LEDcontroller/_Common/Any/inc/protocol.h:47:2: error: unknown type name 'led_dev_t'
+  led_dev_t led0;
+  ^~~~~~~~~
+/home/andre/eclipse/LEDcontroller/_Common/Any/inc/protocol.h:48:2: error: unknown type name 'led_dev_t'
+  led_dev_t led1;
+  ^~~~~~~~~
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:85:10: error: request for member 'size' in something not a structure or union
+   r->info.size = sizeof(devinfo_t);
+          ^
+../src/usb_led.c:86:10: error: request for member 'type' in something not a structure or union
+   r->info.type = DEVINFO_MCU;
+          ^
+../src/usb_led.c:87:10: error: request for member 'architecture' in something not a structure or union
+   r->info.architecture = EM_ARM;
+          ^
+../src/usb_led.c:88:10: error: request for member 'vendor' in something not a structure or union
+   r->info.vendor = VE_STM;
+          ^
+../src/usb_led.c:89:10: error: request for member 'device' in something not a structure or union
+   r->info.device = DBGMCU->IDCODE;
+          ^
+../src/usb_led.c:91:10: error: request for member 'size' in something not a structure or union
+   r->led0.size = sizeof(led_dev_t);
+          ^
+../src/usb_led.c:92:10: error: request for member 'type' in something not a structure or union
+   r->led0.type = DEVINFO_LED;
+          ^
+../src/usb_led.c:93:10: error: request for member 'channels' in something not a structure or union
+   r->led0.channels = 4;
+          ^
+../src/usb_led.c:94:10: error: request for member 'implementation' in something not a structure or union
+   r->led0.implementation = LED_C0_TYPE_PWM_DMA;
+          ^
+../src/usb_led.c:95:10: error: request for member 'count' in something not a structure or union
+   r->led0.count = 2;
+          ^
+../src/usb_led.c:96:10: error: request for member 'buffer' in something not a structure or union
+   r->led0.buffer = 0;
+          ^
+../src/usb_led.c:99:10: error: request for member 'size' in something not a structure or union
+   r->led0.size = sizeof(led_dev_t);
+          ^
+../src/usb_led.c:100:10: error: request for member 'type' in something not a structure or union
+   r->led0.type = DEVINFO_LED;
+          ^
+../src/usb_led.c:101:10: error: request for member 'channels' in something not a structure or union
+   r->led0.channels = 0;
+          ^
+../src/usb_led.c:102:10: error: request for member 'implementation' in something not a structure or union
+   r->led0.implementation = LED_C1_TYPE_UNDEFINED;
+          ^
+../src/usb_led.c:103:10: error: request for member 'count' in something not a structure or union
+   r->led0.count = 0;
+          ^
+../src/usb_led.c:104:10: error: request for member 'buffer' in something not a structure or union
+   r->led0.buffer = 1;
+          ^
+../src/usb_led.c:106:10: error: request for member 'size' in something not a structure or union
+   r->buf0.size = sizeof(buffer_t);
+          ^
+../src/usb_led.c:107:10: error: request for member 'type' in something not a structure or union
+   r->buf0.type = DEVINFO_BUF;
+          ^
+../src/usb_led.c:108:10: error: request for member 'buffer_size' in something not a structure or union
+   r->buf0.buffer_size = sizeof (data_c0);
+          ^
+../src/usb_led.c:109:10: error: request for member 'shared' in something not a structure or union
+   r->buf0.shared = 1;
+          ^
+../src/usb_led.c:111:10: error: request for member 'size' in something not a structure or union
+   r->buf1.size = sizeof(buffer_t);
+          ^
+../src/usb_led.c:112:10: error: request for member 'type' in something not a structure or union
+   r->buf1.type = DEVINFO_BUF;
+          ^
+../src/usb_led.c:113:10: error: request for member 'buffer_size' in something not a structure or union
+   r->buf1.buffer_size = sizeof (data_c1);
+          ^
+../src/usb_led.c:114:10: error: request for member 'shared' in something not a structure or union
+   r->buf1.shared = 1;
+          ^
+../src/usb_led.c:117:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:177:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:185:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+21:27:44 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:108:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:113:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:117:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:177:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:185:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24528	    204	  17060	  41792	   a340	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:27:57 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:137:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:150:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:129:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:213:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:215:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:219:33: fout: expected expression before ‘devinfo_response_t’
+   devinfo_response_t *devinfo = devinfo_response_t * (data_buffer);
+                                 ^~~~~~~~~~~~~~~~~~
+../src/test.c:221:42: fout: ‘devinfo_response_t {aka struct <anoniem>}’ has no member named ‘vendor’
+   printf( " CHIP VENDOR %02x \n" ,devinfo->vendor);
+                                          ^~
+../src/test.c:222:40: fout: ‘devinfo_response_t {aka struct <anoniem>}’ has no member named ‘device’
+   printf( " CHIP TYOE %04x \n" ,devinfo->device);
+                                        ^~
+../src/test.c:259:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:293:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:315:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:251:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:244:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:231:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:230:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:229:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:228:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:160:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:159:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+make: *** [src/subdir.mk:20: src/test.o] Fout 1
+21:28:32 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:137:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:150:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:129:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:213:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:215:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:221:42: fout: ‘devinfo_response_t {aka struct <anoniem>}’ has no member named ‘vendor’
+   printf( " CHIP VENDOR %02x \n" ,devinfo->vendor);
+                                          ^~
+../src/test.c:222:40: fout: ‘devinfo_response_t {aka struct <anoniem>}’ has no member named ‘device’
+   printf( " CHIP TYOE %04x \n" ,devinfo->device);
+                                        ^~
+../src/test.c:259:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:293:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:315:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:251:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:244:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:231:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:230:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:229:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:228:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:160:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:159:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+make: *** [src/subdir.mk:20: src/test.o] Fout 1
+21:29:04 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:137:44: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64,
+                                            ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:144:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 64, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:150:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_to_transmit, 3, &transferred,
+                                           ^~~~~~~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:129:6: let op: variable ‘res’ set but not used [-Wunused-but-set-variable]
+  int res = 0;
+      ^~~
+../src/test.c: In functie ‘main’:
+../src/test.c:213:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:215:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:259:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:293:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:315:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:251:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:244:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:231:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:230:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:229:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:228:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:160:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:159:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+21:29:10 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:30:52 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:33:41 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:33:46 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:108:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:113:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:117:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:177:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:185:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24528	    204	  17060	  41792	   a340	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:33:53 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:39:02 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:108:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:113:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:117:40: warning: passing argument 3 of 'USBD_LL_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   USBD_LL_Transmit(&USBD_Device, 0x81, r, sizeof(devinfo_response_t));
+                                        ^
+In file included from ../src/usb_led.c:12:0:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:133:21: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'devinfo_response_t * {aka struct <anonymous> *}'
+ USBD_StatusTypeDef  USBD_LL_Transmit (USBD_HandleTypeDef *pdev, 
+                     ^~~~~~~~~~~~~~~~
+../src/usb_led.c:179:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:187:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:188:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24536	    204	  17060	  41800	   a348	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:39:15 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:41:20 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:108:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:113:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:120:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:180:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:188:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24528	    204	  17060	  41792	   a340	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:41:27 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:41:51 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24528	    204	  17060	  41792	   a340	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:41:58 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:29:18 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:108:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:113:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:184:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:192:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:193:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+18:29:37 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:31:35 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+20:35:31 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:141:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:149:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:157:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:134:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:178:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:186:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:194:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:171:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:259:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:261:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:305:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:339:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:361:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:378:14: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+      uint8_t dev_channel =  (channel % nr_of_channels);
+              ^~~~~~~~~~~
+../src/test.c:392:15: let op: passing argument 1 of ‘send_rgb’ from incompatible pointer type [-Wincompatible-pointer-types]
+      send_rgb(data, size, 0, dev_unit, dev_unit);
+               ^~~~
+../src/test.c:121:6: note: expected ‘rgb_t * {aka struct <anoniem> *}’ but argument is of type ‘rgbw_t * {aka struct <anoniem> *}’
+ void send_rgb(rgb_t* data, size_t size, int offset, int channel, rgb_permurations_t permutation, int unit) {
+      ^~~~~~~~
+../src/test.c:392:6: fout: te weinig argumenten voor functie ‘send_rgb’
+      send_rgb(data, size, 0, dev_unit, dev_unit);
+      ^~~~~~~~
+../src/test.c:121:6: note: declared here
+ void send_rgb(rgb_t* data, size_t size, int offset, int channel, rgb_permurations_t permutation, int unit) {
+      ^~~~~~~~
+../src/test.c:389:14: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+      uint8_t dev_channel =  (channel % nr_of_channels);
+              ^~~~~~~~~~~
+../src/test.c:297:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:290:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:277:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:276:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:275:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:274:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:206:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:205:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+make: *** [src/subdir.mk:20: src/test.o] Fout 1
+20:38:45 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:141:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:149:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:157:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:134:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:178:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:186:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:194:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:171:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:259:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:261:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:305:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:339:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:361:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:297:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:290:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:277:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:276:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:275:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:274:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:206:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:205:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+20:39:09 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:15:27 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:17:31 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:17:43 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:20:59 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:23:53 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:24:06 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:27:03 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:27:11 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:28:48 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:35:27 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:35:46 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:36:00 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:37:03 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:45:03 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+22:58:47 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:44:49 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:45:03 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:199:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:199:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:199:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:117:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:122:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:193:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:201:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:202:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:45:19 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:45:31 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:46:20 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:47:51 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:50:39 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:50:48 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:51:27 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+10:53:22 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+11:01:31 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+11:01:58 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:199:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:199:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:199:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:117:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:122:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:193:3: warning: implicit declaration of function 'start_dma_transer' [-Wimplicit-function-declaration]
+   start_dma_transer(data_c0, sizeof(data_c0));
+   ^~~~~~~~~~~~~~~~~
+../src/usb_led.c:201:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:202:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+11:03:37 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+11:06:04 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+11:06:11 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24524	    204	  17060	  41788	   a33c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+11:07:03 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:50:12 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:199:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:199:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:199:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:133:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:138:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:210:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:211:5: warning: implicit declaration of function 'start_dma_transer2' [-Wimplicit-function-declaration]
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel2, TIM2);
+     ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:211:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel2, TIM2);
+                                       ^
+../src/usb_led.c:17:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+../src/usb_led.c:215:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel3, TIM3);
+                                       ^
+../src/usb_led.c:17:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+../src/usb_led.c:219:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel7, TIM4);
+                                       ^
+../src/usb_led.c:17:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+../src/usb_led.c:231:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:232:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+18:51:16 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:138:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:143:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:215:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:216:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel2, TIM2);
+                                       ^
+../src/usb_led.c:22:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc/usbd_conf.h:53,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:37,
+                 from ../src/usb_led.c:12:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:696:29: warning: passing argument 3 of 'start_dma_transer2' from incompatible pointer type [-Wincompatible-pointer-types]
+ #define TIM2                ((TIM_TypeDef *) TIM2_BASE)
+                             ^
+../src/usb_led.c:216:64: note: in expansion of macro 'TIM2'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel2, TIM2);
+                                                                ^~~~
+../src/usb_led.c:16:6: note: expected 'DMA_Channel_TypeDef * {aka struct <anonymous> *}' but argument is of type 'TIM_TypeDef * {aka struct <anonymous> *}'
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:216:5: error: too few arguments to function 'start_dma_transer2'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel2, TIM2);
+     ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:16:6: note: declared here
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:220:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel3, TIM3);
+                                       ^
+../src/usb_led.c:22:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc/usbd_conf.h:53,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:37,
+                 from ../src/usb_led.c:12:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:697:29: warning: passing argument 3 of 'start_dma_transer2' from incompatible pointer type [-Wincompatible-pointer-types]
+ #define TIM3                ((TIM_TypeDef *) TIM3_BASE)
+                             ^
+../src/usb_led.c:220:64: note: in expansion of macro 'TIM3'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel3, TIM3);
+                                                                ^~~~
+../src/usb_led.c:16:6: note: expected 'DMA_Channel_TypeDef * {aka struct <anonymous> *}' but argument is of type 'TIM_TypeDef * {aka struct <anonymous> *}'
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:220:5: error: too few arguments to function 'start_dma_transer2'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel3, TIM3);
+     ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:16:6: note: declared here
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:224:39: error: called object 'data_c0' is not a function or function pointer
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel7, TIM4);
+                                       ^
+../src/usb_led.c:22:9: note: declared here
+ uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+         ^~~~~~~
+In file included from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:149:0,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:48,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:47,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg/stm32f1xx_hal_conf.h:150,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:48,
+                 from /home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc/usbd_conf.h:53,
+                 from /home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:37,
+                 from ../src/usb_led.c:12:
+/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:698:29: warning: passing argument 3 of 'start_dma_transer2' from incompatible pointer type [-Wincompatible-pointer-types]
+ #define TIM4                ((TIM_TypeDef *) TIM4_BASE)
+                             ^
+../src/usb_led.c:224:64: note: in expansion of macro 'TIM4'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel7, TIM4);
+                                                                ^~~~
+../src/usb_led.c:16:6: note: expected 'DMA_Channel_TypeDef * {aka struct <anonymous> *}' but argument is of type 'TIM_TypeDef * {aka struct <anonymous> *}'
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:224:5: error: too few arguments to function 'start_dma_transer2'
+     start_dma_transer2(data_c0, sizeof(data_c0) DMA1_Channel7, TIM4);
+     ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:16:6: note: declared here
+ void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
+      ^~~~~~~~~~~~~~~~~~
+../src/usb_led.c:236:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:237:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+18:52:56 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:138:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:143:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:215:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:236:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:237:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket' [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    204	  17060	  42160	   a4b0	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+18:53:01 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    204	  17060	  42160	   a4b0	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+18:53:12 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:184:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:192:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:200:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:177:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:220:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:228:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:236:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:213:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:301:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:303:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:347:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:381:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:403:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:339:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:332:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:319:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:318:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:317:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:316:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:248:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:247:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+18:57:16 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    204	  17060	  42160	   a4b0	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+18:57:26 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:184:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:192:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:200:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:177:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:220:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:228:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:236:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:213:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:301:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:303:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:347:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:381:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:403:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:339:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:332:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:319:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:318:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:317:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:316:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:248:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:247:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+18:57:52 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    204	  17060	  42160	   a4b0	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+18:57:59 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:59:39 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:03:20 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:184:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:192:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:200:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:177:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:220:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:228:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:236:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:213:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:301:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:303:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:347:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:381:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:403:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:339:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:332:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:319:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:318:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:317:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:316:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:248:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:247:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+19:05:25 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:141:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:149:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:157:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:134:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:180:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:188:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:196:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:173:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:261:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:263:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:307:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:341:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:363:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:299:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:292:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:279:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:278:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:277:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:276:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:208:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:207:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+19:06:41 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:141:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:149:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:157:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:134:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:180:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:188:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:196:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:173:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:261:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:263:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:307:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:341:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:363:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:299:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:292:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:279:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:278:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:277:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:276:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:208:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:207:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+19:08:52 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:12:07 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:200:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:200:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:200:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    204	  17060	  42160	   a4b0	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:14:14 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:204:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:204:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:204:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24908	    204	  17060	  42172	   a4bc	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:14:29 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.

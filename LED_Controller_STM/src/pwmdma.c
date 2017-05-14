@@ -46,12 +46,13 @@ void pins_init() {
 	GPIO_InitStruct.Pin = GPIO_PIN_3;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+
 	// Pins for timer 3
-	// Apply pin configuration to PA3
+	// Apply pin configuration to PA6
 	GPIO_InitStruct.Pin = GPIO_PIN_6;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-	// Apply pin configuration to PA3
+	// Apply pin configuration to PA7
 	GPIO_InitStruct.Pin = GPIO_PIN_7;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
@@ -88,8 +89,17 @@ void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 	tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
 	tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
 
-	tim->ARR = 8; // Reload Value
+
+	// For led strips
 	tim->PSC = 9; // Prescaler
+	tim->ARR = 8; // Reload Value
+
+	/*
+	// Testing for through hole
+	tim->PSC = 9; // Prescaler
+	tim->ARR = 16; // Reload Value
+	*/
+
 
 	tim->DIER = 0;
 	//tim->DIER |= TIM_DIER_UDE; // Update DMA Request Enable
@@ -163,6 +173,10 @@ void pwm_init() {
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // enable timer2 clock
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN; // enable dma1 clock
 
+
+	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN; // enable timer3 clock
+
+
 	pins_init();
 
 	// Datasheet page 281
@@ -198,9 +212,9 @@ bool is_busy2(DMA_Channel_TypeDef *dma) {
 }
 
 bool is_busy() {
-	return false;
+	//return false;
 	//return buffer_state[0];
-	//return is_busy2(DMA1_Channel2);
+	return is_busy2(DMA1_Channel2);
 	//return DMA1_Channel2->CCR & 1;
 }
 
