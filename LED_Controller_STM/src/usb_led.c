@@ -45,7 +45,7 @@ bool set_leds(int offset, int channel_nr, int byteval) {
 	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
 		int mask = 1 << bit_nr;
 		uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
-		uint32_t index = (offset * channels_per_timer)
+		uint32_t index = (offset * bits_per_colour * channels_per_timer)
 				+ (((bits_per_colour - 1) - bit_nr) * channels_per_timer)
 				+ channel_nr;
 		if (index > sizeof(data_c0))
@@ -143,6 +143,9 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		r->buf1.buffer_size = sizeof (data_c1);
 		r->buf1.shared = 1;
 
+
+		USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+		USBD_LED_TransmitPacket(&USBD_Device);
 
 		// Using LL it works
 		//USBD_LL_Transmit(&USBD_Device, 0x81, r, sizeof(devinfo_response_t));

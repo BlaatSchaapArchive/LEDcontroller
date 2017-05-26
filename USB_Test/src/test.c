@@ -113,9 +113,7 @@ void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) 
 			data[i].b = data_orig[i].r;
 			break;
 		}
-
 	}
-
 }
 
 void send_rgb(rgb_t* data, size_t size, int offset, int channel, int unit, rgb_permurations_t permutation) {
@@ -171,25 +169,25 @@ void send_rgb2(rgb_t* data, size_t size, int offset, int channel, int unit, rgb_
 	permute_rgb_data(rgb_data, size, permutation);
 
 	char send_buffer[64];
-	send_buffer[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+	send_buffer[0] = 0x15; // FILL BUFFER, COMPRESSED DATA
 	send_buffer[1] = channel;  // TARGET CHANNEL 0
-	send_buffer[2] = offset;  // offset in leds
-	send_buffer[3] = 20; // 20 LEDS per packet ( 60 / 3 )
+	send_buffer[2] = offset * 3;  // offset in leds
+	send_buffer[3] = 60; // 20 LEDS per packet ( 60 / 3 )
 	int retval = 0;
-	int leds_remaining = size;
+	int bytes_remaining = size * sizeof(rgb_t) ;
 	int transferred;
-	while (leds_remaining > 20) {
-		memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
+	while (bytes_remaining > 60) {
+		memcpy(send_buffer + 4, rgb_data + (send_buffer[2] / sizeof(rgb_t)) - (offset * sizeof(rgb_t)),
 				60);
-		leds_remaining -= 20;
+		bytes_remaining -= 60;
 		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
 				&transferred, 1000);
-		send_buffer[2] += 20;
+		send_buffer[2] += 60;
 	}
 	// Transmit remaining leds
-	send_buffer[3] = leds_remaining;
-	memcpy(send_buffer + 4, rgb_data + send_buffer[2] - offset,
-			leds_remaining * sizeof(rgb_t));
+	send_buffer[3] = bytes_remaining;
+	memcpy(send_buffer + 4, rgb_data + (send_buffer[2] / sizeof(rgb_t)) - (offset * sizeof(rgb_t)),
+			bytes_remaining);
 	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
 			1000);
 
@@ -425,7 +423,10 @@ int main() {
 					uint8_t dev_channel =  (channel % nr_of_channels);
 
 					rgb_t* data = (rgb_t*) (buf + 4);
-					send_rgb(data, size, 0, dev_channel, dev_unit, grb); // TODO make permutation configurable
+					send_rgb(data, size / sizeof(rgb_t), 0, dev_channel, dev_unit, grb); // TODO make permutation configurable
+
+					// Not giving the expected result. Is the error on host or uc?
+					//send_rgb2(data, size / sizeof(rgb_t), 0, dev_channel, dev_unit, grb); // TODO make permutation configurable
 				}
 
 

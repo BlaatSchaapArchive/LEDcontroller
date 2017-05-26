@@ -1,15 +1,30 @@
-19:14:14 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+14:15:26 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
 make all 
-Building file: ../src/pwmdma.c
+Building file: ../src/usb_led.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
-../src/pwmdma.c: In function 'pwm_init':
-../src/pwmdma.c:204:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
-  memset(data_c0, 2, sizeof(data_c0));
-  ^~~~~~
-../src/pwmdma.c:204:2: warning: incompatible implicit declaration of built-in function 'memset'
-../src/pwmdma.c:204:2: note: include '<string.h>' or provide a declaration of 'memset'
-Finished building: ../src/pwmdma.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:138:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:143:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:147:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:148:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:218:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:239:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
  
 Building target: LED_Controller_STM.elf
 Invoking: Cross ARM C Linker
@@ -23,9 +38,9 @@ Finished building: LED_Controller_STM.hex
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
    text	   data	    bss	    dec	    hex	filename
-  24908	    204	  17060	  42172	   a4bc	LED_Controller_STM.elf
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
 Finished building: LED_Controller_STM.siz
  
 
-19:14:14 Build Finished (took 508ms)
+14:15:27 Build Finished (took 566ms)
 
