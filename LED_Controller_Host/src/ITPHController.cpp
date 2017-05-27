@@ -8,7 +8,7 @@
 #include "ITPHController.h"
 #include <string>
 #include <string.h>
-
+#include <unistd.h>
 using namespace std;
 
 ITPHController::ITPHController(libusb_device *dev) {
@@ -56,6 +56,15 @@ bool ITPHController::isSupportedDevice(libusb_device *dev){
 
 		retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
 				string_descriptor, sizeof(string_descriptor));
+		if (LIBUSB_ERROR_BUSY == retval) {
+			printf("Busy, sleeping\n");
+			usleep(1000);
+			printf("Trying again\n");
+			retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
+							string_descriptor, sizeof(string_descriptor));
+		}
+
+
 		if (retval < 0) {
 			fprintf(stderr, "failed to get string descriptor");
 			libusb_close(handle);

@@ -12,6 +12,6 @@ int main(int argc, char* argv[]) {
 	DeviceManager *dm = new DeviceManager();
 
 	while(1) {
-		dm->poll();
+		//dm->libusb_handle_events_thread_code();
 	}
 }
