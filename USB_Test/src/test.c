@@ -298,8 +298,8 @@ int main() {
 	printf("Let's test something!!!\n");
 	{
 	char data_buffer[64];
-	data_buffer[0] = 0x02; // FILL BUFFER, COMPRESSED DATA GRB
-	data_buffer[1] = 0x00; // FILL BUFFER, COMPRESSED DATA GRB
+	data_buffer[0] = 0x02;
+	data_buffer[1] = 0x00;
 	int transferred;
 	res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
 			1000);
@@ -310,7 +310,7 @@ int main() {
 		devinfo_response_t *devinfo = (devinfo_response_t *) (data_buffer);
 		printf( " ARCHITECTURE %02x \n" ,devinfo->info.architecture);
 		printf( " CHIP VENDOR %02x \n" ,devinfo->info.vendor);
-		printf( " CHIP TYOE %04x \n" ,devinfo->info.device);
+		printf( " CHIP TYPE %04x \n" ,devinfo->info.device);
 
 	}
 

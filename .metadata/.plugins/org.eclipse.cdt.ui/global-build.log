@@ -8,3 +8,1411 @@ Finished building target: LED_Controller_Host
 18:45:44 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
 make all 
 make: Er hoeft niets gedaan te worden voor 'all'.
+19:12:17 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In constructor ‘DeviceManager::DeviceManager()’:
+../src/DeviceManager.cpp:22:82: let op: invalid conversion from ‘int’ to ‘libusb_hotplug_event’ [-fpermissive]
+  res = libusb_hotplug_register_callback(ctx, LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+    LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT, LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                               
+In file included from ../src/LedController.h:12:0,
+                 from ../src/DeviceManager.h:18,
+                 from ../src/DeviceManager.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1981:17: note:   initializing argument 2 of ‘int libusb_hotplug_register_callback(libusb_context*, libusb_hotplug_event, libusb_hotplug_flag, int, int, int, libusb_hotplug_callback_fn, void*, libusb_hotplug_callback_handle*)’
+ int LIBUSB_CALL libusb_hotplug_register_callback(libusb_context *ctx,
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In constructor ‘ITPHController::ITPHController(libusb_device*)’:
+../src/ITPHController.cpp:56:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:58:9: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+     1000);
+         ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp: In static member function ‘static void ITPHController::libusb_read_thread_code(ITPHController*)’:
+../src/ITPHController.cpp:83:8: fout: invalid use of member ‘ITPHController::libusb_read_thread_running’ in static member function
+  while(libusb_read_thread_running) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/ITPHController.cpp:8:0:
+../src/ITPHController.h:31:36: note: declared here
+  bool libusb_read_thread_running = true;
+                                    ^~~~
+make: *** [src/subdir.mk:29: src/ITPHController.o] Fout 1
+19:13:03 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In static member function ‘static void ITPHController::libusb_read_thread_code(ITPHController*)’:
+../src/ITPHController.cpp:83:8: fout: invalid use of member ‘ITPHController::libusb_read_thread_running’ in static member function
+  while(libusb_read_thread_running) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/ITPHController.cpp:8:0:
+../src/ITPHController.h:31:36: note: declared here
+  bool libusb_read_thread_running = true;
+                                    ^~~~
+make: *** [src/subdir.mk:29: src/ITPHController.o] Fout 1
+19:13:17 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:15:04 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:139:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:147:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:155:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:132:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgb2’:
+../src/test.c:183:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:191:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:199:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:176:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:223:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:231:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:239:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:216:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:304:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:306:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:350:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:384:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:406:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:342:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:335:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:322:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:321:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:320:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:319:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:251:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:250:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+19:15:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp:71:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+make: *** [src/subdir.mk:29: src/ITPHController.o] Fout 1
+19:16:01 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:16:08 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:20:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:112:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:131:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:148:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:22:47 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:112:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:123:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:140:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:27:50 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:112:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:123:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:141:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:29:08 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:29:22 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:29:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:43:30 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:140:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:145:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:241:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:51:16 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:145:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:150:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24972	    204	  17060	  42236	   a4fc	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:53:29 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:120:3: warning: implicit declaration of function 'DBGMU_Config'; did you mean 'SysTick_Config'? [-Wimplicit-function-declaration]
+   DBGMU_Config(DBGMCU_STANDBY, ENABLE);
+   ^~~~~~~~~~~~
+   SysTick_Config
+../src/usb_led.c:120:16: error: 'DBGMCU_STANDBY' undeclared (first use in this function); did you mean 'DBGMCU_TypeDef'?
+   DBGMU_Config(DBGMCU_STANDBY, ENABLE);
+                ^~~~~~~~~~~~~~
+                DBGMCU_TypeDef
+../src/usb_led.c:120:16: note: each undeclared identifier is reported only once for each function it appears in
+../src/usb_led.c:144:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:149:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:153:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:224:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+19:53:35 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:120:3: warning: implicit declaration of function 'DBGMU_Config'; did you mean 'SysTick_Config'? [-Wimplicit-function-declaration]
+   DBGMU_Config(DBGMCU_STANDBY, ENABLE);
+   ^~~~~~~~~~~~
+   SysTick_Config
+../src/usb_led.c:120:16: error: 'DBGMCU_STANDBY' undeclared (first use in this function); did you mean 'DBGMCU_TypeDef'?
+   DBGMU_Config(DBGMCU_STANDBY, ENABLE);
+                ^~~~~~~~~~~~~~
+                DBGMCU_TypeDef
+../src/usb_led.c:120:16: note: each undeclared identifier is reported only once for each function it appears in
+../src/usb_led.c:144:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:149:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:153:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:224:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+19:57:05 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:145:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:150:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24984	    204	  17060	  42248	   a508	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:57:08 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24984	    204	  17060	  42248	   a508	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:58:25 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:114:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:125:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:143:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:58:46 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:59:11 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24984	    204	  17060	  42248	   a508	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:59:23 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24984	    204	  17060	  42248	   a508	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+20:46:15 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:41:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:44:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:42:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:47:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:45:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:42:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: let op: unused variable ‘devinfo’ [-Wunused-variable]
+../src/ITPHController.cpp:42:17: let op: unused variable ‘led_dev’ [-Wunused-variable]
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:45:16: let op: unused variable ‘buffer’ [-Wunused-variable]
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:136:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:147:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:165:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:47:38 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:40:47: fout: request for member ‘architecture’ in ‘devinfo’, which is of pointer type ‘devinfo_t*’ (maybe you meant to use ‘->’ ?)
+      printf( " ARCHITECTURE %02x \n" ,devinfo.architecture);
+                                               ^~~~~~~~~~~~
+../src/ITPHController.cpp:41:46: fout: request for member ‘vendor’ in ‘devinfo’, which is of pointer type ‘devinfo_t*’ (maybe you meant to use ‘->’ ?)
+      printf( " CHIP VENDOR %02x \n" ,devinfo.vendor);
+                                              ^~~~~~
+../src/ITPHController.cpp:42:44: fout: request for member ‘device’ in ‘devinfo’, which is of pointer type ‘devinfo_t*’ (maybe you meant to use ‘->’ ?)
+      printf( " CHIP TYPE %08x \n" ,devinfo.device);
+                                            ^~~~~~
+../src/ITPHController.cpp:45:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:48:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:51:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:49:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:46:17: let op: unused variable ‘led_dev’ [-Wunused-variable]
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:49:16: let op: unused variable ‘buffer’ [-Wunused-variable]
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:140:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:151:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:169:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:29: src/ITPHController.o] Fout 1
+20:48:40 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:45:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:48:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:51:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:49:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:46:17: let op: unused variable ‘led_dev’ [-Wunused-variable]
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:49:16: let op: unused variable ‘buffer’ [-Wunused-variable]
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:140:102: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:151:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:169:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:49:03 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:45:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:48:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:51:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:49:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:46:17: let op: unused variable ‘led_dev’ [-Wunused-variable]
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:49:16: let op: unused variable ‘buffer’ [-Wunused-variable]
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:131:36: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+   libusb_error retval = libusb_open(dev, &handle);
+                         ~~~~~~~~~~~^~~~~~~~~~~~~~
+../src/ITPHController.cpp:137:40: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+   retval = libusb_get_device_descriptor(dev, &desc);
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../src/ITPHController.cpp:145:46: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+   retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     string_descriptor, sizeof(string_descriptor));
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:164:46: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+   retval = libusb_get_string_descriptor_ascii(handle, desc.iProduct, string_descriptor,
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     sizeof(string_descriptor));
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~                
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:49:25 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:45:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:48:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:51:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:49:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:46:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:46:17: let op: unused variable ‘led_dev’ [-Wunused-variable]
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:49:16: let op: unused variable ‘buffer’ [-Wunused-variable]
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:151:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+../src/ITPHController.cpp:169:113: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                 ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:52:17 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:144:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:149:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:153:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:224:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+20:52:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:46:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:52:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:57:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:53:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+3);
+                ^~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+3);
+                 ^~~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:157:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:52:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+20:55:09 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:46:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+2);
+                 ^~~~~~~
+../src/ITPHController.cpp:52:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+2);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+2);
+                 ^~~~~~~
+../src/ITPHController.cpp:57:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:53:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset+2);
+                ^~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset+2);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset+2);
+                 ^~~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:157:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:58:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:46:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_LED:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset);
+                 ^~~~~~~
+../src/ITPHController.cpp:52:10: let op: jump to case label [-fpermissive]
+     case DEVINFO_BUF:
+          ^~~~~~~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset);
+                 ^~~~~~~
+../src/ITPHController.cpp:57:5: let op: jump to case label [-fpermissive]
+     default:
+     ^~~~~~~
+../src/ITPHController.cpp:53:16: note:   crosses initialization of ‘buffer_t* buffer’
+      buffer_t* buffer = (buffer_t*)(data_buffer+offset);
+                ^~~~~~
+../src/ITPHController.cpp:47:17: note:   crosses initialization of ‘led_dev_t* led_dev’
+      led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset);
+                 ^~~~~~~
+../src/ITPHController.cpp:39:17: note:   crosses initialization of ‘devinfo_t* devinfo’
+      devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset);
+                 ^~~~~~~
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:157:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+21:00:35 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:160:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+21:13:55 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:20:29 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:144:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf0.buffer_size = sizeof (data_c0);
+                         ^~~~~~
+../src/usb_led.c:149:25: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   r->buf1.buffer_size = sizeof (data_c1);
+                         ^~~~~~
+../src/usb_led.c:153:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:224:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24964	    204	  17060	  42228	   a4f4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+21:23:16 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:23:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:160:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+21:23:18 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:23:34 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+21:23:36 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24996	    204	  17060	  42260	   a514	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 

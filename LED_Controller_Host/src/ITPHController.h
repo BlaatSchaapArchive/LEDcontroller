@@ -10,6 +10,8 @@
 
 #include "LedController.h"
 
+#include <thread>         // std::thread
+
 #include "libusb.h"
 
 class ITPHController: public LedController {
@@ -24,6 +26,13 @@ private:
 	libusb_device *dev;
 	libusb_device_handle* handle;
 	string serial;
+	bool kernelDriverDetached;
+
+	bool libusb_read_thread_running = false;
+	thread libusb_read_thread;
+	static void libusb_read_thread_code(ITPHController *dm);
+
+	void obtainDeviceInfo();
 
 };
 

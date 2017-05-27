@@ -19,8 +19,8 @@ DeviceManager::DeviceManager() {
 	}
 	libusb_hotplug_callback_thread = thread(libusb_hotplug_callback_thread_code, this);
 	libusb_handle_events_thread = thread(libusb_handle_events_thread_code, this);
-	res = libusb_hotplug_register_callback(ctx, LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
-			LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT, LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
+	res = libusb_hotplug_register_callback(ctx, libusb_hotplug_event (LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+			LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT), LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
 			LIBUSB_HOTPLUG_MATCH_ANY, DeviceManager::libusb_hotplug_callback, this,
 			&handle);
 

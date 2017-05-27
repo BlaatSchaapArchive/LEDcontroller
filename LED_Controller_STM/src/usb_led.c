@@ -111,12 +111,19 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		devinfo_response_t *r = (devinfo_response_t *)data_usb_tx;
 		r->command = CMD_DEVINFO;
 		r->size = sizeof(devinfo_response_t); //!!
+		r->pad = 0;
 
 		r->info.size = sizeof(devinfo_t);
 		r->info.type = DEVINFO_MCU;
 		r->info.architecture = EM_ARM;
 		r->info.vendor = VE_STM;
+
+		// Only works when debugger attached? Otherwise I am getting 0. Is there a way around this?
 		r->info.device = DBGMCU->IDCODE;
+
+
+
+
 
 		r->led0.size = sizeof(led_dev_t);
 		r->led0.type = DEVINFO_LED;
@@ -126,12 +133,12 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		r->led0.buffer = 0;
 
 		// APA102 style leds are not yet implemented
-		r->led0.size = sizeof(led_dev_t);
-		r->led0.type = DEVINFO_LED;
-		r->led0.channels = 0;
-		r->led0.implementation = LED_C1_TYPE_UNDEFINED;
-		r->led0.count = 0;
-		r->led0.buffer = 1;
+		r->led1.size = sizeof(led_dev_t);
+		r->led1.type = DEVINFO_LED;
+		r->led1.channels = 0;
+		r->led1.implementation = LED_C1_TYPE_UNDEFINED;
+		r->led1.count = 0;
+		r->led1.buffer = 1;
 
 		r->buf0.size = sizeof(buffer_t);
 		r->buf0.type = DEVINFO_BUF;

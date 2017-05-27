@@ -61,7 +61,7 @@ typedef struct {
 typedef struct {
 	uint8_t size;
 	uint8_t type;
-	uint8_t buffer_size;
+	uint16_t buffer_size;
 	uint8_t shared;
 } buffer_t;
 
@@ -73,6 +73,7 @@ typedef struct {
 	buffer_t  buf1;
 	led_dev_t led0;
 	led_dev_t led1;
+	uint8_t pad;
 
 } devinfo_response_t;
 

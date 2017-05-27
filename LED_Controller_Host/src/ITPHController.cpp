@@ -9,7 +9,65 @@
 #include <string>
 #include <string.h>
 #include <unistd.h>
+
+#include "protocol.h"
+
 using namespace std;
+
+void ITPHController::obtainDeviceInfo(){
+	uint8_t data_buffer[64];
+	data_buffer[0] = CMD_DEVINFO;
+	data_buffer[1] = 0x00;
+	int transferred;
+	int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+			1000);
+	retval = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+				1000);
+
+		if (data_buffer[0] != CMD_DEVINFO) {
+			// Huh? What happened?
+		}
+		uint8_t offset = 2;
+		uint8_t total_size = data_buffer[1];
+		if (total_size > sizeof (data_buffer) ) total_size = sizeof (data_buffer) ;
+
+		if (total_size) {
+			while (data_buffer[offset]) {
+				uint8_t chunk_size = data_buffer[offset];
+				uint8_t chunk_type = data_buffer[offset+1];
+				switch (chunk_type) {
+				case DEVINFO_MCU: {
+					devinfo_t* devinfo = (devinfo_t*)(data_buffer+offset);
+					printf( "MCU\n");
+					printf( "\tARCHITECTURE %02x \n" ,devinfo->architecture);
+					printf( "\tCHIP VENDOR %02x \n" ,devinfo->vendor);
+					printf( "\tCHIP TYPE %08x \n" ,devinfo->device);
+
+					break;
+				}
+				case DEVINFO_LED: {
+					led_dev_t* led_dev = (led_dev_t*)(data_buffer+offset);
+					printf( "LEDS\n");
+					printf( "\tCHANNELS %02u \n" ,led_dev->channels);
+					printf( "\tCOUNT %02u \n" ,led_dev->count);
+					break;
+				}
+				case DEVINFO_BUF: {
+					buffer_t* buffer = (buffer_t*)(data_buffer+offset);
+					printf( "BUFFER\n");
+					printf( "\tSIZE %02u \n" ,buffer->buffer_size);
+					break;
+				}
+				default:
+					printf ("Unknown info chunk? (%02x)\n" , chunk_type);
+					break;
+				}
+				offset += chunk_size;
+				if (offset > total_size ) break;
+			}
+		}
+
+}
 
 ITPHController::ITPHController(libusb_device *dev) {
 	// TODO Auto-generated constructor stub
@@ -24,18 +82,58 @@ ITPHController::ITPHController(libusb_device *dev) {
 			sizeof(serial));
 	printf("New device added: Serial %s\n", serial);
 	this->serial = (char*)serial;
+
+
+
+	/* Check whether a kernel driver is attached to interface #0. If so, we'll
+	 * need to detach it.
+	 */
+	if (libusb_kernel_driver_active(handle, 0)) {
+		retval = libusb_detach_kernel_driver(handle, 0);
+		if (retval == 0) {
+			kernelDriverDetached = true;
+		} else {
+			fprintf(stderr, "Error detaching kernel driver.\n");
+			return;
+		}
+	}
+
+	/* Claim interface #0. */
+	retval = libusb_claim_interface(handle, 0);
+	if (retval != 0) {
+		fprintf(stderr, "Error claiming interface.\n");
+		return;
+	}
+
+	obtainDeviceInfo();
+
 }
 
 ITPHController::~ITPHController() {
-	// TODO Auto-generated destructor stub
 	printf("Deleting ITPHController instance: %s\n", serial.c_str());
+
+	/* Release interface #0. */
+	int retval = libusb_release_interface(handle, 0);
+	if (0 != retval) {
+		fprintf(stderr, "Error releasing interface.\n");
+	}
+
+	/* If we detached a kernel driver from interface #0 earlier, we'll now
+	 * need to attach it again.  */
+	if (kernelDriverDetached) {
+		libusb_attach_kernel_driver(handle, 0);
+	}
 
 	if (handle) libusb_close(handle);
 }
 
 
 
+void ITPHController::libusb_read_thread_code(ITPHController *dm){
+	while(dm->libusb_read_thread_running) {
 
+	}
+}
 
 bool ITPHController::isSupportedDevice(libusb_device *dev){
 	struct libusb_device_descriptor desc;
@@ -49,31 +147,27 @@ bool ITPHController::isSupportedDevice(libusb_device *dev){
 
 		retval = libusb_get_device_descriptor(dev, &desc);
 		if (retval < 0) {
-			fprintf(stderr, "failed to get device descriptor");
+			//fprintf(stderr, "failed to get device descriptor");
+			printf("failed to get device descriptor: %s: %s",libusb_error_name(retval), libusb_strerror((libusb_error)retval));
 			libusb_close(handle);
 			return false;
 		}
 
 		retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
 				string_descriptor, sizeof(string_descriptor));
-		if (LIBUSB_ERROR_BUSY == retval) {
-			printf("Busy, sleeping\n");
-			usleep(1000);
-			printf("Trying again\n");
-			retval = libusb_get_string_descriptor_ascii(handle, desc.iManufacturer,
-							string_descriptor, sizeof(string_descriptor));
-		}
-
 
 		if (retval < 0) {
-			fprintf(stderr, "failed to get string descriptor");
+
+			//fprintf(stderr, "failed to get string descriptor");
+			printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
 			libusb_close(handle);
 			return false;
 		}
 
 		printf("Got %s\n", string_descriptor);
 
-		if (strcmp("The IT Philosoher (https://www.philosopher.it)", string_descriptor)) {
+		if (strcmp("The IT Philosoher (https://www.philosopher.it)", (char*)string_descriptor)) {
+			printf("No match!\n");
 			libusb_close(handle);
 			return false;
 		}
@@ -82,22 +176,24 @@ bool ITPHController::isSupportedDevice(libusb_device *dev){
 				sizeof(string_descriptor));
 
 		if (retval < 0) {
-					fprintf(stderr, "failed to get string descriptor");
+					//fprintf(stderr, "failed to get string descriptor");
+			printf("failed to get string (iProduct) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror((libusb_error)retval));
 					libusb_close(handle);
 					return false;
 				}
 
 		printf("Got %s\n", string_descriptor);
 
-		uint8_t cmpName[256];
+		char cmpName[256];
 		for (int i = 0; i < 0xff; i++) {
 			sprintf(cmpName, "LED Controller (variant %02x)", i);
-			if (!strcmp(cmpName, string_descriptor)) {
+			if (!strcmp(cmpName, (char*)string_descriptor)) {
+				printf("Match!\n");
 				libusb_close(handle);
 				return true;
 			}
 		}
-
+		printf("No match!\n");
 		libusb_close(handle);
 		return false;
 }
