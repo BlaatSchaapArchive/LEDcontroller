@@ -273,8 +273,10 @@ void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 
 void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 		int channel, int unit) {
+	uint8_t send_buffer[64];
 
-	// NOT IMPLEENTED
+	while (isBusy()) usleep(5);
+	// TODO: Implement me
 }
 
 void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,

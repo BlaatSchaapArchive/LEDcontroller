@@ -2786,3 +2786,81 @@ Finished building target: LED_Controller_Host
 13:18:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
 make all 
 make: Er hoeft niets gedaan te worden voor 'all'.
+13:54:57 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:64:43: fout: ‘memcpy’ was not declared in this scope
+  memcpy(data_orig, data, sizeof(data_orig));
+                                           ^
+../src/DeviceManager.cpp:65:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:66:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+make: *** [src/subdir.mk:32: src/DeviceManager.o] Fout 1
+13:55:26 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:66:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:67:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:248:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:276:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:292:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building file: ../src/LedController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/LedController.d" -MT"src/LedController.o" -o "src/LedController.o" "../src/LedController.cpp"
+../src/LedController.cpp: In memberfunctie ‘virtual std::__cxx11::string LedController::getSerial()’:
+../src/LedController.cpp:19:35: let op: no return statement in function returning non-void [-Wreturn-type]
+ string LedController::getSerial(){}
+                                   ^
+Finished building: ../src/LedController.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:15:20: let op: unused variable ‘opc’ [-Wunused-variable]
+  OpenPixelControl *opc = new OpenPixelControl(dm);
+                    ^~~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+13:55:35 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.

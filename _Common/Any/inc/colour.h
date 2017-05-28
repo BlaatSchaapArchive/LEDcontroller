@@ -12,6 +12,9 @@ typedef enum {
 
 
 #pragma pack(push,1) // byte alignment
+
+
+
 typedef struct {
 	uint8_t r; // red
 	uint8_t g; // green

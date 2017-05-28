@@ -9,6 +9,7 @@
 #include "ITPHController.h"
 
 #include <unistd.h>
+#include <string.h>
 
 DeviceManager::DeviceManager() {
 	//int res = libusb_init(&ctx);
@@ -24,6 +25,29 @@ DeviceManager::DeviceManager() {
 			LIBUSB_HOTPLUG_MATCH_ANY, DeviceManager::libusb_hotplug_callback, this,
 			&handle);
 
+
+
+	// For testing purposes, we hard code some mapping now.
+
+	opc_device_map_t map;
+	map.device_channel = 0;
+	map.device_offset = 0;
+	map.device_serial = "I1616UBD";
+	map.direction = forwards;
+	map.led_type = generic_clockless_rgb;
+	map.led_permutation = grb;
+	map.opc_channel = 1;
+	map.opc_offset = 0;
+	map.opc_size = 30;
+	opc_device_map.push_back(map);
+
+	map.device_channel = 4;
+	map.led_permutation = rgb;
+	map.opc_channel = 2;
+	map.opc_size = 2;
+	opc_device_map.push_back(map);
+
+
 }
 
 DeviceManager::~DeviceManager() {
@@ -31,6 +55,44 @@ DeviceManager::~DeviceManager() {
 	libusb_exit(ctx);
 }
 
+
+
+void DeviceManager::permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation) {
+	if (permutation == rgb)
+		return;
+
+	rgb_t data_orig[size];
+	memcpy(data_orig, data, sizeof(data_orig));
+	for (int i = 0; i < size; i++) {
+		switch (permutation) {
+		case rbg:
+			data[i].r = data_orig[i].r;
+			data[i].g = data_orig[i].b;
+			data[i].b = data_orig[i].g;
+			break;
+		case grb:
+			data[i].r = data_orig[i].g;
+			data[i].g = data_orig[i].r;
+			data[i].b = data_orig[i].b;
+			break;
+		case gbr:
+			data[i].r = data_orig[i].g;
+			data[i].g = data_orig[i].b;
+			data[i].b = data_orig[i].r;
+			break;
+		case brg:
+			data[i].r = data_orig[i].b;
+			data[i].g = data_orig[i].r;
+			data[i].b = data_orig[i].g;
+			break;
+		case bgr:
+			data[i].r = data_orig[i].b;
+			data[i].g = data_orig[i].g;
+			data[i].b = data_orig[i].r;
+			break;
+		}
+	}
+}
 
 void DeviceManager::libusb_handle_events_thread_code(DeviceManager *dm) {
 	while (dm->libusb_handle_events_thread_running)
@@ -80,6 +142,35 @@ void DeviceManager::libusb_hotplug_callback_thread_code(DeviceManager *dm) {
 void DeviceManager::setLeds(rgb_t* data, size_t size,  int channel){
 	// TODO Device/Channel mapper
 
+	for  (auto &map : opc_device_map) {
+		if (map.opc_channel == channel) {
+			if (map.opc_offset == 0) {
+				if (map.device_offset == 0) {
+					if (map.led_type & generic_clockless_rgb) {
+						permute_rgb_data(data,size,map.led_permutation);
+						auto device = mapStringLedController[map.device_serial];
+						if (device) {
+							// TODO!!!!  Channel/Unit to be handled *in* the device, and the 4 should come from the device.
+							// Perhaps some handling of this could be done in Device Manager in order to implement
+							// some more advanced features taking advantage of buffering, but while we are implementing
+							// basic OPC, no such features are supported.
+							device->setLeds(data,size, map.device_offset, map.device_channel%4, map.device_channel/4 );
+						} else {
+							// ERROR, DEVICE NOT CONNECTED
+						}
+					} else {
+						// TODO IMPLEMENT ME / LED TYPE CONVERSION
+					}
+				} else {
+					// TODO IMPLEMENT ME
+				}
+			} else {
+				// TODO IMPLEMENT ME
+			}
+		}
+	}
+
+	/*
 	// Old test implementation for now
 	int nr_of_channels = 4; // TODO get this number from device info
 	uint8_t dev_unit =  (channel / nr_of_channels);
@@ -89,6 +180,7 @@ void DeviceManager::setLeds(rgb_t* data, size_t size,  int channel){
 	// And map the channels 1 to 1 on it.
 	auto controller = mapStringLedController.begin();
 	controller->second->setLeds(data,size, 0 , dev_channel, dev_unit);
+	*/
 
 
 
