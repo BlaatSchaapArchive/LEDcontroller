@@ -281,6 +281,24 @@ uint8_t *USBD_VCP_InterfaceStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *leng
   */
 static void Get_SerialNum(void)
 {
+	uint8_t* device_id = 0x1FFFF7E8;
+	uint16_t ser[8];
+	memset (ser,0,sizeof(ser));
+	for (int i = 0 ; i < 12; i++) {
+		ser[i%8] += device_id[i];
+	}
+	for (int i = 0 ; i < 8; i++) {
+		uint8_t c = ser[i] % 36;
+		if (c<10)
+			c += '0';
+		else
+			c += ('A' - 10);
+		USBD_StringSerial[ 2 + (2*i)] = c;
+		USBD_StringSerial[ 3 + (2*i)] = 0;
+	}
+	USBD_StringSerial[ 18] = 0;
+	USBD_StringSerial[ 19] = 0;
+/*
   uint32_t deviceserial0, deviceserial1, deviceserial2;
   
   deviceserial0 = *(uint32_t*)DEVICE_ID1;
@@ -294,6 +312,7 @@ static void Get_SerialNum(void)
     IntToUnicode (deviceserial0, &USBD_StringSerial[2] ,8);
     IntToUnicode (deviceserial1, &USBD_StringSerial[18] ,4);
   }
+  */
 }
 
 /**

@@ -22,6 +22,13 @@ public:
 
 	virtual libusb_device* getDevice() { return dev; } ;
 	virtual string getSerial() { return serial; }
+
+
+	virtual void setLeds(rgb_t* data, size_t size, int offset, int channel, int unit);
+	virtual void setLeds(rgbw_t* data, size_t size, int offset, int channel, int unit);
+	virtual void setLeds(drgb_t* data, size_t size, int offset, int channel, int unit);
+
+
 private:
 	libusb_device *dev;
 	libusb_device_handle* handle;

@@ -1416,3 +1416,1345 @@ arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
   24996	    204	  17060	  42260	   a514	LED_Controller_STM.elf
 Finished building: LED_Controller_STM.siz
  
+21:41:49 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:22:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+../src/ITPHController.cpp: In static member function ‘static bool ITPHController::isSupportedDevice(libusb_device*)’:
+../src/ITPHController.cpp:165:118: let op: invalid conversion from ‘int’ to ‘libusb_error’ [-fpermissive]
+    printf("failed to get string (iManufacturer) descriptor: %s: %s",libusb_error_name(retval), libusb_strerror(retval));
+                                                                                                                      ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1313:26: note:   initializing argument 1 of ‘const char* libusb_strerror(libusb_error)’
+ const char * LIBUSB_CALL libusb_strerror(enum libusb_error errcode);
+                          ^~~~~~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+22:07:26 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building file: ../src/usbd_desc.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usbd_desc.d" -MT"src/usbd_desc.o" -c -o "src/usbd_desc.o" "../src/usbd_desc.c"
+../src/usbd_desc.c: In function 'Get_SerialNum':
+../src/usbd_desc.c:284:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint8_t* device_id = 0x1FFFF7E8;
+                       ^~~~~~~~~~
+Finished building: ../src/usbd_desc.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25008	    204	  17060	  42272	   a520	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:11:37 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usbd_desc.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usbd_desc.d" -MT"src/usbd_desc.o" -c -o "src/usbd_desc.o" "../src/usbd_desc.c"
+../src/usbd_desc.c: In function 'Get_SerialNum':
+../src/usbd_desc.c:284:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint8_t* device_id = 0x1FFFF7E8;
+                       ^~~~~~~~~~
+Finished building: ../src/usbd_desc.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25012	    204	  17060	  42276	   a524	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:14:06 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usbd_desc.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usbd_desc.d" -MT"src/usbd_desc.o" -c -o "src/usbd_desc.o" "../src/usbd_desc.c"
+../src/usbd_desc.c: In function 'Get_SerialNum':
+../src/usbd_desc.c:284:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint8_t* device_id = 0x1FFFF7E8;
+                       ^~~~~~~~~~
+Finished building: ../src/usbd_desc.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25008	    204	  17060	  42272	   a520	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:19:21 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25008	    204	  17060	  42272	   a520	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:47:58 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::obtainDeviceInfo()’:
+../src/ITPHController.cpp:22:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+22:49:22 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+11:47:07 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:225:23: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+     &transferred, 1000);
+                       ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:233:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:241:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:217:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:258:23: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+     &transferred, 1000);
+                       ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:266:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:274:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:250:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building file: ../src/LedController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/LedController.d" -MT"src/LedController.o" -o "src/LedController.o" "../src/LedController.cpp"
+../src/LedController.cpp: In memberfunctie ‘virtual std::__cxx11::string LedController::getSerial()’:
+../src/LedController.cpp:19:35: let op: no return statement in function returning non-void [-Wreturn-type]
+ string LedController::getSerial(){}
+                                   ^
+Finished building: ../src/LedController.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:12:17: let op: unused variable ‘dm’ [-Wunused-variable]
+  DeviceManager *dm = new DeviceManager();
+                 ^~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+./src/ITPHController.o:(.rodata._ZTV14ITPHController[_ZTV14ITPHController]+0x40): undefined reference to `ITPHController::setLeds(drgb_t*, unsigned long, int, int, int)'
+collect2: fout: ld gaf exit-status 1 terug
+make: *** [makefile:47: LED_Controller_Host] Fout 1
+11:47:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:233:23: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+     &transferred, 1000);
+                       ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:241:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:249:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:226:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:266:23: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+     &transferred, 1000);
+                       ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:274:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:282:8: let op: invalid conversion from ‘char*’ to ‘unsigned char*’ [-fpermissive]
+    1000);
+        ^
+In file included from ../src/LedController.h:12:0,
+                 from ../src/ITPHController.h:11,
+                 from ../src/ITPHController.cpp:8:
+/usr/include/libusb-1.0/libusb.h:1752:17: note:   initializing argument 3 of ‘int libusb_bulk_transfer(libusb_device_handle*, unsigned char, unsigned char*, int, int*, unsigned int)’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/ITPHController.cpp:259:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+./src/ITPHController.o:(.rodata._ZTV14ITPHController[_ZTV14ITPHController]+0x40): undefined reference to `ITPHController::setLeds(drgb_t*, unsigned long, int, int, int)'
+collect2: fout: ld gaf exit-status 1 terug
+make: *** [makefile:47: LED_Controller_Host] Fout 1
+11:48:35 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:226:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:259:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+./src/ITPHController.o:(.rodata._ZTV14ITPHController[_ZTV14ITPHController]+0x40): undefined reference to `ITPHController::setLeds(drgb_t*, unsigned long, int, int, int)'
+collect2: fout: ld gaf exit-status 1 terug
+make: *** [makefile:47: LED_Controller_Host] Fout 1
+11:49:15 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:226:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:265:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+11:57:34 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:46:32: fout: ‘error’ was not declared in this scope
+    error("ERROR opening socket");
+                                ^
+../src/OpenPixelControl.cpp:48:49: fout: ‘bzero’ was not declared in this scope
+   bzero((char *) &serveraddr, sizeof(serveraddr));
+                                                 ^
+../src/OpenPixelControl.cpp:61:28: fout: ‘error’ was not declared in this scope
+    error("ERROR on binding");
+                            ^
+../src/OpenPixelControl.cpp:67:27: fout: ‘error’ was not declared in this scope
+    error("ERROR on listen");
+                           ^
+../src/OpenPixelControl.cpp:74:10: fout: invalid use of member ‘OpenPixelControl::opc_listen_thread_running’ in static member function
+   while (opc_listen_thread_running) {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:24:35: note: declared here
+  bool opc_listen_thread_running = true;
+                                   ^~~~
+../src/OpenPixelControl.cpp:80:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:82:28: fout: ‘error’ was not declared in this scope
+     error("ERROR on accept");
+                            ^
+../src/OpenPixelControl.cpp:31:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:35:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:36:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:37:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:38:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:39:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+11:58:16 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:46:32: fout: ‘error’ was not declared in this scope
+    error("ERROR opening socket");
+                                ^
+../src/OpenPixelControl.cpp:61:28: fout: ‘error’ was not declared in this scope
+    error("ERROR on binding");
+                            ^
+../src/OpenPixelControl.cpp:67:27: fout: ‘error’ was not declared in this scope
+    error("ERROR on listen");
+                           ^
+../src/OpenPixelControl.cpp:74:10: fout: invalid use of member ‘OpenPixelControl::opc_listen_thread_running’ in static member function
+   while (opc_listen_thread_running) {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:30:35: note: declared here
+  bool opc_listen_thread_running = true;
+                                   ^~~~
+../src/OpenPixelControl.cpp:80:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:82:28: fout: ‘error’ was not declared in this scope
+     error("ERROR on accept");
+                            ^
+../src/OpenPixelControl.cpp:31:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:35:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:36:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:37:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:38:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:39:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:00:44 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:46:32: fout: ‘error’ was not declared in this scope
+    error("ERROR opening socket");
+                                ^
+../src/OpenPixelControl.cpp:61:28: fout: ‘error’ was not declared in this scope
+    error("ERROR on binding");
+                            ^
+../src/OpenPixelControl.cpp:67:27: fout: ‘error’ was not declared in this scope
+    error("ERROR on listen");
+                           ^
+../src/OpenPixelControl.cpp:74:10: fout: invalid use of member ‘OpenPixelControl::opc_listen_thread_running’ in static member function
+   while (opc_listen_thread_running) {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:30:35: note: declared here
+  bool opc_listen_thread_running = true;
+                                   ^~~~
+../src/OpenPixelControl.cpp:80:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:82:28: fout: ‘error’ was not declared in this scope
+     error("ERROR on accept");
+                            ^
+../src/OpenPixelControl.cpp:31:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:35:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:36:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:37:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:38:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:39:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:00:53 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:49:32: let op: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+    error("ERROR opening socket");
+                                ^
+../src/OpenPixelControl.cpp:64:28: let op: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+    error("ERROR on binding");
+                            ^
+../src/OpenPixelControl.cpp:70:27: let op: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+    error("ERROR on listen");
+                           ^
+../src/OpenPixelControl.cpp:77:10: fout: invalid use of member ‘OpenPixelControl::opc_listen_thread_running’ in static member function
+   while (opc_listen_thread_running) {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:30:35: note: declared here
+  bool opc_listen_thread_running = true;
+                                   ^~~~
+../src/OpenPixelControl.cpp:83:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:85:28: let op: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     error("ERROR on accept");
+                            ^
+../src/OpenPixelControl.cpp:34:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:38:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:39:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:40:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:41:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:42:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:01:09 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:77:10: fout: invalid use of member ‘OpenPixelControl::opc_listen_thread_running’ in static member function
+   while (opc_listen_thread_running) {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:30:35: note: declared here
+  bool opc_listen_thread_running = true;
+                                   ^~~~
+../src/OpenPixelControl.cpp:83:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:34:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:38:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:39:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:40:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:41:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:42:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:01:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:83:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp:34:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/OpenPixelControl.cpp:38:19: let op: unused variable ‘hostp’ [-Wunused-variable]
+   struct hostent *hostp; /* client host info */
+                   ^~~~~
+../src/OpenPixelControl.cpp:39:11: let op: unused variable ‘buf’ [-Wunused-variable]
+   uint8_t buf[BUFSIZE]; /* message buffer */
+           ^~~
+../src/OpenPixelControl.cpp:40:9: let op: unused variable ‘hostaddrp’ [-Wunused-variable]
+   char *hostaddrp; /* dotted decimal host addr string */
+         ^~~~~~~~~
+../src/OpenPixelControl.cpp:41:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/OpenPixelControl.cpp:42:7: let op: unused variable ‘n’ [-Wunused-variable]
+   int n; /* message byte size */
+       ^
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:10:34 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_listen_thread_code(OpenPixelControl*)’:
+../src/OpenPixelControl.cpp:82:6: let op: invalid conversion from ‘int*’ to ‘socklen_t* {aka unsigned int*}’ [-fpermissive]
+      &clientlen);
+      ^~~~~~~~~~
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/OpenPixelControl.cpp:12:
+/usr/include/sys/socket.h:237:12: note:   initializing argument 3 of ‘int accept(int, sockaddr*, socklen_t*)’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:114:3: fout: ‘n’ was not declared in this scope
+   n = read(childfd, buf, BUFSIZE);
+   ^
+../src/OpenPixelControl.cpp:114:33: fout: ‘read’ was not declared in this scope
+   n = read(childfd, buf, BUFSIZE);
+                                 ^
+../src/OpenPixelControl.cpp:133:4: fout: ‘rgb_t’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+    ^~~~~
+../src/OpenPixelControl.cpp:133:11: fout: ‘data’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:133:25: fout: expected primary-expression before ‘)’ token
+    rgb_t* data = (rgb_t*) (buf + 4);
+                         ^
+../src/OpenPixelControl.cpp:130:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:131:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:148:4: fout: ‘rgbw_t’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+    ^~~~~~
+../src/OpenPixelControl.cpp:148:12: fout: ‘data’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:148:27: fout: expected primary-expression before ‘)’ token
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+                           ^
+../src/OpenPixelControl.cpp:145:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:146:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:127:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+../src/OpenPixelControl.cpp: At global scope:
+../src/OpenPixelControl.cpp:157:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:32:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:11:28 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:115:33: fout: ‘read’ was not declared in this scope
+   n = read(childfd, buf, BUFSIZE);
+                                 ^
+../src/OpenPixelControl.cpp:134:4: fout: ‘rgb_t’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+    ^~~~~
+../src/OpenPixelControl.cpp:134:11: fout: ‘data’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:134:25: fout: expected primary-expression before ‘)’ token
+    rgb_t* data = (rgb_t*) (buf + 4);
+                         ^
+../src/OpenPixelControl.cpp:131:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:149:4: fout: ‘rgbw_t’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+    ^~~~~~
+../src/OpenPixelControl.cpp:149:12: fout: ‘data’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:149:27: fout: expected primary-expression before ‘)’ token
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+                           ^
+../src/OpenPixelControl.cpp:146:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:147:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:128:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+../src/OpenPixelControl.cpp: At global scope:
+../src/OpenPixelControl.cpp:158:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:32:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:11:53 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:115:33: fout: ‘read’ was not declared in this scope
+   n = read(childfd, buf, BUFSIZE);
+                                 ^
+../src/OpenPixelControl.cpp:134:4: fout: ‘rgb_t’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+    ^~~~~
+../src/OpenPixelControl.cpp:134:11: fout: ‘data’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:134:25: fout: expected primary-expression before ‘)’ token
+    rgb_t* data = (rgb_t*) (buf + 4);
+                         ^
+../src/OpenPixelControl.cpp:131:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:149:4: fout: ‘rgbw_t’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+    ^~~~~~
+../src/OpenPixelControl.cpp:149:12: fout: ‘data’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:149:27: fout: expected primary-expression before ‘)’ token
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+                           ^
+../src/OpenPixelControl.cpp:146:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:147:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:128:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+../src/OpenPixelControl.cpp: At global scope:
+../src/OpenPixelControl.cpp:158:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:32:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:12:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:135:4: fout: ‘rgb_t’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+    ^~~~~
+../src/OpenPixelControl.cpp:135:11: fout: ‘data’ was not declared in this scope
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:135:25: fout: expected primary-expression before ‘)’ token
+    rgb_t* data = (rgb_t*) (buf + 4);
+                         ^
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:133:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:150:4: fout: ‘rgbw_t’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+    ^~~~~~
+../src/OpenPixelControl.cpp:150:12: fout: ‘data’ was not declared in this scope
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:150:27: fout: expected primary-expression before ‘)’ token
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+                           ^
+../src/OpenPixelControl.cpp:147:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:148:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:129:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+../src/OpenPixelControl.cpp: At global scope:
+../src/OpenPixelControl.cpp:159:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:33:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:12:49 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:135:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:136:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:138:11: let op: unused variable ‘data’ [-Wunused-variable]
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:150:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:151:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:153:12: let op: unused variable ‘data’ [-Wunused-variable]
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+../src/OpenPixelControl.cpp: At global scope:
+../src/OpenPixelControl.cpp:162:1: fout: expected declaration before ‘}’ token
+ }
+ ^
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:36:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:13:21 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:135:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:136:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:138:11: let op: unused variable ‘data’ [-Wunused-variable]
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:150:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:151:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:153:12: let op: unused variable ‘data’ [-Wunused-variable]
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+In file included from /usr/include/c++/6.3.1/x86_64-pc-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/6.3.1/bits/allocator.h:46,
+                 from /usr/include/c++/6.3.1/string:41,
+                 from /usr/include/c++/6.3.1/stdexcept:39,
+                 from /usr/include/c++/6.3.1/array:39,
+                 from /usr/include/c++/6.3.1/tuple:39,
+                 from /usr/include/c++/6.3.1/functional:55,
+                 from /usr/include/c++/6.3.1/thread:39,
+                 from ../src/OpenPixelControl.h:11,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread]’:
+/usr/include/c++/6.3.1/bits/alloc_traits.h:475:4:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::thread; _Args = {const std::thread&}; _Tp = std::thread; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::thread>]’
+/usr/include/c++/6.3.1/bits/stl_vector.h:918:30:   required from ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::thread; _Alloc = std::allocator<std::thread>; std::vector<_Tp, _Alloc>::value_type = std::thread]’
+../src/OpenPixelControl.cpp:36:42:   required from here
+/usr/include/c++/6.3.1/ext/new_allocator.h:120:4: fout: use of deleted function ‘std::thread::thread(const std::thread&)’
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/OpenPixelControl.h:11:0,
+                 from ../src/OpenPixelControl.cpp:8:
+/usr/include/c++/6.3.1/thread:121:5: note: declared here
+     thread(const thread&) = delete;
+     ^~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:14:40 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:35:16: fout: template argument 1 is invalid
+  vector<*thread> opc_connections;
+                ^
+../src/OpenPixelControl.h:35:16: fout: template argument 2 is invalid
+../src/OpenPixelControl.cpp: In memberfunctie ‘void OpenPixelControl::add_opc_connection(int)’:
+../src/OpenPixelControl.cpp:36:18: fout: request for member ‘push_back’ in ‘((OpenPixelControl*)this)->OpenPixelControl::opc_connections’, which is of non-class type ‘int’
+  opc_connections.push_back(&opc_connection);
+                  ^~~~~~~~~
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:135:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:136:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:138:11: let op: unused variable ‘data’ [-Wunused-variable]
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:150:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:151:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:153:12: let op: unused variable ‘data’ [-Wunused-variable]
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:16:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:135:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:136:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:138:11: let op: unused variable ‘data’ [-Wunused-variable]
+    rgb_t* data = (rgb_t*) (buf + 4);
+           ^~~~
+../src/OpenPixelControl.cpp:150:12: let op: unused variable ‘dev_unit’ [-Wunused-variable]
+    uint8_t dev_unit =  (channel / nr_of_channels);
+            ^~~~~~~~
+../src/OpenPixelControl.cpp:151:12: let op: unused variable ‘dev_channel’ [-Wunused-variable]
+    uint8_t dev_channel =  (channel % nr_of_channels);
+            ^~~~~~~~~~~
+../src/OpenPixelControl.cpp:153:12: let op: unused variable ‘data’ [-Wunused-variable]
+    rgbw_t* data = (rgbw_t*) (buf + 4);
+            ^~~~
+../src/OpenPixelControl.cpp:132:12: let op: unused variable ‘size’ [-Wunused-variable]
+   uint16_t size = (buf[2] << 8) + buf[3]; // endiannes independant parsing
+            ^~~~
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:25:08 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:141:4: fout: invalid use of member ‘OpenPixelControl::dm’ in static member function
+    dm->setLeds(data,size / sizeof(rgb_t),channel);
+    ^~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:42:17: note: declared here
+  DeviceManager *dm;
+                 ^~
+../src/OpenPixelControl.cpp:156:4: fout: invalid use of member ‘OpenPixelControl::dm’ in static member function
+    dm->setLeds(data,size / sizeof(rgbw_t),channel);
+    ^~
+In file included from ../src/OpenPixelControl.cpp:8:0:
+../src/OpenPixelControl.h:42:17: note: declared here
+  DeviceManager *dm;
+                 ^~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:25:38 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:141:54: fout: ‘virtual void DeviceManager::setLeds(rgb_t*, size_t, int)’ is private within this context
+    opc->dm->setLeds(data,size / sizeof(rgb_t),channel);
+                                                      ^
+In file included from ../src/OpenPixelControl.h:21:0,
+                 from ../src/OpenPixelControl.cpp:8:
+../src/DeviceManager.h:58:15: note: declared private here
+  virtual void setLeds(rgb_t* data, size_t size,  int channel) = 0;
+               ^~~~~~~
+../src/OpenPixelControl.cpp:156:55: fout: ‘virtual void DeviceManager::setLeds(rgbw_t*, size_t, int)’ is private within this context
+    opc->dm->setLeds(data,size / sizeof(rgbw_t),channel);
+                                                       ^
+In file included from ../src/OpenPixelControl.h:21:0,
+                 from ../src/OpenPixelControl.cpp:8:
+../src/DeviceManager.h:59:15: note: declared private here
+  virtual void setLeds(rgbw_t* data, size_t size, int channel) = 0;
+               ^~~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:26:04 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:141:54: fout: ‘virtual void DeviceManager::setLeds(rgb_t*, size_t, int)’ is protected within this context
+    opc->dm->setLeds(data,size / sizeof(rgb_t),channel);
+                                                      ^
+In file included from ../src/OpenPixelControl.h:21:0,
+                 from ../src/OpenPixelControl.cpp:8:
+../src/DeviceManager.h:38:15: note: declared protected here
+  virtual void setLeds(rgb_t* data, size_t size,  int channel) = 0;
+               ^~~~~~~
+../src/OpenPixelControl.cpp:156:55: fout: ‘virtual void DeviceManager::setLeds(rgbw_t*, size_t, int)’ is protected within this context
+    opc->dm->setLeds(data,size / sizeof(rgbw_t),channel);
+                                                       ^
+In file included from ../src/OpenPixelControl.h:21:0,
+                 from ../src/OpenPixelControl.cpp:8:
+../src/DeviceManager.h:39:15: note: declared protected here
+  virtual void setLeds(rgbw_t* data, size_t size, int channel) = 0;
+               ^~~~~~~
+make: *** [src/subdir.mk:32: src/OpenPixelControl.o] Fout 1
+12:26:14 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:12:40: fout: invalid new-expression of abstract class type ‘DeviceManager’
+  DeviceManager *dm = new DeviceManager();
+                                        ^
+In file included from ../src/main.cpp:10:0:
+../src/DeviceManager.h:29:7: note:   because the following virtual functions are pure within ‘DeviceManager’:
+ class DeviceManager {
+       ^~~~~~~~~~~~~
+../src/DeviceManager.h:38:15: note: 	virtual void DeviceManager::setLeds(rgb_t*, size_t, int)
+  virtual void setLeds(rgb_t* data, size_t size,  int channel) = 0;
+               ^~~~~~~
+../src/DeviceManager.h:39:15: note: 	virtual void DeviceManager::setLeds(rgbw_t*, size_t, int)
+  virtual void setLeds(rgbw_t* data, size_t size, int channel) = 0;
+               ^~~~~~~
+../src/DeviceManager.h:40:15: note: 	virtual void DeviceManager::setLeds(drgb_t*, size_t, int)
+  virtual void setLeds(drgb_t* data, size_t size, int channel) = 0;
+               ^~~~~~~
+../src/main.cpp:12:17: let op: unused variable ‘dm’ [-Wunused-variable]
+  DeviceManager *dm = new DeviceManager();
+                 ^~
+make: *** [src/subdir.mk:32: src/main.o] Fout 1
+12:26:46 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:12:17: let op: unused variable ‘dm’ [-Wunused-variable]
+  DeviceManager *dm = new DeviceManager();
+                 ^~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+./src/DeviceManager.o:(.rodata._ZTV13DeviceManager[_ZTV13DeviceManager]+0x20): undefined reference to `DeviceManager::setLeds(rgb_t*, unsigned long, int)'
+./src/DeviceManager.o:(.rodata._ZTV13DeviceManager[_ZTV13DeviceManager]+0x28): undefined reference to `DeviceManager::setLeds(rgbw_t*, unsigned long, int)'
+./src/DeviceManager.o:(.rodata._ZTV13DeviceManager[_ZTV13DeviceManager]+0x30): undefined reference to `DeviceManager::setLeds(drgb_t*, unsigned long, int)'
+collect2: fout: ld gaf exit-status 1 terug
+make: *** [makefile:47: LED_Controller_Host] Fout 1
+12:34:29 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:36:49 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:15:20: let op: unused variable ‘opc’ [-Wunused-variable]
+  OpenPixelControl *opc = new OpenPixelControl(dm);
+                    ^~~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:36:56 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:38:38 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:38:45 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:39:35 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+12:46:06 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+12:46:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.

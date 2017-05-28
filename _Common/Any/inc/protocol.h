@@ -83,6 +83,8 @@ enum {
 	DEV_LED_C1_CHANNEL = 0x21,
 };
 
+#define LED_C0_MASK 0x10
+#define LED_C1_MASK 0x20
 
 // Suppose we could make this different, set some bit masks rather
 enum {

@@ -34,6 +34,11 @@ public:
 	void eraseController(LedController *controller);
 
 
+
+	virtual void setLeds(rgb_t* data, size_t size,  int channel);
+	virtual void setLeds(rgbw_t* data, size_t size, int channel);
+	virtual void setLeds(drgb_t* data, size_t size, int channel);
+
 private:
 	bool libusb_hotplug_callback_thread_running = true;
 	bool libusb_handle_events_thread_running = true;
@@ -51,6 +56,11 @@ private:
 	static int libusb_hotplug_callback(struct libusb_context *ctx, struct libusb_device *dev,
 	                     libusb_hotplug_event event, void *user_data);
 	queue<libusb_hotplug_event_t> libusb_hotplug_event_queue;
+
+
+
+
+
 };
 
 #endif /* SRC_DEVICEMANAGER_H_ */

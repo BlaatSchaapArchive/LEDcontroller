@@ -75,6 +75,50 @@ void DeviceManager::libusb_hotplug_callback_thread_code(DeviceManager *dm) {
 	}
 }
 
+
+
+void DeviceManager::setLeds(rgb_t* data, size_t size,  int channel){
+	// TODO Device/Channel mapper
+
+	// Old test implementation for now
+	int nr_of_channels = 4; // TODO get this number from device info
+	uint8_t dev_unit =  (channel / nr_of_channels);
+	uint8_t dev_channel =  (channel % nr_of_channels);
+
+	// Until we have a mapper, we use this to address the first connected controller
+	// And map the channels 1 to 1 on it.
+	auto controller = mapStringLedController.begin();
+	controller->second->setLeds(data,size, 0 , dev_channel, dev_unit);
+
+
+
+}
+
+void DeviceManager::setLeds(rgbw_t* data, size_t size, int channel){
+	// Old test implementation for now
+	int nr_of_channels = 4; // TODO get this number from device info
+	uint8_t dev_unit =  (channel / nr_of_channels);
+	uint8_t dev_channel =  (channel % nr_of_channels);
+
+	// Until we have a mapper, we use this to address the first connected controller
+	// And map the channels 1 to 1 on it.
+	auto controller = mapStringLedController.begin();
+	controller->second->setLeds(data,size, 0 , dev_channel, dev_unit);
+}
+
+void DeviceManager::setLeds(drgb_t* data, size_t size, int channel){
+	// Old test implementation for now
+	int nr_of_channels = 4; // TODO get this number from device info
+	uint8_t dev_unit =  (channel / nr_of_channels);
+	uint8_t dev_channel =  (channel % nr_of_channels);
+
+	// Until we have a mapper, we use this to address the first connected controller
+	// And map the channels 1 to 1 on it.
+	auto controller = mapStringLedController.begin();
+	controller->second->setLeds(data,size, 0 , dev_channel, dev_unit);
+}
+
+
 int DeviceManager::libusb_hotplug_callback(struct libusb_context *ctx, struct libusb_device *dev,
 		libusb_hotplug_event event, void *user_data) {
 	DeviceManager* dm =(DeviceManager*)(user_data);
