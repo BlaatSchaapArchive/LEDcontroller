@@ -41,6 +41,8 @@ private:
 
 	void obtainDeviceInfo();
 
+	bool isBusy();
+
 };
 
 #endif /* SRC_ITPHCONTROLLER_H_ */

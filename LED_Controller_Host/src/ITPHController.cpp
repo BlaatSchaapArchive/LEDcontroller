@@ -215,11 +215,33 @@ bool ITPHController::isSupportedDevice(libusb_device *dev) {
 	return false;
 }
 
+bool ITPHController::isBusy() {
+	uint8_t data_buffer[64];
+	data_buffer[0] = CMD_BUFFER_STATE;
+
+	int transferred;
+	int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1,
+			&transferred, 1000);
+	if (retval)
+		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+				libusb_strerror((libusb_error) retval));
+	retval = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+			1000);
+	if (retval)
+		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+				libusb_strerror((libusb_error) retval));
+	return data_buffer[1];
+
+
+}
 void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 		int channel, int unit) {
 
 	uint8_t send_buffer[64];
-	send_buffer[0] = 0x14; // FILL BUFFER, COMPRESSED DATA GRBW
+
+	while (isBusy()) usleep(5);
+
+	send_buffer[0] = CMD_FILL_BUFFER4; // FILL BUFFER, COMPRESSED DATA GRBW
 	send_buffer[1] = channel;  // TARGET CHANNEL 0
 	send_buffer[2] = offset;  // offset in leds
 	send_buffer[3] = 15; // 15 LEDS per packet ( 60 / 4 )
@@ -258,7 +280,10 @@ void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 		int channel, int unit) {
 	uint8_t send_buffer[64];
-	send_buffer[0] = 0x13; // FILL BUFFER, COMPRESSED DATA GRB
+
+	while (isBusy()) usleep(5);
+
+	send_buffer[0] = CMD_FILL_BUFFER3; // FILL BUFFER, COMPRESSED DATA GRB
 	send_buffer[1] = channel;  // TARGET CHANNEL 0
 	send_buffer[2] = offset;  // offset in leds
 	send_buffer[3] = 20; // 20 LEDS per packet ( 60 / 3 )

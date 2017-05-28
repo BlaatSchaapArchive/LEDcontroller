@@ -214,7 +214,7 @@ bool is_busy2(DMA_Channel_TypeDef *dma) {
 bool is_busy() {
 	//return false;
 	//return buffer_state[0];
-	return is_busy2(DMA1_Channel2);
+	return is_busy2(DMA1_Channel2) || is_busy2(DMA1_Channel3) ;
 	//return DMA1_Channel2->CCR & 1;
 }
 

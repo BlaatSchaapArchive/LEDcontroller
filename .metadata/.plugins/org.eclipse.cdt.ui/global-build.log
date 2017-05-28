@@ -2758,3 +2758,31 @@ Finished building target: LED_Controller_Host
 12:46:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
 make all 
 make: Er hoeft niets gedaan te worden voor 'all'.
+13:18:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:248:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:290:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+13:18:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
