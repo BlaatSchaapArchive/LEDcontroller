@@ -21,7 +21,17 @@
 using namespace std;
 
 typedef enum led_type_t : uint8_t {
-	generic_clockless_rgb = 0x10,
+	generic_clockless_grb = 0x10,
+			ws2811 = 0x12,
+			ws2812 = 0x14,
+			ws2812b = 0x16,
+			ws2813 = 0x18,
+			sk6812rgb = 0x1A,
+	generic_clockless_rgb = 0x11,
+			ws2812d = 0x13,
+			pd6823  = 0x15,
+			apa105 = 0x17,
+
 	generic_clockless_rgbw = 0x20,
 	generic_clockless_wwa = 0x30,
 
@@ -54,7 +64,10 @@ typedef struct {
 
 	direction_t 		led_direction;
 	led_type_t 			led_type;
-	rgb_permurations_t 	led_permutation;
+	union {
+		rgb_permurations_t 	led_rgb_permutation;
+		rgbw_permurations_t led_rgbw_permutation;
+	};
 
 	uint32_t 			option_flags;
 } opc_device_map_t;
@@ -93,6 +106,7 @@ private:
 	vector<opc_device_map_t> opc_device_map;
 
 	void permute_rgb_data(rgb_t* data, size_t size, rgb_permurations_t permutation);
+	void permute_rgbw_data(rgbw_t* data, size_t size, rgbw_permurations_t permutation);
 
 
 

@@ -2864,3 +2864,667 @@ Finished building target: LED_Controller_Host
 13:55:35 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
 make all 
 make: Er hoeft niets gedaan te worden voor 'all'.
+14:18:09 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:72:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:73:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:15:20: let op: unused variable ‘opc’ [-Wunused-variable]
+  OpenPixelControl *opc = new OpenPixelControl(dm);
+                    ^~~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+14:18:32 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:18:42 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:20:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:26:23 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:29:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+14:45:55 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:142:18: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if ((size - 2) > sizeof(buf)) continue; // invalid data
+       ~~~~~~~~~~~^~~~~~~~~
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+14:46:08 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+14:48:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:72:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:73:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+Finished building: ../src/DeviceManager.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+17:50:17 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:72:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:73:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:250:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:279:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:296:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+17:50:51 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:51:36 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:53:09 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:54:12 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:250:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:279:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:296:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+17:56:22 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:139:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:147:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:155:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:132:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgb2’:
+../src/test.c:183:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:191:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:199:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:176:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:223:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:231:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:239:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:216:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:304:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:306:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:350:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:384:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:406:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:342:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:335:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:322:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:321:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:320:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:319:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:251:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:250:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+17:57:13 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:58:04 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:58:47 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:72:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp:73:10: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+          ^
+Finished building: ../src/DeviceManager.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+18:07:51 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:30:04 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In constructor ‘DeviceManager::DeviceManager()’:
+../src/DeviceManager.cpp:38:6: fout: ‘struct opc_device_map_t’ has no member named ‘led_permutation’; did you mean ‘led_direction’?
+  map.led_permutation = grb;
+      ^~~~~~~~~~~~~~~
+../src/DeviceManager.cpp:45:6: fout: ‘struct opc_device_map_t’ has no member named ‘led_permutation’; did you mean ‘led_direction’?
+  map.led_permutation = rgb;
+      ^~~~~~~~~~~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:70:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:175:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::setLeds(rgb_t*, size_t, int)’:
+../src/DeviceManager.cpp:262:39: fout: ‘struct opc_device_map_t’ has no member named ‘led_permutation’; did you mean ‘led_direction’?
+        permute_rgb_data(data,size,map.led_permutation);
+                                       ^~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:32: src/DeviceManager.o] Fout 1
+18:31:31 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:250:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:279:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:296:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building file: ../src/LedController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/LedController.d" -MT"src/LedController.o" -o "src/LedController.o" "../src/LedController.cpp"
+../src/LedController.cpp: In memberfunctie ‘virtual std::__cxx11::string LedController::getSerial()’:
+../src/LedController.cpp:19:35: let op: no return statement in function returning non-void [-Wreturn-type]
+ string LedController::getSerial(){}
+                                   ^
+Finished building: ../src/LedController.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:142:18: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if ((size - 2) > sizeof(buf)) continue; // invalid data
+       ~~~~~~~~~~~^~~~~~~~~
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In functie ‘int main(int, char**)’:
+../src/main.cpp:15:20: let op: unused variable ‘opc’ [-Wunused-variable]
+  OpenPixelControl *opc = new OpenPixelControl(dm);
+                    ^~~
+Finished building: ../src/main.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+18:31:45 **** Incremental Build of configuration Debug for project USB_Test ****
+make all 
+Building file: ../src/test.c
+Invoking: GCC C Compiler
+gcc -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+../src/test.c: In functie ‘is_supported_device’:
+../src/test.c:64:63: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+  if (strcmp("The IT Philosoher (https://www.philosopher.it)", string))
+                                                               ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:73:11: let op: pointer targets in passing argument 1 of ‘sprintf’ differ in signedness [-Wpointer-sign]
+   sprintf(cmpName, "LED Controller (variant %02x)", i);
+           ^~~~~~~
+In file included from ../src/test.c:1:0:
+/usr/include/stdio.h:367:12: note: expected ‘char * restrict’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int sprintf (char *__restrict __s,
+            ^~~~~~~
+../src/test.c:74:15: let op: pointer targets in passing argument 1 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+               ^~~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c:74:24: let op: pointer targets in passing argument 2 of ‘strcmp’ differ in signedness [-Wpointer-sign]
+   if (!strcmp(cmpName, string))
+                        ^~~~~~
+In file included from ../src/test.c:5:0:
+/usr/include/string.h:141:12: note: expected ‘const char *’ but argument is of type ‘uint8_t * {aka unsigned char *}’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/test.c: In functie ‘permute_rgb_data’:
+../src/test.c:89:3: let op: enumeration value ‘rgb’ not handled in switch [-Wswitch]
+   switch (permutation) {
+   ^~~~~~
+../src/test.c: In functie ‘send_rgb’:
+../src/test.c:139:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:147:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:155:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:132:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgb2’:
+../src/test.c:183:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:191:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:199:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:176:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘send_rgbw’:
+../src/test.c:223:47: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+   retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+                                               ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:231:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:239:46: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
+                                              ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:216:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/test.c: In functie ‘main’:
+../src/test.c:304:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x01, data_buffer, 1, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:306:43: let op: pointer targets in passing argument 3 of ‘libusb_bulk_transfer’ differ in signedness [-Wpointer-sign]
+  res = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
+                                           ^~~~~~~~~~~
+In file included from ../src/test.c:7:0:
+/usr/include/libusb-1.0/libusb.h:1752:17: note: expected ‘unsigned char *’ but argument is of type ‘char *’
+ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *dev_handle,
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/test.c:350:4: let op: impliciete declaratie van functie ‘error’ [-Wimplicit-function-declaration]
+    error("ERROR opening socket");
+    ^~~~~
+../src/test.c:384:6: let op: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+      &clientlen);
+      ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/netdb.h:27,
+                 from ../src/test.c:12:
+/usr/include/sys/socket.h:237:12: note: expected ‘socklen_t * restrict {aka unsigned int * restrict}’ but argument is of type ‘int *’
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^~~~~~
+../src/test.c:406:9: let op: impliciete declaratie van functie ‘read’ [-Wimplicit-function-declaration]
+     n = read(childfd, buf, BUFSIZE);
+         ^~~~
+../src/test.c:342:7: let op: unused variable ‘optval’ [-Wunused-variable]
+   int optval; /* flag value for setsockopt */
+       ^~~~~~
+../src/test.c:335:7: let op: unused variable ‘portno’ [-Wunused-variable]
+   int portno; /* port to listen on */
+       ^~~~~~
+../src/test.c:322:6: let op: unused variable ‘test’ [-Wunused-variable]
+  int test = 0;
+      ^~~~
+../src/test.c:321:8: let op: unused variable ‘rgb’ [-Wunused-variable]
+  rgb_t rgb;
+        ^~~
+../src/test.c:320:6: let op: unused variable ‘index’ [-Wunused-variable]
+  int index = 0;
+      ^~~~~
+../src/test.c:319:10: let op: unused variable ‘data_c0’ [-Wunused-variable]
+  uint8_t data_c0[3072 * 4]; // 4 Clockless channels of either 96 RGBW or 128 RGB leds
+          ^~~~~~~
+../src/test.c:251:10: let op: unused variable ‘buffer’ [-Wunused-variable]
+  uint8_t buffer[64]; /* 64 byte transfer buffer */
+          ^~~~~~
+../src/test.c:250:6: let op: unused variable ‘numBytes’ [-Wunused-variable]
+  int numBytes = 0; /* Actual bytes transferred. */
+      ^~~~~~~~
+Finished building: ../src/test.c
+ 
+Building target: USB_Test
+Invoking: GCC C++ Linker
+g++  -o "USB_Test"  ./src/test.o   -lusb-1.0
+Finished building target: USB_Test
+ 
+18:31:56 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:33:50 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:34:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:39:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:39:51 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+18:50:13 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 

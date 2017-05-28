@@ -15,6 +15,7 @@
 using namespace std;
 
 void ITPHController::obtainDeviceInfo() {
+	std::lock_guard<std::mutex> guard(UsbMutex);
 	uint8_t data_buffer[64];
 	data_buffer[0] = CMD_DEVINFO;
 	data_buffer[1] = 0x00;
@@ -216,6 +217,7 @@ bool ITPHController::isSupportedDevice(libusb_device *dev) {
 }
 
 bool ITPHController::isBusy() {
+
 	uint8_t data_buffer[64];
 	data_buffer[0] = CMD_BUFFER_STATE;
 
@@ -236,7 +238,7 @@ bool ITPHController::isBusy() {
 }
 void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 		int channel, int unit) {
-
+	std::lock_guard<std::mutex> guard(UsbMutex);
 	uint8_t send_buffer[64];
 
 	while (isBusy()) usleep(5);
@@ -273,6 +275,7 @@ void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 
 void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 		int channel, int unit) {
+	std::lock_guard<std::mutex> guard(UsbMutex);
 	uint8_t send_buffer[64];
 
 	while (isBusy()) usleep(5);
@@ -281,6 +284,7 @@ void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 
 void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 		int channel, int unit) {
+	std::lock_guard<std::mutex> guard(UsbMutex);
 	uint8_t send_buffer[64];
 
 	while (isBusy()) usleep(5);

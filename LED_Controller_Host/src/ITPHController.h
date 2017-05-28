@@ -10,7 +10,8 @@
 
 #include "LedController.h"
 
-#include <thread>         // std::thread
+#include <thread>       // std::thread
+#include <mutex>		// std::mutex
 
 #include "libusb.h"
 
@@ -42,6 +43,8 @@ private:
 	void obtainDeviceInfo();
 
 	bool isBusy();
+
+	mutex UsbMutex;
 
 };
 
