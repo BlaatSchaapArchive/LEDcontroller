@@ -7,6 +7,8 @@
 
 #include "ITPHController.h"
 #include <string>
+#include <iostream>
+
 #include <string.h>
 #include <unistd.h>
 
@@ -23,12 +25,12 @@ void ITPHController::obtainDeviceInfo() {
 	int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1,
 			&transferred, 1000);
 	if (retval)
-		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 	retval = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
 			1000);
 	if (retval)
-		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 
 	if (data_buffer[0] != CMD_DEVINFO) {
@@ -159,7 +161,7 @@ bool ITPHController::isSupportedDevice(libusb_device *dev) {
 	retval = libusb_get_device_descriptor(dev, &desc);
 	if (retval < 0) {
 		//fprintf(stderr, "failed to get device descriptor");
-		printf("failed to get device descriptor: %s: %s",
+		printf("failed to get device descriptor: %s: %s\n",
 				libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 		libusb_close(handle);
@@ -172,7 +174,7 @@ bool ITPHController::isSupportedDevice(libusb_device *dev) {
 	if (retval < 0) {
 
 		//fprintf(stderr, "failed to get string descriptor");
-		printf("failed to get string (iManufacturer) descriptor: %s: %s",
+		printf("failed to get string (iManufacturer) descriptor: %s: %s\n",
 				libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 		libusb_close(handle);
@@ -193,7 +195,7 @@ bool ITPHController::isSupportedDevice(libusb_device *dev) {
 
 	if (retval < 0) {
 		//fprintf(stderr, "failed to get string descriptor");
-		printf("failed to get string (iProduct) descriptor: %s: %s",
+		printf("failed to get string (iProduct) descriptor: %s: %s\n",
 				libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 		libusb_close(handle);
@@ -225,20 +227,95 @@ bool ITPHController::isBusy() {
 	int retval = libusb_bulk_transfer(handle, 0x01, data_buffer, 1,
 			&transferred, 1000);
 	if (retval)
-		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 	retval = libusb_bulk_transfer(handle, 0x81, data_buffer, 64, &transferred,
 			1000);
 	if (retval)
-		printf("libusb_bulk_transfer failed: %s: %s", libusb_error_name(retval),
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
 				libusb_strerror((libusb_error) retval));
 	return data_buffer[1];
 
 
 }
+
+void ITPHController::setLeds(void* data, size_t size, int offset) {
+	std::lock_guard<std::mutex> guard(UsbMutex);
+	uint8_t send_buffer[64];
+	int retval = 0;
+	int transferred = 0;
+	int target_pos = offset;
+	send_buffer[0] = CMD_FILL_BUFFER_SC;
+
+	uint16_t *target_offset = (uint16_t*) (send_buffer + 1);
+	uint8_t *target_amount = (uint8_t*) (send_buffer + 3);
+	*target_offset = target_pos;
+	*target_amount = 60;
+
+	int source_offset = 0;
+	while (size > 60) {
+		memcpy(send_buffer + 5, ((char*)(data))+source_offset, 60 );
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+				&transferred, 1000);
+
+		if (retval)
+			printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+					libusb_strerror((libusb_error) retval));
+
+		source_offset += 60;
+		size -= 60;
+		*target_offset += 60;
+	}
+	if (size) {
+		*target_amount = size;
+		memcpy(send_buffer + 4, ((char*)(data))+source_offset, size );
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
+				&transferred, 1000);
+
+		if (retval)
+			printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+					libusb_strerror((libusb_error) retval));
+
+	}
+
+}
+
+void ITPHController::applyBuffer(int channel, int unit, size_t size) {
+	std::lock_guard<std::mutex> guard(UsbMutex);
+	uint8_t send_buffer[64];
+	int retval;
+	int transferred;
+	send_buffer[0] = CMD_APPLY_BUF_SC; // APPLY BUFFER
+	uint16_t* taget_offset = (uint16_t*) ((send_buffer + 1));
+	uint16_t* target_amount = (uint16_t*) ((send_buffer + 3));
+	uint8_t* target_first_channel = send_buffer + 5;
+	uint8_t* target_nr_channels = send_buffer + 6;
+	uint8_t* target_pwm_unit = send_buffer + 7;
+	*taget_offset = (3072 * channel);
+	*target_amount = size * sizeof(rgbw_t);
+	*target_first_channel = channel;
+	*target_nr_channels = 1;
+	*target_pwm_unit = unit;
+	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 9, &transferred,
+			1000);
+}
+
 void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 		int channel, int unit) {
+
+	setLeds((void*) rgbw_data, size * sizeof(rgbw_t), offset * sizeof(rgbw_t) + (3072 * channel) );
+
+	applyBuffer(channel, unit, size);
+}
+
+/*
+void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
+		int channel, int unit) {
+	//std::thread::id this_id = std::this_thread::get_id();
+	//std::cout << "thread " << this_id << " meets guard...\n";
 	std::lock_guard<std::mutex> guard(UsbMutex);
+	//std::cout << "thread " << this_id << " past guard...\n";
+
 	uint8_t send_buffer[64];
 
 	while (isBusy()) usleep(5);
@@ -255,6 +332,11 @@ void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 		leds_remaining -= 15;
 		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
 				&transferred, 1000);
+
+		if (retval)
+			printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+					libusb_strerror((libusb_error) retval));
+
 		send_buffer[2] += 15;
 	}
 	// Transmit remaining leds
@@ -264,6 +346,10 @@ void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
 			1000);
 
+	if (retval)
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+				libusb_strerror((libusb_error) retval));
+
 	// TODO: buffered mode, separate apply
 
 	send_buffer[0] = 0x11; // APPLY BUFFER
@@ -271,8 +357,10 @@ void ITPHController::setLeds(rgbw_t* rgbw_data, size_t size, int offset,
 	send_buffer[2] = unit; // GENERATOR UNIT
 	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
 			1000);
-}
 
+	//std::cout << "thread " << this_id << " finished...\n";
+}
+*/
 void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 		int channel, int unit) {
 	std::lock_guard<std::mutex> guard(UsbMutex);
@@ -282,9 +370,14 @@ void ITPHController::setLeds(drgb_t* drgb_data, size_t size, int offset,
 	// TODO: Implement me
 }
 
+/*
 void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 		int channel, int unit) {
+	//std::thread::id this_id = std::this_thread::get_id();
+	//std::cout << "thread " << this_id << " meets guard...\n";
 	std::lock_guard<std::mutex> guard(UsbMutex);
+	//std::cout << "thread " << this_id << " past guard...\n";
+
 	uint8_t send_buffer[64];
 
 	while (isBusy()) usleep(5);
@@ -301,6 +394,11 @@ void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 		leds_remaining -= 20;
 		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
 				&transferred, 1000);
+
+		if (retval)
+			printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+					libusb_strerror((libusb_error) retval));
+
 		send_buffer[2] += 20;
 	}
 	// Transmit remaining leds
@@ -310,6 +408,10 @@ void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred,
 			1000);
 
+
+	if (retval)
+		printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
+				libusb_strerror((libusb_error) retval));
 	// TODO: buffered mode, separate apply
 
 	send_buffer[0] = 0x11; // APPLY BUFFER
@@ -317,4 +419,15 @@ void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 	send_buffer[2] = unit; // GENERATOR UNIT
 	retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 3, &transferred,
 			1000);
+
+	//std::cout << "thread " << this_id << " finished...\n";
+}
+*/
+
+void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
+		int channel, int unit) {
+
+	setLeds((void*) rgb_data, size * sizeof(rgb_t), offset * sizeof(rgb_t) + (3072 * channel) );
+
+	applyBuffer(channel, unit, size);
 }

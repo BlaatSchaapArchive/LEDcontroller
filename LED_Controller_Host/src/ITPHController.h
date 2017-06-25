@@ -44,6 +44,10 @@ private:
 
 	bool isBusy();
 
+
+	void setLeds(void* data, size_t size, int offset);
+	void applyBuffer(int channel, int unit, size_t size);
+
 	mutex UsbMutex;
 
 };

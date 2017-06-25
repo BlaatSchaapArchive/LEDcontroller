@@ -11,8 +11,6 @@
 
 #include "usbd_core.h"
 
-
-
 void start_dma_transer2(char* memory, size_t size, DMA_Channel_TypeDef *dma,
 		TIM_TypeDef *tim);
 
@@ -25,21 +23,16 @@ uint8_t data_c1[512];  // 1 Clocked channels of 96 LEDS
 bool buffer_state[2] = { false, false };
 bool timer_state[3] = { false, false, false };
 
-
 static int bits_per_colour = 8;
 static int channels_per_timer = 4;
-
 
 //For led strips
 static int pwm_val_0 = 2;
 static int pwm_val_1 = 6;
 
-
-
 // For through hole leds??
 //static int pwm_val_0 = 3;
 //static int pwm_val_1 = 13;
-
 
 bool set_leds(int offset, int channel_nr, int byteval) {
 	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
@@ -54,9 +47,6 @@ bool set_leds(int offset, int channel_nr, int byteval) {
 	}
 	return true;
 }
-
-
-
 
 bool set_led3(int led_nr, int channel_nr, int colour_index, int byteval) {
 	int bits_per_led = 3 * bits_per_colour;
@@ -73,7 +63,6 @@ bool set_led3(int led_nr, int channel_nr, int colour_index, int byteval) {
 	}
 	return true;
 }
-
 
 bool set_led4(int led_nr, int channel_nr, int colour_index, int byteval) {
 	int bits_per_led = 4 * bits_per_colour;
@@ -92,7 +81,19 @@ bool set_led4(int led_nr, int channel_nr, int colour_index, int byteval) {
 }
 
 
-
+bool fill_buffer_decompress(uint16_t offset, uint16_t amount, uint8_t *data) {
+	for (int count = 0 ; count < amount; count++)
+	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
+		uint8_t byteval = data[count];
+		int mask = 1 << bit_nr;
+		uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
+		uint32_t index = ( ( bits_per_colour - 1) - bit_nr  ) + (8 * (offset + count));
+		if (index > sizeof(data_c0))
+			return false;
+		data_c0[index] = val;
+	}
+	return true;
+}
 
 
 int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
@@ -107,8 +108,7 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		break;
 	case CMD_DEVINFO: {
 
-
-		devinfo_response_t *r = (devinfo_response_t *)data_usb_tx;
+		devinfo_response_t *r = (devinfo_response_t *) data_usb_tx;
 		r->command = CMD_DEVINFO;
 		r->size = sizeof(devinfo_response_t); //!!
 		r->pad = 0;
@@ -120,10 +120,6 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 
 		// Only works when debugger attached? Otherwise I am getting 0. Is there a way around this?
 		r->info.device = DBGMCU->IDCODE;
-
-
-
-
 
 		r->led0.size = sizeof(led_dev_t);
 		r->led0.type = DEVINFO_LED;
@@ -142,16 +138,15 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 
 		r->buf0.size = sizeof(buffer_t);
 		r->buf0.type = DEVINFO_BUF;
-		r->buf0.buffer_size = sizeof (data_c0);
+		r->buf0.buffer_size = sizeof(data_c0);
 		r->buf0.shared = 1;
 
 		r->buf1.size = sizeof(buffer_t);
 		r->buf1.type = DEVINFO_BUF;
-		r->buf1.buffer_size = sizeof (data_c1);
+		r->buf1.buffer_size = sizeof(data_c1);
 		r->buf1.shared = 1;
 
-
-		USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+		USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
 		USBD_LED_TransmitPacket(&USBD_Device);
 
 		// Using LL it works
@@ -169,7 +164,6 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		// HW PWM Generator 4 channel
 		// buffer layout / configuration
 		// assigned buffer/sharing
-
 
 		// Buffer + size
 
@@ -218,22 +212,27 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		uint8_t data_src = *(uint8_t*) (buffer + 1);
 		uint8_t data_dst = *(uint8_t*) (buffer + 2);
 
-		if (data_src!=0) break;
+		if (data_src != 0)
+			break;
 
 		switch (data_dst) {
 		case 0:
 			if (!is_busy2(DMA1_Channel2))
-				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel2, TIM2);
+				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel2,
+						TIM2);
 			break;
 		case 1:
 			if (!is_busy2(DMA1_Channel3))
-				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel3, TIM3);
+				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel3,
+						TIM3);
 			break;
 		case 2:
 			if (is_busy2(DMA1_Channel7))
-				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel7, TIM4);
+				start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel7,
+						TIM4);
 			break;
-		default: break;
+		default:
+			break;
 		}
 		//
 
@@ -252,7 +251,8 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 		uint8_t offset = buffer[2];
 		uint8_t amount = buffer[3];
 
-		if (target >= 4) break; // invalid channel id
+		if (target >= 4)
+			break; // invalid channel id
 
 		// buffers are verified in set_ledl* thus offset/amount
 		// do not require verification
@@ -262,37 +262,87 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 				set_led3(offset + i, target, colour, buffer[b++]);
 		}
 		break;
-	case CMD_FILL_BUFFER4: {
-		uint8_t target = buffer[1];
-		uint8_t offset = buffer[2];
-		uint8_t amount = buffer[3];
+		case CMD_FILL_BUFFER4:
+		{
+			uint8_t target = buffer[1];
+			uint8_t offset = buffer[2];
+			uint8_t amount = buffer[3];
 
-		if (target >= 4) break; // invalid channel id
+			if (target >= 4)
+				break; // invalid channel id
 
-		// offset and amount are verified in set_pixel4
-		int b = 4;
-		for (int i = 0; i < amount; i++) {
-			for (int colour = 0; colour < 4; colour++)
-				set_led4(offset + i, target, colour, buffer[b++]);
+			// offset and amount are verified in set_pixel4
+			int b = 4;
+			for (int i = 0; i < amount; i++) {
+				for (int colour = 0; colour < 4; colour++)
+					set_led4(offset + i, target, colour, buffer[b++]);
+			}
+			break;
 		}
-		break;
-	}
-	case CMD_FILL_BUFFER: {
-		uint8_t target = buffer[1];
-		uint8_t offset = buffer[2];
-		uint8_t amount = buffer[3];
+		case CMD_FILL_BUFFER:
+		{
+			uint8_t target = buffer[1];
+			uint8_t offset = buffer[2];
+			uint8_t amount = buffer[3];
 
-		if (target >= 4) break; // invalid channel id
+			if (target >= 4)
+				break; // invalid channel id
 
-		// offset and amount are verified in set_pixel4
-		for (int i = 0; i < amount; i++) {
+			// offset and amount are verified in set_pixel4
+			for (int i = 0; i < amount; i++) {
 				set_leds(offset + i, target, buffer[i]);
+			}
+			break;
 		}
-		break;
-	}
 
+		case CMD_FILL_BUFFER_SC:
+		{
+			uint16_t offset = *(uint16_t*) (buffer + 1);
+			uint8_t amount = *(uint8_t*) (buffer + 3);
 
+			// size of decompressed datta please
+			if (offset + amount < sizeof(data_c0)) {
+				// We need to decompress the data
+				//memcpy(data_c0 + offset, buffer + 5, amount);
+				fill_buffer_decompress(offset,amount, buffer+5);
+			}
 
+			break;
+		}
+		case CMD_APPLY_BUF_SC:
+		{
+			uint16_t offset = *(uint16_t*) (buffer + 1);
+			uint16_t amount = *(uint16_t*) (buffer + 3);
+			uint8_t first_channel = buffer[5];
+			uint8_t nr_channels = buffer[6];
+			uint8_t pwm_unit = buffer[7];
+
+			switch (pwm_unit) {
+			case 0:
+				if (!is_busy2(DMA1_Channel2)) {
+					pwm_set_xchannels(TIM2, first_channel, nr_channels);
+				start_dma_transer2(data_c0 + offset, amount, DMA1_Channel2,
+						TIM2);
+				}
+				break;
+			case 1:
+				if (!is_busy2(DMA1_Channel3)) {
+					pwm_set_xchannels(TIM3, first_channel, nr_channels);
+				start_dma_transer2(data_c0 + offset, amount, DMA1_Channel3,
+						TIM3);
+				}
+				break;
+			case 2:
+				if (is_busy2(DMA1_Channel7)) {
+					pwm_set_xchannels(TIM4, first_channel, nr_channels);
+				start_dma_transer2(data_c0 + offset, amount, DMA1_Channel7,
+						TIM4); }
+				break;
+			default:
+				break;
+			}
+
+		}
 
 	}
 	default:

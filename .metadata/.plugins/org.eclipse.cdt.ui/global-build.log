@@ -3528,3 +3528,1097 @@ Invoking: GCC C++ Linker
 g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
 Finished building target: LED_Controller_Host
  
+19:25:22 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:51:54 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:52:10 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:52:27 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:204:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:204:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:204:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building file: ../src/usbd_desc.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usbd_desc.d" -MT"src/usbd_desc.o" -c -o "src/usbd_desc.o" "../src/usbd_desc.c"
+../src/usbd_desc.c: In function 'Get_SerialNum':
+../src/usbd_desc.c:284:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint8_t* device_id = 0x1FFFF7E8;
+                       ^~~~~~~~~~
+Finished building: ../src/usbd_desc.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+19:52:32 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+19:58:34 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:256:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:285:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:306:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+19:59:42 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:256:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:287:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:308:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:03:22 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgbw_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:256:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:287:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(rgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:308:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 0;
+      ^~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:05:07 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:296:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+20:06:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+20:13:53 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+20:03:58 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:53:28 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:296:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+10:54:38 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:55:50 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:57:53 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:58:52 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:59:18 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+10:59:45 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+11:00:43 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+11:01:08 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:00:57 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:04:01 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:06:25 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:07:23 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:07:34 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:08:03 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:09:34 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+12:11:21 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25044	    204	  17060	  42308	   a544	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+22:31:13 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:29:08 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:223:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:223:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:223:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:154:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r , sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:155:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:225:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:246:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:313:5: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+     pwm_set_xchannels(TIM2,first_channel, nr_channels);
+     ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25368	    204	  17060	  42632	   a688	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:30:52 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:133:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:134:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:204:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:229:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:303:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25368	    204	  17060	  42632	   a688	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:52:26 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+In file included from ../src/DeviceManager.cpp:9:0:
+../src/ITPHController.h:48:7: let op: extra qualification ‘ITPHController::’ on member ‘setLeds’ [-fpermissive]
+  void ITPHController::setLeds(void* data, size_t size, int offset);
+       ^~~~~~~~~~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+In file included from ../src/ITPHController.cpp:8:0:
+../src/ITPHController.h:48:7: let op: extra qualification ‘ITPHController::’ on member ‘setLeds’ [-fpermissive]
+  void ITPHController::setLeds(void* data, size_t size, int offset);
+       ^~~~~~~~~~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::applyBuffer(int, int, size_t)’:
+../src/ITPHController.cpp:286:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:367:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:142:18: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if ((size - 2) > sizeof(buf)) continue; // invalid data
+       ~~~~~~~~~~~^~~~~~~~~
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+16:52:45 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::applyBuffer(int, int, size_t)’:
+../src/ITPHController.cpp:286:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:367:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+16:52:59 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:55:27 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:57:23 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+17:06:44 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:13:40 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:223:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:223:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:223:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:133:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:134:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:204:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:229:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:306:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25332	    204	  17060	  42596	   a664	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:13:49 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c:84:75: error: expected ';', ',' or ')' before '*' token
+ bool fill_buffer_decompress(uint16_t offset, uint16_t amount, uint8_t data*) {
+                                                                           ^
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:307:5: warning: implicit declaration of function 'fill_buffer_decompress' [-Wimplicit-function-declaration]
+     fill_buffer_decompress(offset,amount, buffer+5);
+     ^~~~~~~~~~~~~~~~~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+16:14:03 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:14:52 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:15:07 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/DeviceManager.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/DeviceManager.d" -MT"src/DeviceManager.o" -o "src/DeviceManager.o" "../src/DeviceManager.cpp"
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgbw_data(rgbw_t*, size_t, rgbw_permurations_t)’:
+../src/DeviceManager.cpp:71:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+../src/DeviceManager.cpp: In memberfunctie ‘void DeviceManager::permute_rgb_data(rgb_t*, size_t, rgb_permurations_t)’:
+../src/DeviceManager.cpp:176:20: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < size; i++) {
+                  ~~^~~~~~
+Finished building: ../src/DeviceManager.cpp
+ 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::applyBuffer(int, int, size_t)’:
+../src/ITPHController.cpp:286:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:367:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building file: ../src/OpenPixelControl.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/OpenPixelControl.d" -MT"src/OpenPixelControl.o" -o "src/OpenPixelControl.o" "../src/OpenPixelControl.cpp"
+../src/OpenPixelControl.cpp: In static member function ‘static void OpenPixelControl::opc_connection_thread_code(OpenPixelControl*, int)’:
+../src/OpenPixelControl.cpp:142:18: let op: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if ((size - 2) > sizeof(buf)) continue; // invalid data
+       ~~~~~~~~~~~^~~~~~~~~
+Finished building: ../src/OpenPixelControl.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+16:19:58 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:20:28 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:22:39 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:23:06 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:23:17 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:24:01 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:24:09 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:26:26 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:26:40 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:29:31 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25528	    204	  17060	  42792	   a728	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:29:37 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::applyBuffer(int, int, size_t)’:
+../src/ITPHController.cpp:286:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:367:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+16:29:51 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:31:14 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25532	    204	  17060	  42796	   a72c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:41:21 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25540	    204	  17060	  42804	   a734	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:43:36 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25540	    204	  17060	  42804	   a734	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+16:43:39 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:53:24 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+Building file: ../src/ITPHController.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I/usr/include/libusb-1.0/ -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"src/ITPHController.d" -MT"src/ITPHController.o" -o "src/ITPHController.o" "../src/ITPHController.cpp"
+../src/ITPHController.cpp: In memberfunctie ‘void ITPHController::applyBuffer(int, int, size_t)’:
+../src/ITPHController.cpp:286:6: let op: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval;
+      ^~~~~~
+../src/ITPHController.cpp: In memberfunctie ‘virtual void ITPHController::setLeds(drgb_t*, size_t, int, int, int)’:
+../src/ITPHController.cpp:367:10: let op: unused variable ‘send_buffer’ [-Wunused-variable]
+  uint8_t send_buffer[64];
+          ^~~~~~~~~~~
+Finished building: ../src/ITPHController.cpp
+ 
+Building target: LED_Controller_Host
+Invoking: GCC C++ Linker
+g++  -o "LED_Controller_Host"  ./src/DeviceManager.o ./src/ITPHController.o ./src/LedController.o ./src/OpenPixelControl.o ./src/main.o   -lusb-1.0 -lpthread
+Finished building target: LED_Controller_Host
+ 
+16:56:34 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25540	    204	  17060	  42804	   a734	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+17:00:38 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:223:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:223:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:223:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25620	    204	  17060	  42884	   a784	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+17:08:49 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:225:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:225:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:225:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25644	    204	  17060	  42908	   a79c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+17:11:26 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/pwmdma.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/pwmdma.d" -MT"src/pwmdma.o" -c -o "src/pwmdma.o" "../src/pwmdma.c"
+../src/pwmdma.c: In function 'pwm_init':
+../src/pwmdma.c:225:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(data_c0, 2, sizeof(data_c0));
+  ^~~~~~
+../src/pwmdma.c:225:2: warning: incompatible implicit declaration of built-in function 'memset'
+../src/pwmdma.c:225:2: note: include '<string.h>' or provide a declaration of 'memset'
+Finished building: ../src/pwmdma.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25644	    204	  17060	  42908	   a79c	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+17:36:37 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'fill_buffer_decompress':
+../src/usb_led.c:90:53: error: expected ',' or ';' before ')' token
+   uint32_t index = ( bits_per_colour - 1) - bit_nr  ) + (8 * (offset + count));
+                                                     ^
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:35: src/usb_led.o] Fout 1
+17:37:01 **** Incremental Build of configuration Debug for project LED_Controller_STM ****
+make all 
+Building file: ../src/usb_led.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DSTM32F103xB -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/CMSIS/Include" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"/home/andre/eclipse/LEDcontroller/_SDK/STM32Cube_FW_F1_V1.4.0/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/USB_Class_LED/Inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/inc" -I"/home/andre/eclipse/LEDcontroller/LED_Controller_STM/cfg" -I"/home/andre/eclipse/LEDcontroller/_Common/STM32/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/Any/inc" -I"/home/andre/eclipse/LEDcontroller/_Common/GenericARM" -std=gnu11 -MMD -MP -MF"src/usb_led.d" -MT"src/usb_led.o" -c -o "src/usb_led.o" "../src/usb_led.c"
+../src/usb_led.c: In function 'LED_Itf_Receive':
+../src/usb_led.c:149:3: warning: implicit declaration of function 'USBD_LED_SetTxBuffer'; did you mean 'USBD_LL_SetSpeed'? [-Wimplicit-function-declaration]
+   USBD_LED_SetTxBuffer(&USBD_Device, r, sizeof(devinfo_response_t));
+   ^~~~~~~~~~~~~~~~~~~~
+   USBD_LL_SetSpeed
+../src/usb_led.c:150:3: warning: implicit declaration of function 'USBD_LED_TransmitPacket'; did you mean 'USBD_LL_Transmit'? [-Wimplicit-function-declaration]
+   USBD_LED_TransmitPacket(&USBD_Device);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   USBD_LL_Transmit
+../src/usb_led.c:220:9: warning: implicit declaration of function 'is_busy2' [-Wimplicit-function-declaration]
+    if (!is_busy2(DMA1_Channel2))
+         ^~~~~~~~
+../src/usb_led.c:245:20: warning: implicit declaration of function 'is_busy' [-Wimplicit-function-declaration]
+   data_usb_tx[1] = is_busy();
+                    ^~~~~~~
+../src/usb_led.c:323:6: warning: implicit declaration of function 'pwm_set_xchannels' [-Wimplicit-function-declaration]
+      pwm_set_xchannels(TIM2, first_channel, nr_channels);
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/usb_led.c
+ 
+Building target: LED_Controller_STM.elf
+Invoking: Cross ARM C Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/andre/eclipse/LEDcontroller/_Common/STM32/ld/STM32F103C8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"LED_Controller_STM.map" --specs=nano.specs --specs=rdimon.specs -o "LED_Controller_STM.elf"  ./system/startup_stm32f103xb.o ./system/system_stm32f1xx.o  ./src/main.o ./src/pwmdma.o ./src/stm32f1xx_it.o ./src/usb_led.o ./src/usbd_conf.o ./src/usbd_desc.o  ./sdk/stm32f1xx_hal.o ./sdk/stm32f1xx_hal_adc.o ./sdk/stm32f1xx_hal_adc_ex.o ./sdk/stm32f1xx_hal_can.o ./sdk/stm32f1xx_hal_cec.o ./sdk/stm32f1xx_hal_cortex.o ./sdk/stm32f1xx_hal_crc.o ./sdk/stm32f1xx_hal_dac.o ./sdk/stm32f1xx_hal_dac_ex.o ./sdk/stm32f1xx_hal_dma.o ./sdk/stm32f1xx_hal_eth.o ./sdk/stm32f1xx_hal_flash.o ./sdk/stm32f1xx_hal_flash_ex.o ./sdk/stm32f1xx_hal_gpio.o ./sdk/stm32f1xx_hal_gpio_ex.o ./sdk/stm32f1xx_hal_hcd.o ./sdk/stm32f1xx_hal_i2c.o ./sdk/stm32f1xx_hal_i2s.o ./sdk/stm32f1xx_hal_irda.o ./sdk/stm32f1xx_hal_iwdg.o ./sdk/stm32f1xx_hal_msp_template.o ./sdk/stm32f1xx_hal_nand.o ./sdk/stm32f1xx_hal_nor.o ./sdk/stm32f1xx_hal_pccard.o ./sdk/stm32f1xx_hal_pcd.o ./sdk/stm32f1xx_hal_pcd_ex.o ./sdk/stm32f1xx_hal_pwr.o ./sdk/stm32f1xx_hal_rcc.o ./sdk/stm32f1xx_hal_rcc_ex.o ./sdk/stm32f1xx_hal_rtc.o ./sdk/stm32f1xx_hal_rtc_ex.o ./sdk/stm32f1xx_hal_sd.o ./sdk/stm32f1xx_hal_smartcard.o ./sdk/stm32f1xx_hal_spi.o ./sdk/stm32f1xx_hal_spi_ex.o ./sdk/stm32f1xx_hal_sram.o ./sdk/stm32f1xx_hal_tim.o ./sdk/stm32f1xx_hal_tim_ex.o ./sdk/stm32f1xx_hal_uart.o ./sdk/stm32f1xx_hal_usart.o ./sdk/stm32f1xx_hal_wwdg.o ./sdk/stm32f1xx_ll_fsmc.o ./sdk/stm32f1xx_ll_sdmmc.o ./sdk/stm32f1xx_ll_usb.o ./sdk/usbd_core.o ./sdk/usbd_ctlreq.o ./sdk/usbd_ioreq.o  ./USB_Class_LED/Src/usbd_led.o  ./STM32_Common/stm32_common.o   
+Finished building target: LED_Controller_STM.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "LED_Controller_STM.elf"  "LED_Controller_STM.hex"
+Finished building: LED_Controller_STM.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "LED_Controller_STM.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25652	    204	  17060	  42916	   a7a4	LED_Controller_STM.elf
+Finished building: LED_Controller_STM.siz
+ 
+17:37:30 **** Incremental Build of configuration Debug for project LED_Controller_Host ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.

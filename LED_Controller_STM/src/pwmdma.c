@@ -70,6 +70,25 @@ void pins_init() {
 
 }
 
+void pwm_set_4channel(TIM_TypeDef *tim) {
+	tim->CR1 &= 0x0001; // disable
+	tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
+	tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+	tim->CR1 |= 0x0001; // enable
+}
+
+void pwm_set_xchannels(TIM_TypeDef *tim, int firstChannel, int nrChannels) {
+	if (firstChannel + nrChannels <= 4 ) {
+		tim->CR1 &= 0x0001; // disable
+		tim->DCR &= ~TIM_DCR_DBA_Msk;
+		tim->DCR |= ((13 + firstChannel) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1 + channel (0-3)
+		tim->DCR &= ~TIM_DCR_DBL_Msk;
+		tim->DCR |= ((nrChannels - 1) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
+		tim->CR1 |= 0x0001; // enable
+	}
+}
+
+
 void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 	dma->CPAR = (uint32_t) &(tim->DMAR); // Link DMA channel to timer
 
@@ -86,9 +105,11 @@ void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 
 	tim->DCR = 0;
 
+	/*
+	//  So we need to change this to also allow single channel transfers
 	tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
 	tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
-
+	*/
 
 	// For led strips
 	tim->PSC = 9; // Prescaler
@@ -121,12 +142,12 @@ void pwm_init2(DMA_Channel_TypeDef *dma, TIM_TypeDef *tim) {
 	// This I forgot
 	tim->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E;
 
-	// tim->CR2 = TIM_CR2_CCDS; // TODO test this
+
 
 	tim->CR1 |= 1 << 7; // auto reload enable
 	tim->CR1 &= ~(0b1110000); // Edge aglined, upcounting
 	tim->CR1 |= 0b100; // Event source, only over/underflow
-	tim->CR1 |= 0x0001; // enable
+	//tim->CR1 |= 0x0001; // enable
 
 }
 
@@ -202,6 +223,8 @@ void pwm_init() {
 	NVIC_EnableIRQ(TIM3_IRQn);
 
 	memset(data_c0, 2, sizeof(data_c0));
+	pwm_set_4channel(TIM2);
+	pwm_set_4channel(TIM3);
 	start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel2, TIM2);
 	start_dma_transer2(data_c0, sizeof(data_c0), DMA1_Channel3, TIM3);
 
@@ -212,10 +235,10 @@ bool is_busy2(DMA_Channel_TypeDef *dma) {
 }
 
 bool is_busy() {
-	//return false;
-	//return buffer_state[0];
-	return is_busy2(DMA1_Channel2) || is_busy2(DMA1_Channel3) ;
-	//return DMA1_Channel2->CCR & 1;
+
+	//return is_busy2(DMA1_Channel2) || is_busy2(DMA1_Channel3) ;
+
+	return timer_state[0] || timer_state[1] || buffer_state[0];
 }
 
 void DMA1_Channel2_IRQHandler(void) {

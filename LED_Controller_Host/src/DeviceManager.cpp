@@ -30,7 +30,7 @@ DeviceManager::DeviceManager() {
 	// For testing purposes, we hard code some mapping now.
 
 	opc_device_map_t map;
-	map.device_channel = 2;
+	map.device_channel = 0;
 	map.device_offset = 0;
 	map.device_serial = "I1616UBD";
 	map.led_direction = forwards;
@@ -342,28 +342,4 @@ int DeviceManager::libusb_hotplug_callback(struct libusb_context *ctx, struct li
 	DeviceManager* dm =(DeviceManager*)(user_data);
 	dm->libusb_hotplug_event_queue.push({ctx,dev,event});
 	return 0;
-
-	/*
-	if (LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED == event) {
-
-		// this must be run elsewhere... descriptor strings cannot be obtained from hotplug callback
-		// we will get a busy reponse if we try
-		// https://github.com/libusb/libusb/issues/299
-		if ( ITPHController::isSupportedDevice(dev) ) {
-			ITPHController *controller = new ITPHController(dev);
-			dm->addController(controller);
-		}
-
-	} else if (LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT == event) {
-		LedController * lc = dm->mapDeviceLedController[dev];
-		if (lc) {
-			dm->eraseController(lc);
-			delete lc;
-		}
-	} else {
-		printf("Unhandled event %d\n", event);
-	}
-	//count++;
-	return 0;
-	 */
 }
