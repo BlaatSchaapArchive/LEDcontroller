@@ -254,7 +254,7 @@ void ITPHController::setLeds(void* data, size_t size, int offset) {
 
 	int source_offset = 0;
 	while (size > 60) {
-		memcpy(send_buffer + 5, ((char*)(data))+source_offset, 60 );
+		memcpy(send_buffer + 4, ((char*)(data))+source_offset, 60 );
 		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
 				&transferred, 1000);
 
@@ -266,17 +266,18 @@ void ITPHController::setLeds(void* data, size_t size, int offset) {
 		size -= 60;
 		*target_offset += 60;
 	}
+	/*
 	if (size) {
 		*target_amount = size;
 		memcpy(send_buffer + 4, ((char*)(data))+source_offset, size );
-		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64,
-				&transferred, 1000);
+		retval = libusb_bulk_transfer(handle, 0x01, send_buffer, 64, &transferred, 1000);
 
 		if (retval)
 			printf("libusb_bulk_transfer failed: %s: %s\n", libusb_error_name(retval),
 					libusb_strerror((libusb_error) retval));
 
 	}
+	*/
 
 }
 
@@ -292,7 +293,7 @@ void ITPHController::applyBuffer(int channel, int unit, size_t size) {
 	uint8_t* target_nr_channels = send_buffer + 6;
 	uint8_t* target_pwm_unit = send_buffer + 7;
 	*taget_offset = (3072 * channel);
-	*target_amount = size * sizeof(rgbw_t);
+	*target_amount = size;
 	*target_first_channel = channel;
 	*target_nr_channels = 1;
 	*target_pwm_unit = unit;
@@ -429,5 +430,6 @@ void ITPHController::setLeds(rgb_t* rgb_data, size_t size, int offset,
 
 	setLeds((void*) rgb_data, size * sizeof(rgb_t), offset * sizeof(rgb_t) + (3072 * channel) );
 
-	applyBuffer(channel, unit, size);
+	applyBuffer(channel, unit, size * sizeof(rgb_t));
 }
+

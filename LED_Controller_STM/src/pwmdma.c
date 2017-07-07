@@ -70,12 +70,7 @@ void pins_init() {
 
 }
 
-void pwm_set_4channel(TIM_TypeDef *tim) {
-	tim->CR1 &= 0x0001; // disable
-	tim->DCR |= ((13) << TIM_DCR_DBA_Pos); // DMA Transfer Base address CCR1
-	tim->DCR |= ((3) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
-	tim->CR1 |= 0x0001; // enable
-}
+
 
 void pwm_set_xchannels(TIM_TypeDef *tim, int firstChannel, int nrChannels) {
 	if (firstChannel + nrChannels <= 4 ) {
@@ -86,6 +81,11 @@ void pwm_set_xchannels(TIM_TypeDef *tim, int firstChannel, int nrChannels) {
 		tim->DCR |= ((nrChannels - 1) << TIM_DCR_DBL_Pos); // 4 Transfer at a time (CCR1 to CCR4)
 		tim->CR1 |= 0x0001; // enable
 	}
+}
+
+
+void pwm_set_4channel(TIM_TypeDef *tim) {
+	pwm_set_xchannels(tim,0,4);
 }
 
 

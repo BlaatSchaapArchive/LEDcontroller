@@ -83,15 +83,15 @@ bool set_led4(int led_nr, int channel_nr, int colour_index, int byteval) {
 
 bool fill_buffer_decompress(uint16_t offset, uint16_t amount, uint8_t *data) {
 	for (int count = 0 ; count < amount; count++)
-	for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
-		uint8_t byteval = data[count];
-		int mask = 1 << bit_nr;
-		uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
-		uint32_t index = ( ( bits_per_colour - 1) - bit_nr  ) + (8 * (offset + count));
-		if (index > sizeof(data_c0))
-			return false;
-		data_c0[index] = val;
-	}
+		for (int bit_nr = 0; bit_nr < bits_per_colour; bit_nr++) {
+			uint8_t byteval = data[count];
+			int mask = 1 << bit_nr;
+			uint8_t val = (byteval & mask) ? pwm_val_1 : pwm_val_0;
+			uint32_t index = ( ( bits_per_colour - 1) - bit_nr  ) + (8 * (offset + count));
+			if (index > sizeof(data_c0))
+				return false;
+			data_c0[index] = val;
+		}
 	return true;
 }
 
@@ -304,8 +304,10 @@ int8_t LED_Itf_Receive(uint8_t *buffer, uint32_t *length) {
 			if (offset + amount < sizeof(data_c0)) {
 				// We need to decompress the data
 				//memcpy(data_c0 + offset, buffer + 5, amount);
-				fill_buffer_decompress(offset,amount, buffer+5);
+				fill_buffer_decompress(offset,amount, buffer+4);
 			}
+
+
 
 			break;
 		}
