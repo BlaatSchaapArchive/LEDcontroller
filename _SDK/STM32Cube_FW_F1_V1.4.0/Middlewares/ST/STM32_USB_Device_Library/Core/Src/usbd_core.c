@@ -268,6 +268,16 @@ USBD_StatusTypeDef USBD_LL_SetupStage(USBD_HandleTypeDef *pdev, uint8_t *psetup)
   pdev->ep0_state = USBD_EP0_SETUP;
   pdev->ep0_data_len = pdev->request.wLength;
   
+  // Vendor Request, Device to Host
+  // MS-OS 2.0
+  if (pdev->request.bmRequest == 0b11000000) {
+	  uint16_t len;
+	  char * pbuf   = (uint8_t *)pdev->pDesc->GetMSOS20Descriptor(pdev->dev_speed,&len);
+	  USBD_CtlSendData (pdev, pbuf, len);
+	  //--
+	  return USBD_OK;
+  }
+
   switch (pdev->request.bmRequest & 0x1F) 
   {
   case USB_REQ_RECIPIENT_DEVICE:   

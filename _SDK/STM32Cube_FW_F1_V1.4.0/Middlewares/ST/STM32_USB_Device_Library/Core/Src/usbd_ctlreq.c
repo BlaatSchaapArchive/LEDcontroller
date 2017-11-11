@@ -339,11 +339,7 @@ static void USBD_GetDescriptor(USBD_HandleTypeDef *pdev ,
   { 
 #if (USBD_LPM_ENABLED == 1)
 
-  //--
-  // case 0b11000000: return M$OS20 descriptor: MSOS20 specs page 11 (bmRequestType) is this here?
-  case 0b11000000:
-	  pbuf   = (uint8_t *)pdev->pDesc->GetMSOS20Descriptor(pdev->dev_speed,&len);
-	  //--
+
   case USB_DESC_TYPE_BOS:
     pbuf = pdev->pDesc->GetBOSDescriptor(pdev->dev_speed, &len);
     break;
